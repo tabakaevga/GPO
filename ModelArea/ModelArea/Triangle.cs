@@ -8,6 +8,7 @@ namespace ModelArea
 {
     class Triangle : IForm
     {
+        // NOTE: Нужна возможность установки сторон, в уже готовом треугольнике
         private double _sideA;
         private double _sideB;
         private double _sideC;
@@ -19,6 +20,7 @@ namespace ModelArea
                 throw new ArgumentOutOfRangeException($"Стороны не могут быть длиной меньше 0");
             }
             else
+            // NOTE: Можно вынести эту проверку в отдельный метод CheckSides
             if ((sideA + sideB > sideC) && (sideA + sideC > sideB) && (sideB + sideC > sideA) )
             {
                 _sideA = sideA;
@@ -30,6 +32,7 @@ namespace ModelArea
                 throw new ArgumentException($"Такой треугольник существовать не может.");
             }
         }
+
         public FormType Type => FormType.Triangle;
         public double GetResult()
         {

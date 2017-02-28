@@ -11,6 +11,7 @@ namespace ModelArea
         private double _sideA;
         private double _sideB;
 
+        // NOTE: Будет удобно если можно будет установить стороны отдельно
         public Rectangle(double sideA, double sideB)
         {
             if (sideA <= 0 || sideB <= 0)
