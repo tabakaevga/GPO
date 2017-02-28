@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ModelArea
 {
-    class Circle : IForm
+    public class Circle : IForm
     {
         private double _radius;
 
@@ -52,15 +52,7 @@ namespace ModelArea
         }
         // NOTE: Есть стандартный метод GetType почему бы не сделать через него
         public FormType Type => FormType.Circle;
-        
-        
-        public double GetArea
-        {
-            get
-            {
-                return 3.14 * Math.Pow(_radius, 2);
-            }
-        }
+
         public double GetLength
         {
             get
@@ -68,5 +60,13 @@ namespace ModelArea
                 return 2 * 3.14 * _radius;
             }
         }
+        public double GetArea
+        {
+            get
+            {
+                return 3.14 * Math.Pow(_radius, 2);
+            }
+        }
+        
     }
 }

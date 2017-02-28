@@ -7,29 +7,23 @@ using System.Threading.Tasks;
 
 namespace ModelArea
 {
-    class Triangle : IForm
+    public class Triangle : IForm
     {
         private double _sideA;
         private double _sideB;
         private double _sideC;
 
+       
+
+        public bool CheckSides(double sideA, double sideB, double sideC)
+        {
+            return (sideA + sideB > sideC) && (sideA + sideC > sideB) && (sideB + sideC > sideA);
+        }
         public FormType GetType
         {
             get
             {
                 return FormType.Triangle;
-            }
-        }
-
-        public bool CheckSides(double sideA, double sideB, double sideC)
-        {
-            if ((sideA + sideB > sideC) && (sideA + sideC > sideB) && (sideB + sideC > sideA))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
             }
         }
         public Triangle(double sideA, double sideB, double sideC)
@@ -93,24 +87,40 @@ namespace ModelArea
             }
         }
 
-        public FormType Type => FormType.Triangle;
-
-        public double GetArea
-        {
-            get
-            {
-                double p = (_sideA + _sideB + _sideC) * 0.5;
-                return Math.Pow(p * (p - _sideA) * (p - _sideB) * (p - _sideC), 0.5);
-            }
-           
-        }
+       
 
         public double GetLength
         {
             get
             {
-                return _sideA + _sideB + _sideC;
+                if (CheckSides(_sideA, _sideB, _sideC))
+                {
+                    return _sideA + _sideB + _sideC;
+                }
+                else
+                {
+                    throw new ArgumentOutOfRangeException($"Такой треугольник не существует.");
+                }
             }
         }
+        public double GetArea
+        {
+            get
+            {
+                if (CheckSides(_sideA, _sideB, _sideC))
+                {
+                    double p = GetLength * 0.5;
+                    return Math.Pow(p * (p - _sideA) * (p - _sideB) * (p - _sideC), 0.5);
+                }
+                else
+                {
+                    throw new ArgumentOutOfRangeException($"Такой треугольник не существует.");
+                }
+                
+            }
+           
+        }
+
+      
     }
 }

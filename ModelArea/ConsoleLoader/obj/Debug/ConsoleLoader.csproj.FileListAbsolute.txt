@@ -1,0 +1,8 @@
+C:\Users\Администратор\Desktop\GPO\ModelArea\ConsoleLoader\bin\Debug\ConsoleLoader.exe.config
+C:\Users\Администратор\Desktop\GPO\ModelArea\ConsoleLoader\bin\Debug\ConsoleLoader.exe
+C:\Users\Администратор\Desktop\GPO\ModelArea\ConsoleLoader\bin\Debug\ConsoleLoader.pdb
+C:\Users\Администратор\Desktop\GPO\ModelArea\ConsoleLoader\bin\Debug\ModelArea.dll
+C:\Users\Администратор\Desktop\GPO\ModelArea\ConsoleLoader\bin\Debug\ModelArea.pdb
+C:\Users\Администратор\Desktop\GPO\ModelArea\ConsoleLoader\obj\Debug\ConsoleLoader.csprojResolveAssemblyReference.cache
+C:\Users\Администратор\Desktop\GPO\ModelArea\ConsoleLoader\obj\Debug\ConsoleLoader.exe
+C:\Users\Администратор\Desktop\GPO\ModelArea\ConsoleLoader\obj\Debug\ConsoleLoader.pdb

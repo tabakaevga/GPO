@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ModelArea
 {
-    enum FormType
+    public enum FormType
     {
         Circle=0,
         Triangle=1,

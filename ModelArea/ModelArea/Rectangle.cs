@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ModelArea
 {
-    class Rectangle : IForm
+    public class Rectangle : IForm
     {
         private double _sideA;
         private double _sideB;
@@ -61,14 +61,6 @@ namespace ModelArea
                 }
             }
         }
-        
-        public double GetArea
-        {
-            get
-            {
-                return _sideA * _sideB;
-            } 
-        }
 
         public double GetLength
         {
@@ -77,5 +69,14 @@ namespace ModelArea
                 return (_sideA + _sideB) * 2;
             }
         }
+        public double GetArea
+        {
+            get
+            {
+                return _sideA * _sideB;
+            } 
+        }
+
+       
     }
 }

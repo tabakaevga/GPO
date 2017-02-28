@@ -11,7 +11,5 @@ namespace ModelArea
         FormType GetType { get; }
         double GetArea { get; }
         double GetLength { get; }
-
-        // NOTE: Можно еще сделать получение периметра
     }
 }
