@@ -13,6 +13,14 @@ namespace ModelArea
         private double _sideB;
         private double _sideC;
 
+        public FormType GetType
+        {
+            get
+            {
+                return FormType.Triangle;
+            }
+        }
+
         public bool CheckSides(double sideA, double sideB, double sideC)
         {
             if ((sideA + sideB > sideC) && (sideA + sideC > sideB) && (sideB + sideC > sideA))

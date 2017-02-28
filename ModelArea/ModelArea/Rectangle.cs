@@ -12,6 +12,7 @@ namespace ModelArea
         private double _sideB;
 
         
+
         public Rectangle(double sideA, double sideB)
         {
             if (sideA <= 0 || sideB <= 0)
@@ -22,6 +23,13 @@ namespace ModelArea
             {
                 _sideA = sideA;
                 _sideB = sideB;
+            }
+        }
+        public FormType GetType
+        {
+            get
+            {
+                return FormType.Rectangle;
             }
         }
 
@@ -53,7 +61,7 @@ namespace ModelArea
                 }
             }
         }
-        public FormType Type => FormType.Rectangle;
+        
         public double GetArea
         {
             get

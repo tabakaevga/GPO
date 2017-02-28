@@ -8,7 +8,7 @@ namespace ModelArea
 {
     interface IForm
     {
-        FormType Type { get; }
+        FormType GetType { get; }
         double GetArea { get; }
         double GetLength { get; }
 

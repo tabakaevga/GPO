@@ -10,6 +10,14 @@ namespace ModelArea
     {
         private double _radius;
 
+        public FormType GetType
+        {
+            get
+            {
+                return FormType.Circle;
+            }
+        }
+
         public Circle(double radius)
         {
             if (radius <= 0)
