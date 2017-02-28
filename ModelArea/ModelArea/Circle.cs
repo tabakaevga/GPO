@@ -8,7 +8,6 @@ namespace ModelArea
 {
     class Circle : IForm
     {
-        //NOTE: Ты устанавливаешь радиус только в конструкторе, а если нужно будет задать радиус отдельно ? 
         private double _radius;
 
         public Circle(double radius)
@@ -23,13 +22,43 @@ namespace ModelArea
             }
            
         }
+
+        public double Radius
+        {
+            get
+            {
+                return _radius;
+                
+            }
+            set
+            {
+                if (value <= 0)
+                {
+                    throw new ArgumentOutOfRangeException($"Значение радиуса окружности не может быть меньше либо равно 0");
+                }
+                else
+                {
+                    _radius = value;
+                }
+            }
+        }
         // NOTE: Есть стандартный метод GetType почему бы не сделать через него
         public FormType Type => FormType.Circle;
         
-        //TODO: Обычно GetResult получает какой либо результат, метод возвращает площадь, логичнее назвать его Area и сделать свойством-геттером
-        public double GetResult()
+        
+        public double GetArea
         {
-            return 3.14 * Math.Pow(_radius, 2);
+            get
+            {
+                return 3.14 * Math.Pow(_radius, 2);
+            }
+        }
+        public double GetLength
+        {
+            get
+            {
+                return 2 * 3.14 * _radius;
+            }
         }
     }
 }

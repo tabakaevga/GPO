@@ -11,7 +11,7 @@ namespace ModelArea
         private double _sideA;
         private double _sideB;
 
-        // NOTE: Будет удобно если можно будет установить стороны отдельно
+        
         public Rectangle(double sideA, double sideB)
         {
             if (sideA <= 0 || sideB <= 0)
@@ -24,10 +24,50 @@ namespace ModelArea
                 _sideB = sideB;
             }
         }
-        public FormType Type => FormType.Rectangle;
-        public double GetResult()
+
+        public double SetSideA
         {
-            return _sideA * _sideB;
+            set
+            {
+                if (value <= 0)
+                {
+                    throw new ArgumentOutOfRangeException($"Длина стороны не может быть меньше либо равна 0");
+                }
+                else
+                {
+                    _sideA = value;
+                }
+            }
+        }
+        public double SetSideB
+        {
+            set
+            {
+                if (value <= 0)
+                {
+                    throw new ArgumentOutOfRangeException($"Длина стороны не может быть меньше либо равна 0");
+                }
+                else
+                {
+                    _sideB = value;
+                }
+            }
+        }
+        public FormType Type => FormType.Rectangle;
+        public double GetArea
+        {
+            get
+            {
+                return _sideA * _sideB;
+            } 
+        }
+
+        public double GetLength
+        {
+            get
+            {
+                return (_sideA + _sideB) * 2;
+            }
         }
     }
 }

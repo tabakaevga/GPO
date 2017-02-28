@@ -9,9 +9,8 @@ namespace ModelArea
     interface IForm
     {
         FormType Type { get; }
-        // NOTE: GetResult получает площадь, логичнее назвать её GetArea. А лучше сделать свойство Area, с возможностью только получения
-        // значения
-        double GetResult();
+        double GetArea { get; }
+        double GetLength { get; }
 
         // NOTE: Можно еще сделать получение периметра
     }
