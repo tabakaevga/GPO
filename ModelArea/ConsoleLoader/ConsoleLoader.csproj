@@ -34,7 +34,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="ModelArea">
-      <HintPath>..\ModelArea\bin\Debug\ModelArea.dll</HintPath>
+      <HintPath>..\ModelArea\obj\Debug\ModelArea.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />

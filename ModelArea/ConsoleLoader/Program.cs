@@ -12,6 +12,7 @@ namespace ConsoleLoader
 {
     class Program
     {
+        //NOTE: Может назвать это меню, и сделать сразу проверку ввода ? 
         /// <summary>
         /// Функция приглашения к вводу
         /// </summary>
@@ -116,7 +117,7 @@ namespace ConsoleLoader
                         break;
                     default:
                         break;
-                    
+
                 }
                 if (breakingEverything)
                 {

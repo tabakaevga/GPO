@@ -9,7 +9,7 @@ namespace ModelArea
     /// <summary>
     /// Интерфейс фигур
     /// </summary>
-    interface IFigure
+    public interface IFigure
     {
         /// <summary>
         /// Типы фигур
