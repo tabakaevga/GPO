@@ -6,30 +6,69 @@ using System.Threading.Tasks;
 
 namespace ModelArea
 {
-    class Circle : IForm
+    /// <summary>
+    /// Окружность
+    /// </summary>
+    public class Circle : IFigure
     {
-        //NOTE: Ты устанавливаешь радиус только в конструкторе, а если нужно будет задать радиус отдельно ? 
+        #region Private members
         private double _radius;
+        #endregion
+        /// <summary>
+        /// Тип фигуры.
+        /// </summary>
+        public FigureType FigureType => FigureType.Circle;
 
+        /// <summary>
+        /// Конструктор класса Circle
+        /// </summary>
+        /// <param name="radius">Радиус окружности</param>
         public Circle(double radius)
         {
-            if (radius <= 0)
-            {
-                throw new ArgumentOutOfRangeException($"Радиус круга не может быть меньше либо равен нулю.");
-            }
-            else
-            {
-                _radius = radius;
-            }
-           
+            Radius = radius;
         }
-        // NOTE: Есть стандартный метод GetType почему бы не сделать через него
-        public FormType Type => FormType.Circle;
-        
-        //TODO: Обычно GetResult получает какой либо результат, метод возвращает площадь, логичнее назвать его Area и сделать свойством-геттером
-        public double GetResult()
+        /// <summary>
+        /// Свойство радиус окружности.
+        /// </summary>
+        public double Radius
         {
-            return 3.14 * Math.Pow(_radius, 2);
+            get
+            {
+                return _radius;
+                
+            }
+            set
+            {
+                if (value <= 0)
+                {
+                    throw new ArgumentOutOfRangeException($"Значение радиуса окружности не может быть меньше либо равно 0");
+                }
+                else
+                {
+                    _radius = value;
+                }
+            }
         }
+        /// <summary>
+        /// Свойство длины окружности.
+        /// </summary>
+        public double Length
+        {
+            get
+            {
+                return 2 * Math.PI * _radius;
+            }
+        }
+        /// <summary>
+        /// Свойство площади окружности.
+        /// </summary>
+        public double Area
+        {
+            get
+            {
+                return 3.14 * Math.Pow(_radius, 2);
+            }
+        }
+        
     }
 }

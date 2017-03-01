@@ -6,28 +6,98 @@ using System.Threading.Tasks;
 
 namespace ModelArea
 {
-    class Rectangle : IForm
+    /// <summary>
+    /// Прямоугольник
+    /// </summary>
+    public class Rectangle : IFigure
     {
+        #region Private members
         private double _sideA;
         private double _sideB;
+        #endregion
 
-        // NOTE: Будет удобно если можно будет установить стороны отдельно
+        /// <summary>
+        /// Конструктор класса Rectangle
+        /// </summary>
+        /// <param name="sideA"> Сторона А (ширина) </param>
+        /// <param name="sideB"> Сторона B (высота) </param>
         public Rectangle(double sideA, double sideB)
         {
-            if (sideA <= 0 || sideB <= 0)
+            SideA = sideA;
+            SideB = sideB;
+        }
+        
+        /// <summary>
+        /// Тип фигуры
+        /// </summary>
+        public FigureType FigureType => FigureType.Rectangle;
+
+        /// <summary>
+        /// Свойства стороны А
+        /// </summary>
+        public double SideA
+        {
+            get
             {
-                throw new ArgumentOutOfRangeException($"Стороны не могут быть длиной меньше 0");
+                return _sideA;
             }
-            else
+            set
             {
-                _sideA = sideA;
-                _sideB = sideB;
+                if (value <= 0)
+                {
+                    throw new ArgumentOutOfRangeException($"Длина стороны A не может быть меньше либо равна 0");
+                }
+                else
+                {
+                    _sideA = value;
+                }
             }
         }
-        public FormType Type => FormType.Rectangle;
-        public double GetResult()
+
+        /// <summary>
+        /// Свойства стороны B
+        /// </summary>
+        public double SideB
         {
-            return _sideA * _sideB;
+            get
+            {
+                return _sideB;
+            }
+            set
+            {
+                if (value <= 0)
+                {
+                    throw new ArgumentOutOfRangeException($"Длина стороны B не может быть меньше либо равна 0");
+                }
+                else
+                {
+                    _sideB = value;
+                }
+            }
+        }
+
+        /// <summary>
+        /// Свойство периметр прямоугольника
+        /// </summary>
+        public double Length
+        {
+            get
+            {
+                return (_sideA + _sideB) * 2;
+            }
+        }
+
+        /// <summary>
+        /// Свойство площадь прямоугольника
+        /// </summary>
+        public double Area
+        {
+            get
+            {
+                return _sideA * _sideB;
+            }
         }
     }
+
+    
 }
