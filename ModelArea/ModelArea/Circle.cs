@@ -6,29 +6,15 @@ using System.Threading.Tasks;
 
 namespace ModelArea
 {
-    public class Circle : IForm
+    public class Circle : IFigure
     {
         private double _radius;
 
-        public FormType GetType
-        {
-            get
-            {
-                return FormType.Circle;
-            }
-        }
+        public FigureType FigureType => FigureType.Circle;
 
         public Circle(double radius)
         {
-            if (radius <= 0)
-            {
-                throw new ArgumentOutOfRangeException($"Радиус круга не может быть меньше либо равен нулю.");
-            }
-            else
-            {
-                _radius = radius;
-            }
-           
+            Radius = radius;
         }
 
         public double Radius
@@ -50,17 +36,14 @@ namespace ModelArea
                 }
             }
         }
-        // NOTE: Есть стандартный метод GetType почему бы не сделать через него
-        public FormType Type => FormType.Circle;
-
-        public double GetLength
+        public double Length
         {
             get
             {
-                return 2 * 3.14 * _radius;
+                return 2 * Math.PI * _radius;
             }
         }
-        public double GetArea
+        public double Area
         {
             get
             {

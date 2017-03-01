@@ -6,40 +6,31 @@ using System.Threading.Tasks;
 
 namespace ModelArea
 {
-    public class Rectangle : IForm
+    /// <summary>
+    /// 
+    /// </summary>
+    public class Rectangle : IFigure
     {
         private double _sideA;
         private double _sideB;
 
-        
-
         public Rectangle(double sideA, double sideB)
         {
-            if (sideA <= 0 || sideB <= 0)
-            {
-                throw new ArgumentOutOfRangeException($"Стороны не могут быть длиной меньше 0");
-            }
-            else
-            {
-                _sideA = sideA;
-                _sideB = sideB;
-            }
+            SideA = sideA;
+            SideB = sideB;
         }
-        public FormType GetType
+        public FigureType FigureType => FigureType.Rectangle;
+        public double SideA
         {
             get
             {
-                return FormType.Rectangle;
+                return _sideA;
             }
-        }
-
-        public double SetSideA
-        {
             set
             {
                 if (value <= 0)
                 {
-                    throw new ArgumentOutOfRangeException($"Длина стороны не может быть меньше либо равна 0");
+                    throw new ArgumentOutOfRangeException($"Длина стороны A не может быть меньше либо равна 0");
                 }
                 else
                 {
@@ -47,13 +38,17 @@ namespace ModelArea
                 }
             }
         }
-        public double SetSideB
+        public double SideB
         {
+            get
+            {
+                return _sideB;
+            }
             set
             {
                 if (value <= 0)
                 {
-                    throw new ArgumentOutOfRangeException($"Длина стороны не может быть меньше либо равна 0");
+                    throw new ArgumentOutOfRangeException($"Длина стороны B не может быть меньше либо равна 0");
                 }
                 else
                 {
@@ -62,21 +57,21 @@ namespace ModelArea
             }
         }
 
-        public double GetLength
+        public double Length
         {
             get
             {
                 return (_sideA + _sideB) * 2;
             }
         }
-        public double GetArea
+        public double Area
         {
             get
             {
                 return _sideA * _sideB;
-            } 
+            }
         }
-
-       
     }
+
+    
 }

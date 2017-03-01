@@ -7,50 +7,44 @@ using System.Threading.Tasks;
 
 namespace ModelArea
 {
-    public class Triangle : IForm
+    public class Triangle : IFigure
     {
         private double _sideA;
         private double _sideB;
         private double _sideC;
-
-       
-
-        public bool CheckSides(double sideA, double sideB, double sideC)
+        private bool CheckSides(double sideA, double sideB, double sideC)
         {
             return (sideA + sideB > sideC) && (sideA + sideC > sideB) && (sideB + sideC > sideA);
         }
-        public FormType GetType
-        {
-            get
-            {
-                return FormType.Triangle;
-            }
-        }
+
+        public FigureType FigureType => FigureType.Triangle;
+        
+
         public Triangle(double sideA, double sideB, double sideC)
         {
-            if (sideA <= 0 || sideB <= 0  || sideC <=0)
-            {
-                throw new ArgumentOutOfRangeException($"Стороны не могут быть длиной меньше 0");
-            }
-            else
+
             if (CheckSides(sideA, sideB, sideC))
             {
-                _sideA = sideA;
-                _sideB = sideB;
-                _sideC = sideC;
+                SideA = sideA;
+                SideB = sideB;
+                SideС = sideC;
             }
             else
             {
                 throw new ArgumentException($"Такой треугольник существовать не может.");
             }
         }
-        public double SetSideA
+        public double SideA
         {
+            get
+            {
+                return _sideA;
+            }
             set
             {
                 if (value <= 0)
                 {
-                    throw new ArgumentOutOfRangeException($"Длина стороны не может быть меньше либо равна 0");
+                    throw new ArgumentOutOfRangeException($"Длина стороны A не может быть меньше либо равна 0");
                 }
                 else
                 {
@@ -58,13 +52,17 @@ namespace ModelArea
                 }
             }
         }
-        public double SetSideB
+        public double SideB
         {
+            get
+            {
+                return _sideB;
+            }
             set
             {
                 if (value <= 0)
                 {
-                    throw new ArgumentOutOfRangeException($"Длина стороны не может быть меньше либо равна 0");
+                    throw new ArgumentOutOfRangeException($"Длина стороны B не может быть меньше либо равна 0");
                 }
                 else
                 {
@@ -72,13 +70,17 @@ namespace ModelArea
                 }
             }
         }
-        public double SetSideС
+        public double SideС
         {
+            get
+            {
+                return _sideC;
+            }
             set
             {
                 if (value <= 0)
                 {
-                    throw new ArgumentOutOfRangeException($"Длина стороны не может быть меньше либо равна 0");
+                    throw new ArgumentOutOfRangeException($"Длина стороны C не может быть меньше либо равна 0");
                 }
                 else
                 {
@@ -89,7 +91,7 @@ namespace ModelArea
 
        
 
-        public double GetLength
+        public double Length
         {
             get
             {
@@ -103,13 +105,13 @@ namespace ModelArea
                 }
             }
         }
-        public double GetArea
+        public double Area
         {
             get
             {
                 if (CheckSides(_sideA, _sideB, _sideC))
                 {
-                    double p = GetLength * 0.5;
+                    double p = Length * 0.5;
                     return Math.Pow(p * (p - _sideA) * (p - _sideB) * (p - _sideC), 0.5);
                 }
                 else
