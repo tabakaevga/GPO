@@ -12,6 +12,9 @@ namespace ConsoleLoader
 {
     class Program
     {
+        /// <summary>
+        /// Функция приглашения к вводу
+        /// </summary>
         static void Welcoming()
         {
             Console.WriteLine("Введите цифру для выбора функции:");
@@ -75,7 +78,7 @@ namespace ConsoleLoader
                         Console.WriteLine("Введите ширину B");
                         sideB = Convert.ToDouble(Console.ReadLine());
                         triangle.SideB = sideB;
-                        Console.WriteLine("Введите ширину B");
+                        Console.WriteLine("Введите ширину C");
                         sideC = Convert.ToDouble(Console.ReadLine());
                         triangle.SideB = sideC;
                         Console.WriteLine("Площадь треугольника = {0}", triangle.Area);
@@ -103,7 +106,7 @@ namespace ConsoleLoader
                         Console.WriteLine("Введите ширину B");
                         sideB = Convert.ToDouble(Console.ReadLine());
                         triangle.SideB = sideB;
-                        Console.WriteLine("Введите ширину B");
+                        Console.WriteLine("Введите ширину C");
                         sideC = Convert.ToDouble(Console.ReadLine());
                         triangle.SideB = sideC;
                         Console.WriteLine("Периметр треугольника = {0}", triangle.Length);

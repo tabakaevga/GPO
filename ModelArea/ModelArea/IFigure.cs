@@ -7,12 +7,21 @@ using System.Threading.Tasks;
 namespace ModelArea
 {
     /// <summary>
-    /// 
+    /// Интерфейс фигур
     /// </summary>
     interface IFigure
     {
+        /// <summary>
+        /// Типы фигур
+        /// </summary>
         FigureType FigureType { get; }
+        /// <summary>
+        /// Вычисление площади
+        /// </summary>
         double Area { get; }
+        /// <summary>
+        /// Вычисление длины/периметра
+        /// </summary>
         double Length { get; }
     }
 }

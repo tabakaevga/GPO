@@ -6,17 +6,30 @@ using System.Threading.Tasks;
 
 namespace ModelArea
 {
+    /// <summary>
+    /// Окружность
+    /// </summary>
     public class Circle : IFigure
     {
+        #region Private members
         private double _radius;
-
+        #endregion
+        /// <summary>
+        /// Тип фигуры.
+        /// </summary>
         public FigureType FigureType => FigureType.Circle;
 
+        /// <summary>
+        /// Конструктор класса Circle
+        /// </summary>
+        /// <param name="radius">Радиус окружности</param>
         public Circle(double radius)
         {
             Radius = radius;
         }
-
+        /// <summary>
+        /// Свойство радиус окружности.
+        /// </summary>
         public double Radius
         {
             get
@@ -36,6 +49,9 @@ namespace ModelArea
                 }
             }
         }
+        /// <summary>
+        /// Свойство длины окружности.
+        /// </summary>
         public double Length
         {
             get
@@ -43,6 +59,9 @@ namespace ModelArea
                 return 2 * Math.PI * _radius;
             }
         }
+        /// <summary>
+        /// Свойство площади окружности.
+        /// </summary>
         public double Area
         {
             get

@@ -7,8 +7,12 @@ using System.Threading.Tasks;
 
 namespace ModelArea
 {
+    /// <summary>
+    /// Треугольник.
+    /// </summary>
     public class Triangle : IFigure
     {
+        #region Private members
         private double _sideA;
         private double _sideB;
         private double _sideC;
@@ -16,10 +20,19 @@ namespace ModelArea
         {
             return (sideA + sideB > sideC) && (sideA + sideC > sideB) && (sideB + sideC > sideA);
         }
+        #endregion
 
+        /// <summary>
+        /// Тип фигуры
+        /// </summary>
         public FigureType FigureType => FigureType.Triangle;
         
-
+        /// <summary>
+        /// Конструктор класса Triangle
+        /// </summary>
+        /// <param name="sideA"> Сторона А </param>
+        /// <param name="sideB"> Сторона B </param>
+        /// <param name="sideC"> Сторона C </param>
         public Triangle(double sideA, double sideB, double sideC)
         {
 
@@ -34,6 +47,10 @@ namespace ModelArea
                 throw new ArgumentException($"Такой треугольник существовать не может.");
             }
         }
+
+        /// <summary>
+        /// Свойства стороны А
+        /// </summary>
         public double SideA
         {
             get
@@ -52,6 +69,10 @@ namespace ModelArea
                 }
             }
         }
+
+        /// <summary>
+        /// Свойства стороны B
+        /// </summary>
         public double SideB
         {
             get
@@ -70,6 +91,9 @@ namespace ModelArea
                 }
             }
         }
+        /// <summary>
+        /// Свойства стороны C
+        /// </summary>
         public double SideС
         {
             get
@@ -88,9 +112,10 @@ namespace ModelArea
                 }
             }
         }
-
-       
-
+     
+        /// <summary>
+        /// Свойство длина(периметр) треугольника.
+        /// </summary>
         public double Length
         {
             get
@@ -105,6 +130,9 @@ namespace ModelArea
                 }
             }
         }
+        /// <summary>
+        /// Свойство площадь окружности.
+        /// </summary>
         public double Area
         {
             get
