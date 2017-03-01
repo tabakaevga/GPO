@@ -6,3 +6,5 @@ C:\Users\Администратор\Desktop\GPO\ModelArea\ConsoleLoader\bin\Debu
 C:\Users\Администратор\Desktop\GPO\ModelArea\ConsoleLoader\obj\Debug\ConsoleLoader.csprojResolveAssemblyReference.cache
 C:\Users\Администратор\Desktop\GPO\ModelArea\ConsoleLoader\obj\Debug\ConsoleLoader.exe
 C:\Users\Администратор\Desktop\GPO\ModelArea\ConsoleLoader\obj\Debug\ConsoleLoader.pdb
+C:\Users\Администратор\Desktop\GPO\ModelArea\ConsoleLoader\obj\Debug\ConsoleLoader.Form1.resources
+C:\Users\Администратор\Desktop\GPO\ModelArea\ConsoleLoader\obj\Debug\ConsoleLoader.csproj.GenerateResource.Cache
