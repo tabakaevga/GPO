@@ -8,8 +8,10 @@ namespace ModelArea
     public class Rectangle : IFigure
     {
         #region Private members
+
         private double _sideA;
         private double _sideB;
+
         #endregion
 
         /// <summary>
