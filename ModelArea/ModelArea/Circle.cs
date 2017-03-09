@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ModelArea
 {
@@ -12,8 +8,11 @@ namespace ModelArea
     public class Circle : IFigure
     {
         #region Private members
+
         private double _radius;
+
         #endregion
+
         /// <summary>
         /// Тип фигуры.
         /// </summary>
@@ -25,50 +24,24 @@ namespace ModelArea
         /// <param name="radius">Радиус окружности</param>
         public Circle(double radius)
         {
-            Radius = radius;
-        }
-        /// <summary>
-        /// Свойство радиус окружности.
-        /// </summary>
-        public double Radius
-        {
-            get
+            if (radius <= 0)
             {
-                return _radius;
-                
+                throw new ArgumentOutOfRangeException($"Значение радиуса окружности не может быть меньше либо равно 0");
             }
-            set
+            else
             {
-                if (value <= 0)
-                {
-                    throw new ArgumentOutOfRangeException($"Значение радиуса окружности не может быть меньше либо равно 0");
-                }
-                else
-                {
-                    _radius = value;
-                }
+                _radius = radius;
             }
         }
+       
         /// <summary>
         /// Свойство длины окружности.
         /// </summary>
-        public double Length
-        {
-            get
-            {
-                return 2 * Math.PI * _radius;
-            }
-        }
+        public double Length => 2 * Math.PI * _radius;
+
         /// <summary>
         /// Свойство площади окружности.
         /// </summary>
-        public double Area
-        {
-            get
-            {
-                return 3.14 * Math.Pow(_radius, 2);
-            }
-        }
-        
+        public double Area => Math.PI * Math.Pow(_radius, 2);
     }
 }

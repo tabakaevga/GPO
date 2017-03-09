@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ModelArea
+﻿namespace ModelArea
 {
     /// <summary>
     /// Тип фигуры
@@ -14,16 +8,16 @@ namespace ModelArea
         /// <summary>
         /// Окружность
         /// </summary>
-        Circle=0,
+        Circle = 0,
 
         /// <summary>
         /// Треугольник
         /// </summary>
-        Triangle=1,
+        Triangle = 1,
 
         /// <summary>
         /// Прямоугольник
         /// </summary>
-        Rectangle=2
+        Rectangle = 2
     }
 }
