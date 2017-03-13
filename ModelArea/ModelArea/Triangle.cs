@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Permissions;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ModelArea
 {
@@ -13,6 +8,7 @@ namespace ModelArea
     public class Triangle : IFigure
     {
         #region Private members
+
         private double _sideA;
         private double _sideB;
         private double _sideC;
@@ -20,6 +16,7 @@ namespace ModelArea
         {
             return (sideA + sideB > sideC) && (sideA + sideC > sideB) && (sideB + sideC > sideA);
         }
+
         #endregion
 
         /// <summary>
@@ -35,84 +32,25 @@ namespace ModelArea
         /// <param name="sideC"> Сторона C </param>
         public Triangle(double sideA, double sideB, double sideC)
         {
-
-            if (CheckSides(sideA, sideB, sideC))
+            if ((sideA <= 0) || (sideB <= 0) || (sideC <= 0))
             {
-                SideA = sideA;
-                SideB = sideB;
-                SideС = sideC;
+                throw new ArgumentOutOfRangeException($"Длина стороны A не может быть меньше либо равна 0");
             }
             else
             {
-                throw new ArgumentException($"Такой треугольник существовать не может.");
-            }
-        }
-
-        /// <summary>
-        /// Свойства стороны А
-        /// </summary>
-        public double SideA
-        {
-            get
-            {
-                return _sideA;
-            }
-            set
-            {
-                if (value <= 0)
+                if (CheckSides(sideA, sideB, sideC))
                 {
-                    throw new ArgumentOutOfRangeException($"Длина стороны A не может быть меньше либо равна 0");
+                    _sideA = sideA;
+                    _sideB = sideB;
+                    _sideC = sideC;
                 }
                 else
                 {
-                    _sideA = value;
+                    throw new ArgumentException($"Такой треугольник существовать не может.");
                 }
             }
         }
 
-        /// <summary>
-        /// Свойства стороны B
-        /// </summary>
-        public double SideB
-        {
-            get
-            {
-                return _sideB;
-            }
-            set
-            {
-                if (value <= 0)
-                {
-                    throw new ArgumentOutOfRangeException($"Длина стороны B не может быть меньше либо равна 0");
-                }
-                else
-                {
-                    _sideB = value;
-                }
-            }
-        }
-        /// <summary>
-        /// Свойства стороны C
-        /// </summary>
-        public double SideС
-        {
-            get
-            {
-                return _sideC;
-            }
-            set
-            {
-                if (value <= 0)
-                {
-                    throw new ArgumentOutOfRangeException($"Длина стороны C не может быть меньше либо равна 0");
-                }
-                else
-                {
-                    _sideC = value;
-                }
-            }
-        }
-     
         /// <summary>
         /// Свойство длина(периметр) треугольника.
         /// </summary>
