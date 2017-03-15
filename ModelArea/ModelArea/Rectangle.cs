@@ -12,6 +12,18 @@ namespace ModelArea
         private double _sideA;
         private double _sideB;
 
+<<<<<<< HEAD
+=======
+        private bool CheckIfNaNOrInf(double sideA, double sideB)
+        {
+            if (double.IsNaN(sideA) || double.IsInfinity(sideA) || double.IsNaN(sideB) || double.IsInfinity(sideB))
+            {
+                throw new ArgumentException($"Введенные данные - не вещественное число.");
+            }
+            return true;
+        }
+
+>>>>>>> Development
         #endregion
 
         /// <summary>
@@ -21,6 +33,10 @@ namespace ModelArea
         /// <param name="sideB"> Сторона B (высота) </param>
         public Rectangle(double sideA, double sideB)
         {
+<<<<<<< HEAD
+=======
+            CheckIfNaNOrInf(sideA, sideB);
+>>>>>>> Development
             if ((sideA <= 0) || (sideB <=0))
             {
                 throw new ArgumentOutOfRangeException($"Длина стороны B не может быть меньше либо равна 0");

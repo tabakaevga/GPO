@@ -9,7 +9,19 @@ namespace ModelArea
     {
         #region Private members
 
+<<<<<<< HEAD
         private readonly double _radius;
+=======
+        private double _radius;
+
+        private static void CheckIfNaNOrInf(double radius)
+        {
+            if (double.IsNaN(radius) || double.IsInfinity(radius))
+            {
+                throw new ArgumentException($"Введенные данные - не вещественное число.");
+            }
+        }
+>>>>>>> Development
 
         #endregion
 
@@ -24,6 +36,10 @@ namespace ModelArea
         /// <param name="radius">Радиус окружности</param>
         public Circle(double radius)
         {
+<<<<<<< HEAD
+=======
+            CheckIfNaNOrInf(radius);
+>>>>>>> Development
             if (radius <= 0)
             {
                 throw new ArgumentOutOfRangeException($"Значение радиуса окружности не может быть меньше либо равно 0");
