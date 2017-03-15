@@ -14,6 +14,7 @@ namespace ModelArea
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         private bool CheckIfNaNOrInf(double sideA, double sideB)
 =======
@@ -30,6 +31,9 @@ namespace ModelArea
             }
 
         }
+=======
+        
+>>>>>>> Development
 
 >>>>>>> Development
         #endregion
@@ -41,6 +45,7 @@ namespace ModelArea
         /// <param name="sideB"> Сторона B (высота) </param>
         public Rectangle(double sideA, double sideB)
         {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 =======
@@ -57,6 +62,10 @@ namespace ModelArea
             }
 =======
             ChecksCorrectInput(sideA, sideB);
+=======
+            CheckCorrectInput.CheckDouble(sideA);
+            CheckCorrectInput.CheckDouble(sideB);
+>>>>>>> Development
             _sideA = sideA;
             _sideB = sideB;
 >>>>>>> Development

@@ -14,6 +14,7 @@ namespace ModelArea
 =======
         private double _radius;
 
+<<<<<<< HEAD
         private static void ChecksCorrectInput(double radius)
         {
             if (double.IsNaN(radius) || double.IsInfinity(radius))
@@ -27,6 +28,9 @@ namespace ModelArea
         }
 >>>>>>> Development
 
+=======
+        
+>>>>>>> Development
         #endregion
 
         /// <summary>
@@ -42,6 +46,7 @@ namespace ModelArea
         {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
             CheckIfNaNOrInf(radius);
 >>>>>>> Development
@@ -55,6 +60,9 @@ namespace ModelArea
             }
 =======
             ChecksCorrectInput(radius);
+=======
+            CheckCorrectInput.CheckDouble(radius);
+>>>>>>> Development
             _radius = radius;
 >>>>>>> Development
         }
