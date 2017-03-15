@@ -6,3 +6,8 @@ C:\Users\Администратор\Desktop\GPO-master\ModelArea\ModelArea\bin\D
 C:\Users\Администратор\Desktop\GPO-master\ModelArea\ModelArea\bin\Debug\ModelArea.pdb
 C:\Users\Администратор\Desktop\GPO-master\ModelArea\ModelArea\obj\Debug\ModelArea.dll
 C:\Users\Администратор\Desktop\GPO-master\ModelArea\ModelArea\obj\Debug\ModelArea.pdb
+C:\Users\andreygolubkow\Source\Repos\GPO\ModelArea\ModelArea\bin\Debug\ModelArea.dll
+C:\Users\andreygolubkow\Source\Repos\GPO\ModelArea\ModelArea\bin\Debug\ModelArea.pdb
+C:\Users\andreygolubkow\Source\Repos\GPO\ModelArea\ModelArea\obj\Debug\ModelArea.csprojResolveAssemblyReference.cache
+C:\Users\andreygolubkow\Source\Repos\GPO\ModelArea\ModelArea\obj\Debug\ModelArea.dll
+C:\Users\andreygolubkow\Source\Repos\GPO\ModelArea\ModelArea\obj\Debug\ModelArea.pdb

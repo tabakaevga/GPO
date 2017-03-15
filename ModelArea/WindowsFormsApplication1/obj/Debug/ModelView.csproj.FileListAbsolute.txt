@@ -10,3 +10,4 @@ C:\Users\Администратор\Desktop\GPO\ModelArea\WindowsFormsApplicatio
 C:\Users\Администратор\Desktop\GPO\ModelArea\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.exe
 C:\Users\Администратор\Desktop\GPO\ModelArea\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.pdb
 C:\Users\Администратор\Desktop\GPO\ModelArea\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.AddingObjects.resources
+C:\Users\andreygolubkow\Source\Repos\GPO\ModelArea\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe.config

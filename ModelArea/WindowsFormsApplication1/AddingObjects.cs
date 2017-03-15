@@ -10,6 +10,7 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApplication1
 {
+    //TODO: Изменить названия методов, на что-то понятное
     public partial class AddingObjects : Form
     {
         public AddingObjects()
