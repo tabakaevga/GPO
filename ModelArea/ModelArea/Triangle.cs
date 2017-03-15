@@ -16,6 +16,25 @@ namespace ModelArea
         {
             return (sideA + sideB > sideC) && (sideA + sideC > sideB) && (sideB + sideC > sideA);
         }
+        private void ChecksCorrectInput(double sideA, double sideB, double sideC)
+        {
+            if (double.IsNaN(sideA) || double.IsInfinity(sideA) || double.IsNaN(sideB) || double.IsInfinity(sideB)
+               || double.IsNaN(sideC) || double.IsInfinity(sideC))
+            {
+                throw new ArgumentException($"Введенные данные - не вещественное число.");
+            }
+
+            if ((sideA <= 0) || (sideB <= 0) || (sideC <= 0))
+            {
+                throw new ArgumentOutOfRangeException($"Длина стороны B не может быть меньше либо равна 0");
+            }
+
+            if (!CheckSides(sideA, sideB, sideC))
+            {
+                throw new ArgumentException($"Такой треугольник существовать не может");
+            }
+
+        }
 
         #endregion
 
@@ -32,23 +51,11 @@ namespace ModelArea
         /// <param name="sideC"> Сторона C </param>
         public Triangle(double sideA, double sideB, double sideC)
         {
-            if ((sideA <= 0) || (sideB <= 0) || (sideC <= 0))
-            {
-                throw new ArgumentOutOfRangeException($"Длина стороны A не может быть меньше либо равна 0");
-            }
-            else
-            {
-                if (CheckSides(sideA, sideB, sideC))
-                {
-                    _sideA = sideA;
-                    _sideB = sideB;
-                    _sideC = sideC;
-                }
-                else
-                {
-                    throw new ArgumentException($"Такой треугольник существовать не может.");
-                }
-            }
+
+            ChecksCorrectInput(sideA, sideB, sideC);
+            _sideA = sideA;
+            _sideB = sideB;
+            _sideC = sideC;
         }
 
         /// <summary>

@@ -14,12 +14,16 @@ namespace ModelArea
 =======
         private double _radius;
 
-        private static void CheckIfNaNOrInf(double radius)
+        private static void ChecksCorrectInput(double radius)
         {
             if (double.IsNaN(radius) || double.IsInfinity(radius))
             {
                 throw new ArgumentException($"Введенные данные - не вещественное число.");
             }
+            if (radius <= 0)
+            {
+                throw new ArgumentOutOfRangeException($"Значение радиуса окружности не может быть меньше либо равно 0");
+            }            
         }
 >>>>>>> Development
 
@@ -37,6 +41,7 @@ namespace ModelArea
         public Circle(double radius)
         {
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
             CheckIfNaNOrInf(radius);
 >>>>>>> Development
@@ -48,6 +53,10 @@ namespace ModelArea
             {
                 _radius = radius;
             }
+=======
+            ChecksCorrectInput(radius);
+            _radius = radius;
+>>>>>>> Development
         }
        
         /// <summary>

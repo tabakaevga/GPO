@@ -13,14 +13,22 @@ namespace ModelArea
         private double _sideB;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         private bool CheckIfNaNOrInf(double sideA, double sideB)
+=======
+        private void ChecksCorrectInput(double sideA, double sideB)
+>>>>>>> Development
         {
             if (double.IsNaN(sideA) || double.IsInfinity(sideA) || double.IsNaN(sideB) || double.IsInfinity(sideB))
             {
                 throw new ArgumentException($"Введенные данные - не вещественное число.");
             }
-            return true;
+            if ((sideA <= 0) || (sideB <= 0))
+            {
+                throw new ArgumentOutOfRangeException($"Длина стороны B не может быть меньше либо равна 0");
+            }
+
         }
 
 >>>>>>> Development
@@ -34,6 +42,7 @@ namespace ModelArea
         public Rectangle(double sideA, double sideB)
         {
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
             CheckIfNaNOrInf(sideA, sideB);
 >>>>>>> Development
@@ -46,6 +55,11 @@ namespace ModelArea
                 _sideA = sideA;
                 _sideB = sideB;
             }
+=======
+            ChecksCorrectInput(sideA, sideB);
+            _sideA = sideA;
+            _sideB = sideB;
+>>>>>>> Development
         }
         
         /// <summary>
