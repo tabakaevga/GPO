@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CheckCorrectInput.cs" />
     <Compile Include="Circle.cs" />
     <Compile Include="FigureType.cs" />
     <Compile Include="IFigure.cs" />

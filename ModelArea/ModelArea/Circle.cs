@@ -11,18 +11,7 @@ namespace ModelArea
 
         private double _radius;
 
-        private static void ChecksCorrectInput(double radius)
-        {
-            if (double.IsNaN(radius) || double.IsInfinity(radius))
-            {
-                throw new ArgumentException($"Введенные данные - не вещественное число.");
-            }
-            if (radius <= 0)
-            {
-                throw new ArgumentOutOfRangeException($"Значение радиуса окружности не может быть меньше либо равно 0");
-            }            
-        }
-
+        
         #endregion
 
         /// <summary>
@@ -36,7 +25,7 @@ namespace ModelArea
         /// <param name="radius">Радиус окружности</param>
         public Circle(double radius)
         {
-            ChecksCorrectInput(radius);
+            CheckCorrectInput.CheckDouble(radius);
             _radius = radius;
         }
        
