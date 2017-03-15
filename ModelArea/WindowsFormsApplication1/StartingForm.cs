@@ -11,9 +11,9 @@ using ModelArea;
 
 namespace WindowsFormsApplication1
 {
-    public partial class Form1 : Form
+    public partial class StartingForm : Form
     {
-        public Form1()
+        public StartingForm()
         {
             InitializeComponent();
         }
@@ -21,7 +21,7 @@ namespace WindowsFormsApplication1
         private void button1_Click(object sender, EventArgs e)
         {
             AddingObjects addFigure = new AddingObjects();
-            addFigure.Show();
+            addFigure.ShowDialog();
         }
     }
 }
