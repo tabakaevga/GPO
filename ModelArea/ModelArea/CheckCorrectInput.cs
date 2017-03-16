@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ModelArea
 {
@@ -19,7 +15,7 @@ namespace ModelArea
         {
             if (double.IsNaN(inputValue) || double.IsInfinity(inputValue))
             {
-                throw new ArgumentException($"Введенные данные - не вещественное число.");
+                throw new NotFiniteNumberException($"Введенные данные - не вещественное число");
             }
             if (inputValue <= 0)
             {

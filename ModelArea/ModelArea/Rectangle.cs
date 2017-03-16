@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace ModelArea
+﻿namespace ModelArea
 {
     /// <summary>
     /// Прямоугольник
@@ -11,8 +9,6 @@ namespace ModelArea
 
         private double _sideA;
         private double _sideB;
-
-        
 
         #endregion
 

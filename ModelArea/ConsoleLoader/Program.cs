@@ -26,7 +26,7 @@ namespace ConsoleLoader
         {
             return Convert.ToDouble(Console.ReadLine());
         }
-
+      
         static void Main(string[] args)
         {
             Console.WriteLine("Демонстрация нахождения площадей.");
@@ -39,54 +39,69 @@ namespace ConsoleLoader
             Console.WriteLine("Площадь треугольника со сторонами А=2, B=3, C=4.2");
             IFigure triangleTest = new Triangle(2, 3, 4.2);
             Console.WriteLine("Площадь треугольника = {0}", triangleTest.Area);
-
             
             while (true)
             {
                 WelcomeToDemo();
                 int option = Convert.ToInt32(Console.ReadLine());
-                //TODO:
-                IFigure figure;
-                
-                switch (option)
+                try
                 {
-                    case 1:
-                        Console.WriteLine("Введите радиус (вещ. число)");
-                        figure = new Circle(InputSide());
-                        Console.WriteLine("Площадь окружности = {0}", figure.Area);
-                        break;
-                    case 2:
-                        Console.WriteLine("Введите ширину и длину А и B (вещ. числа)");
-                        figure = new Rectangle(InputSide(), InputSide());
-                        Console.WriteLine("Площадь прямоугольника = {0}",  figure.Area);
-                        break;
-                    case 3:
-                        Console.WriteLine("Введите стороны A, B, C (вещ. числа)");
-                        figure = new Triangle(InputSide(), InputSide(), InputSide());
-                        Console.WriteLine("Площадь треугольника = {0}", figure.Area);
-                        break;
-                    case 4:
-                        Console.WriteLine("Введите радиус (вещ. число)");
-                        figure = new Circle(InputSide());
-                        Console.WriteLine("Длина окружности = {0}", figure.Length);
-                        break;
-                    case 5:
-                        Console.WriteLine("Введите ширину и длину А и B (вещ. числа)");
-                        figure = new Rectangle(InputSide(), InputSide());
-                        Console.WriteLine("Периметр прямоугольника = {0}", figure.Length );
-                        break;
-                    case 6:
-                        Console.WriteLine("Введите стороны A, B, C (вещ. числа)");
-                        figure = new Triangle(InputSide(), InputSide(), InputSide());
-                        Console.WriteLine("Периметр треугольника = {0}", figure.Length);
-                        break;
-                    case 0:
-                        return;
-                    default:
-                        Console.WriteLine("Введите одну из опций (целое число).");
-                        break;
-                    
+                    IFigure figure;
+                    switch (option)
+                    {
+                        case 1:
+                            Console.WriteLine("Введите радиус (вещ. число)");
+                            figure = new Circle(InputSide());
+                            Console.WriteLine("Площадь окружности = {0}", figure.Area);
+                            break;
+                        case 2:
+                            Console.WriteLine("Введите ширину и длину А и B (вещ. числа)");
+                            figure = new Rectangle(InputSide(), InputSide());
+                            Console.WriteLine("Площадь прямоугольника = {0}", figure.Area);
+                            break;
+                        case 3:
+                            Console.WriteLine("Введите стороны A, B, C (вещ. числа)");
+                            figure = new Triangle(InputSide(), InputSide(), InputSide());
+                            Console.WriteLine("Площадь треугольника = {0}", figure.Area);
+                            break;
+                        case 4:
+                            Console.WriteLine("Введите радиус (вещ. число)");
+                            figure = new Circle(InputSide());
+                            Console.WriteLine("Длина окружности = {0}", figure.Length);
+                            break;
+                        case 5:
+                            Console.WriteLine("Введите ширину и длину А и B (вещ. числа)");
+                            figure = new Rectangle(InputSide(), InputSide());
+                            Console.WriteLine("Периметр прямоугольника = {0}", figure.Length);
+                            break;
+                        case 6:
+                            Console.WriteLine("Введите стороны A, B, C (вещ. числа)");
+                            figure = new Triangle(InputSide(), InputSide(), InputSide());
+                            Console.WriteLine("Периметр треугольника = {0}", figure.Length);
+                            break;
+                        case 0:
+                            return;
+                        default:
+                            Console.WriteLine("Введите одну из опций (целое число).");
+                            break;
+                    }
                 }
+                catch (Exception e)
+                {
+                    if (e is FormatException)
+                    {
+                        Console.WriteLine("Введите число.");
+                    }
+                    if (e is ArgumentOutOfRangeException)
+                    {
+                        Console.WriteLine("Введите число больше нуля.");
+                    }
+                    if (e is ArgumentException)
+                    {
+                        Console.WriteLine("Введите корректный треугольник.");
+                    }
+                }
+                
              }
             
         }
