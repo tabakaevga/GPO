@@ -18,9 +18,9 @@ namespace WindowsFormsApplication1
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void AddObjectButton_Click(object sender, EventArgs e)
         {
-            AddingObjects addFigure = new AddingObjects();
+            AddingForm addFigure = new AddingForm();
             addFigure.ShowDialog();
         }
     }

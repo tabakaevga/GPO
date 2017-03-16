@@ -49,11 +49,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddingObjects.cs">
+    <Compile Include="AddingForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddingObjects.Designer.cs">
-      <DependentUpon>AddingObjects.cs</DependentUpon>
+    <Compile Include="AddingForm.Designer.cs">
+      <DependentUpon>AddingForm.cs</DependentUpon>
     </Compile>
     <Compile Include="StartingForm.cs">
       <SubType>Form</SubType>
@@ -63,8 +63,8 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="AddingObjects.resx">
-      <DependentUpon>AddingObjects.cs</DependentUpon>
+    <EmbeddedResource Include="AddingForm.resx">
+      <DependentUpon>AddingForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="StartingForm.resx">
       <DependentUpon>StartingForm.cs</DependentUpon>
