@@ -10,8 +10,6 @@
         private double _sideA;
         private double _sideB;
 
-        
-
         #endregion
 
         /// <summary>

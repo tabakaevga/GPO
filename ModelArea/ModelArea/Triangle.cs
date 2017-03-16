@@ -12,6 +12,7 @@ namespace ModelArea
         private double _sideA;
         private double _sideB;
         private double _sideC;
+
         private void CheckSides(double sideA, double sideB, double sideC)
         {
             if (!((sideA + sideB > sideC) && (sideA + sideC > sideB) && (sideB + sideC > sideA)))
