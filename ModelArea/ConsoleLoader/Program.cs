@@ -26,7 +26,7 @@ namespace ConsoleLoader
         {
             return Convert.ToDouble(Console.ReadLine());
         }
-
+      
         static void Main(string[] args)
         {
             Console.WriteLine("Демонстрация нахождения площадей.");
@@ -39,13 +39,11 @@ namespace ConsoleLoader
             Console.WriteLine("Площадь треугольника со сторонами А=2, B=3, C=4.2");
             IFigure triangleTest = new Triangle(2, 3, 4.2);
             Console.WriteLine("Площадь треугольника = {0}", triangleTest.Area);
-
             
             while (true)
             {
                 WelcomeToDemo();
                 int option = Convert.ToInt32(Console.ReadLine());
-                //TODO:
                 IFigure figure;
                 
                 switch (option)
@@ -85,7 +83,6 @@ namespace ConsoleLoader
                     default:
                         Console.WriteLine("Введите одну из опций (целое число).");
                         break;
-                    
                 }
              }
             
