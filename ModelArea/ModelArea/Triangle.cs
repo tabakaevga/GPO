@@ -1,10 +1,12 @@
 ﻿using System;
+using System.Runtime.Serialization;
 
 namespace ModelArea
 {
     /// <summary>
     /// Треугольник.
     /// </summary>
+    [Serializable]
     public class Triangle : IFigure
     {
         #region Private members
@@ -26,6 +28,7 @@ namespace ModelArea
         /// <summary>
         /// Тип фигуры
         /// </summary>
+        [DataMember]
         public FigureType FigureType => FigureType.Triangle;
         
         /// <summary>
@@ -49,11 +52,13 @@ namespace ModelArea
         /// <summary>
         /// Свойство длина(периметр) треугольника.
         /// </summary>
+        [DataMember]
         public double Length => _sideA + _sideB + _sideC;
 
         /// <summary>
         /// Свойство площадь окружности.
         /// </summary>
+        [DataMember]
         public double Area
         {
             get
