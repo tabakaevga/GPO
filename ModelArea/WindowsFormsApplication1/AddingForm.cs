@@ -14,12 +14,14 @@ namespace WindowsFormsApplication1
 {
     public partial class AddingForm : Form
     {
-        private List<IFigure> _figureList;
+        private static IFigure _figure;
         private FigureType _figureType;
         public AddingForm()
         {
             InitializeComponent();
         }
+
+        public static IFigure FigureAdded => _figure;
 
         private void RadioSelectCircle_CheckedChanged(object sender, EventArgs e)
         {
@@ -61,28 +63,51 @@ namespace WindowsFormsApplication1
             _figureType = FigureType.Triangle;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void OKbutton_Click(object sender, EventArgs e)
         {
-            double sideA;
-            double sideB;
-            switch (_figureType)
+            try
             {
-                case FigureType.Circle :
-                    _figureList.Add(new Circle(Convert.ToDouble(textBox4.Text)));
-                    break;
-                case FigureType.Triangle :
-                    sideA = Convert.ToDouble(textBox1.Text);
-                    sideB = Convert.ToDouble(textBox2.Text);
-                    double sideC = Convert.ToDouble(textBox3.Text);
-                    _figureList.Add(new Triangle(sideA, sideB, sideC));
-                    break;
+                double sideB;
+                double sideA;
+                switch (_figureType)
+                {
+                    case FigureType.Circle:
+                        _figure = new Circle(Convert.ToDouble(textBox4.Text));
+                        break;
+                    case FigureType.Triangle:
+                        sideA = Convert.ToDouble(textBox1.Text);
+                        sideB = Convert.ToDouble(textBox2.Text);
+                        double sideC = Convert.ToDouble(textBox3.Text);
+                        _figure = new Triangle(sideA, sideB, sideC);
+                        break;
                     case FigureType.Rectangle:
-                    sideA = Convert.ToDouble(textBox1.Text);
-                    sideB = Convert.ToDouble(textBox2.Text);
-                    _figureList.Add(new ModelArea.Rectangle(sideA, sideB));
-                    break;
-
+                        sideA = Convert.ToDouble(textBox1.Text);
+                        sideB = Convert.ToDouble(textBox2.Text);
+                        _figure = new ModelArea.Rectangle(sideA, sideB);
+                        break;
+                }
+                
             }
+            catch (Exception ex)
+            {
+                if (ex is NotFiniteNumberException || ex is FormatException)
+                {
+                    MessageBox.Show("Введите вещественное число", "Ошибка ввода",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                if (ex is ArgumentOutOfRangeException)
+                {
+                    MessageBox.Show("Введите числа больше 0", "Ошибка ввода",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                if (ex is ArgumentException && (_figureType == FigureType.Triangle))
+                {
+                    MessageBox.Show("Стороны треугольника должны соответстовать условию существования треугольника",
+                        "Ошибка ввода", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                
+            }
+            Close();
         }
     }
 }
