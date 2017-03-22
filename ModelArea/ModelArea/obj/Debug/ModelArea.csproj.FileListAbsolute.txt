@@ -1,8 +1,0 @@
-C:\Users\Администратор\Desktop\GPO\ModelArea\ModelArea\bin\Debug\ModelArea.dll
-C:\Users\Администратор\Desktop\GPO\ModelArea\ModelArea\bin\Debug\ModelArea.pdb
-C:\Users\Администратор\Desktop\GPO\ModelArea\ModelArea\obj\Debug\ModelArea.dll
-C:\Users\Администратор\Desktop\GPO\ModelArea\ModelArea\obj\Debug\ModelArea.pdb
-C:\Users\Администратор\Desktop\GPO-master\ModelArea\ModelArea\bin\Debug\ModelArea.dll
-C:\Users\Администратор\Desktop\GPO-master\ModelArea\ModelArea\bin\Debug\ModelArea.pdb
-C:\Users\Администратор\Desktop\GPO-master\ModelArea\ModelArea\obj\Debug\ModelArea.dll
-C:\Users\Администратор\Desktop\GPO-master\ModelArea\ModelArea\obj\Debug\ModelArea.pdb
