@@ -7,36 +7,9 @@
     {
         #region Private members
 
-        private double _sideA;
-        private double _sideB;
+        private readonly double _sideA;
+        private readonly double _sideB;
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-        private bool CheckIfNaNOrInf(double sideA, double sideB)
-=======
-        private void ChecksCorrectInput(double sideA, double sideB)
->>>>>>> Development
-        {
-            if (double.IsNaN(sideA) || double.IsInfinity(sideA) || double.IsNaN(sideB) || double.IsInfinity(sideB))
-            {
-                throw new ArgumentException($"Введенные данные - не вещественное число.");
-            }
-            if ((sideA <= 0) || (sideB <= 0))
-            {
-                throw new ArgumentOutOfRangeException($"Длина стороны B не может быть меньше либо равна 0");
-            }
-
-        }
-=======
-        
->>>>>>> Development
-
->>>>>>> Development
-=======
->>>>>>> Development
         #endregion
 
         /// <summary>
@@ -46,30 +19,10 @@
         /// <param name="sideB"> Сторона B (высота) </param>
         public Rectangle(double sideA, double sideB)
         {
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-            CheckIfNaNOrInf(sideA, sideB);
->>>>>>> Development
-            if ((sideA <= 0) || (sideB <=0))
-            {
-                throw new ArgumentOutOfRangeException($"Длина стороны B не может быть меньше либо равна 0");
-            }
-            else
-            {
-                _sideA = sideA;
-                _sideB = sideB;
-            }
-=======
-            ChecksCorrectInput(sideA, sideB);
-=======
             CheckCorrectInput.CheckDouble(sideA);
             CheckCorrectInput.CheckDouble(sideB);
->>>>>>> Development
             _sideA = sideA;
             _sideB = sideB;
->>>>>>> Development
         }
         
         /// <summary>

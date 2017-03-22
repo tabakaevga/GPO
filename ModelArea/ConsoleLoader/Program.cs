@@ -22,26 +22,16 @@ namespace ConsoleLoader
             Console.WriteLine("0) Выход из меню");
         }
 
-<<<<<<< HEAD
-=======
         private static double InputSide()
         {
             return Convert.ToDouble(Console.ReadLine());
         }
-<<<<<<< HEAD
 
->>>>>>> Development
-=======
-      
->>>>>>> Development
         static void Main(string[] args)
         {
             Console.WriteLine("Демонстрация нахождения площадей.");
             Console.WriteLine("Площадь окружности с радиусом 4");
-<<<<<<< HEAD
             //TODO:
-=======
->>>>>>> Development
             IFigure circleTest = new Circle(4);
             Console.WriteLine("Площадь окружности = {0}", circleTest.Area);
             Console.WriteLine("Площадь прямоугольника со сторонами A=4 и B=3.26");
@@ -57,68 +47,6 @@ namespace ConsoleLoader
                 int option = Convert.ToInt32(Console.ReadLine());
                 try
                 {
-<<<<<<< HEAD
-                    case 1:
-                        Console.WriteLine("Введите радиус (вещ. число)");
-<<<<<<< HEAD
-                        figure = new Circle(Convert.ToDouble(Console.ReadLine()));
-=======
-                        figure = new Circle(InputSide());
->>>>>>> Development
-                        Console.WriteLine("Площадь окружности = {0}", figure.Area);
-                        break;
-                    case 2:
-                        Console.WriteLine("Введите ширину и длину А и B (вещ. числа)");
-<<<<<<< HEAD
-                        figure = new Rectangle(Convert.ToDouble(Console.ReadLine()), Convert.ToDouble(Console.ReadLine()));
-=======
-                        figure = new Rectangle(InputSide(), InputSide());
->>>>>>> Development
-                        Console.WriteLine("Площадь прямоугольника = {0}",  figure.Area);
-                        break;
-                    case 3:
-                        Console.WriteLine("Введите стороны A, B, C (вещ. числа)");
-<<<<<<< HEAD
-                        figure = new Triangle(Convert.ToDouble(Console.ReadLine()), Convert.ToDouble(Console.ReadLine()), Convert.ToDouble(Console.ReadLine()));
-=======
-                        figure = new Triangle(InputSide(), InputSide(), InputSide());
->>>>>>> Development
-                        Console.WriteLine("Площадь треугольника = {0}", figure.Area);
-                        break;
-                    case 4:
-                        Console.WriteLine("Введите радиус (вещ. число)");
-<<<<<<< HEAD
-                        figure = new Circle(Convert.ToDouble(Console.ReadLine()));
-=======
-                        figure = new Circle(InputSide());
->>>>>>> Development
-                        Console.WriteLine("Длина окружности = {0}", figure.Length);
-                        break;
-                    case 5:
-                        Console.WriteLine("Введите ширину и длину А и B (вещ. числа)");
-<<<<<<< HEAD
-                        figure = new Rectangle(Convert.ToDouble(Console.ReadLine()), Convert.ToDouble(Console.ReadLine()));
-=======
-                        figure = new Rectangle(InputSide(), InputSide());
->>>>>>> Development
-                        Console.WriteLine("Периметр прямоугольника = {0}", figure.Length );
-                        break;
-                    case 6:
-                        Console.WriteLine("Введите стороны A, B, C (вещ. числа)");
-<<<<<<< HEAD
-                        figure = new Triangle(Convert.ToDouble(Console.ReadLine()), Convert.ToDouble(Console.ReadLine()), Convert.ToDouble(Console.ReadLine()));
-=======
-                        figure = new Triangle(InputSide(), InputSide(), InputSide());
->>>>>>> Development
-                        Console.WriteLine("Периметр треугольника = {0}", figure.Length);
-                        break;
-                    case 0:
-                        return;
-                    default:
-                        Console.WriteLine("Введите одну из опций (целое число).");
-                        break;
-                    
-=======
                     IFigure figure;
                     switch (option)
                     {
@@ -158,7 +86,6 @@ namespace ConsoleLoader
                             Console.WriteLine("Введите одну из опций (целое число).");
                             break;
                     }
->>>>>>> Development
                 }
                 catch (Exception e)
                 {
