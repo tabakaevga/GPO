@@ -85,8 +85,9 @@ namespace WindowsFormsApplication1
                         sideB = Convert.ToDouble(textBox2.Text);
                         _figure = new ModelArea.Rectangle(sideA, sideB);
                         break;
+                        
                 }
-                
+                Close();
             }
             catch (Exception ex)
             {
@@ -107,7 +108,7 @@ namespace WindowsFormsApplication1
                 }
                 
             }
-            Close();
+            
         }
     }
 }

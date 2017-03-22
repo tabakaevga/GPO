@@ -13,7 +13,7 @@ namespace WindowsFormsApplication1
 {
     public partial class StartingForm : Form
     {
-        private BindingList<IFigure> _figures = new BindingList<IFigure>();
+        public BindingList<IFigure> _figures = new BindingList<IFigure>();
         public StartingForm()
         {
             InitializeComponent();
@@ -35,6 +35,12 @@ namespace WindowsFormsApplication1
             {
                 dataGridView1.Rows.Remove(row); 
             }
+        }
+
+        
+        private void SaveAsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }
