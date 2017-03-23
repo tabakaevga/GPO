@@ -1,8 +1,13 @@
-﻿namespace ModelArea
+﻿using System;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Json;
+
+namespace ModelArea
 {
     /// <summary>
     /// Прямоугольник
     /// </summary>
+    [DataContract]
     public class Rectangle : IFigure
     {
         #region Private members
@@ -28,16 +33,19 @@
         /// <summary>
         /// Тип фигуры
         /// </summary>
+        [DataMember]
         public FigureType FigureType => FigureType.Rectangle;
 
         /// <summary>
         /// Свойство периметр прямоугольника
         /// </summary>
+        [DataMember]
         public double Length => (_sideA + _sideB) * 2;
 
         /// <summary>
         /// Свойство площадь прямоугольника
         /// </summary>
+        [DataMember]
         public double Area => _sideA * _sideB;
     }
 

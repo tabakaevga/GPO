@@ -1,23 +1,31 @@
 ﻿using System;
+using System.Runtime.Serialization;
 
 namespace ModelArea
 {
     /// <summary>
     /// Треугольник.
     /// </summary>
+    [DataContract]
     public class Triangle : IFigure
     {
         #region Private members
 
-        private double _sideA;
-        private double _sideB;
-        private double _sideC;
+        private readonly double _sideA;
+        private readonly double _sideB;
+        private readonly double _sideC;
 
-        private void CheckSides(double sideA, double sideB, double sideC)
+        /// <summary>
+        /// Проверка сторон треугольника на предмет существования данного треугольника
+        /// </summary>
+        /// <param name="sideA"> Сторона А</param>
+        /// <param name="sideB"> Сторона В</param>
+        /// <param name="sideC"> Сторона С</param>
+        private static void CheckSides(double sideA, double sideB, double sideC)
         {
             if (!((sideA + sideB > sideC) && (sideA + sideC > sideB) && (sideB + sideC > sideA)))
             {
-                throw new ArgumentException($"Такой треугольник существовать не может");
+                throw new ArgumentException("Такой треугольник существовать не может");
             }
         }
 
@@ -26,6 +34,7 @@ namespace ModelArea
         /// <summary>
         /// Тип фигуры
         /// </summary>
+        [DataMember]
         public FigureType FigureType => FigureType.Triangle;
         
         /// <summary>
@@ -49,11 +58,13 @@ namespace ModelArea
         /// <summary>
         /// Свойство длина(периметр) треугольника.
         /// </summary>
+        [DataMember]
         public double Length => _sideA + _sideB + _sideC;
 
         /// <summary>
         /// Свойство площадь окружности.
         /// </summary>
+        [DataMember]
         public double Area
         {
             get
