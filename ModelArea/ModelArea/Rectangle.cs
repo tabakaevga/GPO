@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Runtime.Serialization;
+using System.Runtime.Serialization.Json;
 
 namespace ModelArea
 {
     /// <summary>
     /// Прямоугольник
     /// </summary>
-    [Serializable]
+    [DataContract]
     public class Rectangle : IFigure
     {
         #region Private members

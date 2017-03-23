@@ -186,6 +186,9 @@
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximumSize = new System.Drawing.Size(325, 239);
+            this.MinimumSize = new System.Drawing.Size(325, 239);
             this.Name = "AddingForm";
             this.Text = "Добавление Фигуры";
             this.groupBox1.ResumeLayout(false);

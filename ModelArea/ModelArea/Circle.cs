@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Runtime.Serialization;
+using System.Runtime.Serialization.Json;
 
 namespace ModelArea
 {
     /// <summary>
     /// Окружность
     /// </summary>
-    [Serializable]
+    [DataContract]
     public class Circle : IFigure
     {
         #region Private members

@@ -56,6 +56,7 @@
     <Compile Include="AddingForm.Designer.cs">
       <DependentUpon>AddingForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Tools\DataHandler.cs" />
     <Compile Include="StartingForm.cs">
       <SubType>Form</SubType>
     </Compile>
