@@ -12,8 +12,8 @@ namespace ModelArea
     {
         #region Private members
 
-        private double _sideA;
-        private double _sideB;
+        private readonly double _sideA;
+        private readonly double _sideB;
 
         #endregion
 

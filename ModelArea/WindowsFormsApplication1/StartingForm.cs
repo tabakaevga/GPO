@@ -15,22 +15,36 @@ namespace WindowsFormsApplication1
 {
     public partial class StartingForm : Form
     {
-        public BindingList<IFigure> _figures = new BindingList<IFigure>();
+        private BindingList<IFigure> _figures = new BindingList<IFigure>();
+
+        /// <summary>
+        /// Конструктор формы
+        /// </summary>
         public StartingForm()
         {
             InitializeComponent();
-            
+            dataGridView1.DataSource = _figures;
         }
 
+        /// <summary>
+        /// Кнопка "Добавить объект"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void AddObjectButton_Click(object sender, EventArgs e)
         {
-            AddingForm addFigure = new AddingForm();
+            var addFigure = new AddingForm {Owner = this};
             addFigure.ShowDialog();
-            _figures.Add(AddingForm.FigureAdded);
+            _figures.Add(addFigure.Figure);
             dataGridView1.DataSource = null;
             dataGridView1.DataSource = _figures;
         }
 
+        /// <summary>
+        /// Кнопка "Удалить объект"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void RemoveObjectButton_Click(object sender, EventArgs e)
         {
             foreach (DataGridViewRow row in dataGridView1.SelectedRows)
@@ -39,17 +53,31 @@ namespace WindowsFormsApplication1
             }
         }
 
-        
+        /// <summary>
+        /// Кнопка "Сохранить как"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void SaveAsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             saveFileDialog.ShowDialog();
         }
 
+        /// <summary>
+        /// Событие Файл-диалога, сохранение
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void saveFileDialog_FileOk(object sender, CancelEventArgs e)
         {
             DataHandler.SerializeBinary(saveFileDialog.FileName, ref _figures);
         }
 
+        /// <summary>
+        /// Событие Файл-диалога, открытие
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void OpenFileToolStripMenuItem_Click(object sender, EventArgs e)
         {
             openFileDialog.ShowDialog();

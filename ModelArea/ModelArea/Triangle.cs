@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Runtime.Serialization;
-using System.Runtime.Serialization.Json;
 
 namespace ModelArea
 {
@@ -12,15 +11,21 @@ namespace ModelArea
     {
         #region Private members
 
-        private double _sideA;
-        private double _sideB;
-        private double _sideC;
+        private readonly double _sideA;
+        private readonly double _sideB;
+        private readonly double _sideC;
 
+        /// <summary>
+        /// Проверка сторон треугольника на предмет существования данного треугольника
+        /// </summary>
+        /// <param name="sideA"> Сторона А</param>
+        /// <param name="sideB"> Сторона В</param>
+        /// <param name="sideC"> Сторона С</param>
         private static void CheckSides(double sideA, double sideB, double sideC)
         {
             if (!((sideA + sideB > sideC) && (sideA + sideC > sideB) && (sideB + sideC > sideA)))
             {
-                throw new ArgumentException($"Такой треугольник существовать не может");
+                throw new ArgumentException("Такой треугольник существовать не может");
             }
         }
 

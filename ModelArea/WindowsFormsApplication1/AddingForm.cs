@@ -14,15 +14,27 @@ namespace WindowsFormsApplication1
 {
     public partial class AddingForm : Form
     {
-        private static IFigure _figure;
+        private IFigure _figure;
         private FigureType _figureType;
+
+        /// <summary>
+        /// Конструктор формы
+        /// </summary>
         public AddingForm()
         {
             InitializeComponent();
         }
 
-        public static IFigure FigureAdded => _figure;
+        /// <summary>
+        /// Свойство передачи данных фигуры
+        /// </summary>
+        public IFigure Figure => _figure;
 
+        /// <summary>
+        /// Радио-кнопка Окружность
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void RadioSelectCircle_CheckedChanged(object sender, EventArgs e)
         {
             textBox1.Visible = false;
@@ -36,6 +48,11 @@ namespace WindowsFormsApplication1
             _figureType = FigureType.Circle;
         }
 
+        /// <summary>
+        /// Радио-кнопка Прямоугольник
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void RadioSelectRectangle_CheckedChanged(object sender, EventArgs e)
         {
             textBox1.Visible = true;
@@ -49,7 +66,12 @@ namespace WindowsFormsApplication1
             _figureType = FigureType.Rectangle;
             
         }
-        
+
+        /// <summary>
+        /// Радио-кнопка Треугольник
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void RadioSelectTriangle_CheckedChanged(object sender, EventArgs e)
         {
             textBox1.Visible = true;
@@ -63,6 +85,11 @@ namespace WindowsFormsApplication1
             _figureType = FigureType.Triangle;
         }
 
+        /// <summary>
+        /// Кнопка ОК
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void OKbutton_Click(object sender, EventArgs e)
         {
             try
@@ -85,7 +112,6 @@ namespace WindowsFormsApplication1
                         sideB = Convert.ToDouble(textBox2.Text);
                         _figure = new ModelArea.Rectangle(sideA, sideB);
                         break;
-                        
                 }
                 Close();
             }
@@ -93,7 +119,7 @@ namespace WindowsFormsApplication1
             {
                 if (ex is NotFiniteNumberException || ex is FormatException)
                 {
-                    MessageBox.Show("Введите вещественное число", "Ошибка ввода",
+                    MessageBox.Show(@"Введите вещественное число", "Ошибка ввода",
                         MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 if (ex is ArgumentOutOfRangeException)
@@ -103,12 +129,10 @@ namespace WindowsFormsApplication1
                 }
                 if (ex is ArgumentException && (_figureType == FigureType.Triangle))
                 {
-                    MessageBox.Show("Стороны треугольника должны соответстовать условию существования треугольника",
-                        "Ошибка ввода", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(@"Стороны треугольника должны соответстовать условию существования треугольника",
+                        @"Ошибка ввода", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-                
             }
-            
         }
     }
 }

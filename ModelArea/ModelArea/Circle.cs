@@ -12,9 +12,8 @@ namespace ModelArea
     {
         #region Private members
 
-        private double _radius;
+        private readonly double _radius;
 
-        
         #endregion
 
         /// <summary>
