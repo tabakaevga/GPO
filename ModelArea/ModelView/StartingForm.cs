@@ -1,5 +1,6 @@
 ﻿#define DEVERSION
 using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Windows.Forms;
 using ModelArea;
@@ -9,7 +10,7 @@ namespace ModelView
 {
     public partial class StartingForm : Form
     {
-        private BindingList<IFigure> _figures = new BindingList<IFigure>();
+        private List<IFigure> _figures = new List<IFigure>();
 
         /// <summary>
         /// Конструктор формы
@@ -122,6 +123,8 @@ namespace ModelView
                 }
                     
             }
+            DataGridView.DataSource = null;
+            DataGridView.DataSource = _figures;
 #endif
         }
     }
