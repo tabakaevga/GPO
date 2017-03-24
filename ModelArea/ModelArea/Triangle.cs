@@ -6,7 +6,7 @@ namespace ModelArea
     /// <summary>
     /// Треугольник.
     /// </summary>
-    [DataContract]
+    [Serializable]
     public class Triangle : IFigure
     {
         #region Private members

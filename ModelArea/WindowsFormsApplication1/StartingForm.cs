@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ModelArea;
+using System.Security.Cryptography;
 
 namespace WindowsFormsApplication1
 {
@@ -100,6 +101,42 @@ namespace WindowsFormsApplication1
                 throw;
             }
             
+        }
+        
+        /// <summary>
+        /// Генерация случайных данных
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void GenerateRandomButton_Click(object sender, EventArgs e)
+        {
+            var random = new Random();
+            for (var i = 0; i < 10; i++)
+            {
+                int option = random.Next(0, 3);
+                double sideB;
+                double sideA;
+                switch (option)
+                {
+                    case 0:
+                        double radius = random.NextDouble()*random.Next(1,11);
+                        _figures.Add(new Circle(radius ));
+                        break;
+                    case 1:
+                        sideA = random.NextDouble() * random.Next(1, 11);
+                        sideB = random.NextDouble() * random.Next(1, 11);
+                        _figures.Add(new ModelArea.Rectangle(sideA, sideB));
+                        break;
+                    case 2:
+                        sideA = random.NextDouble() * random.Next(1, 11);
+                        sideB = random.NextDouble() * random.Next(1, 11);
+                        double sideC = sideA + sideB - 0.000001; 
+                        _figures.Add(new Triangle(sideA, sideB, sideC));
+                        break;
+                }
+                    
+            }
+
         }
     }
 }

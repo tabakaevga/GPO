@@ -38,6 +38,7 @@
             this.сохранитьКакToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.открытьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
+            this.button3 = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.toolStrip.SuspendLayout();
@@ -55,7 +56,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(160, 213);
+            this.button2.Location = new System.Drawing.Point(133, 213);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(115, 33);
             this.button2.TabIndex = 1;
@@ -83,6 +84,8 @@
             // 
             // saveFileDialog
             // 
+            this.saveFileDialog.DefaultExt = "fg";
+            this.saveFileDialog.Filter = "fg Файлы|*.fg";
             this.saveFileDialog.FileOk += new System.ComponentModel.CancelEventHandler(this.saveFileDialog_FileOk);
             // 
             // toolStrip
@@ -123,14 +126,24 @@
             // 
             // openFileDialog
             // 
-            this.openFileDialog.FileName = "openFileDialog";
             this.openFileDialog.FileOk += new System.ComponentModel.CancelEventHandler(this.openFileDialog_FileOk);
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(254, 201);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(115, 57);
+            this.button3.TabIndex = 16;
+            this.button3.Text = "Сгенерировать случайные данные";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.GenerateRandomButton_Click);
             // 
             // StartingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(399, 282);
+            this.Controls.Add(this.button3);
             this.Controls.Add(this.toolStrip);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.button2);
@@ -159,6 +172,7 @@
         private System.Windows.Forms.ToolStripMenuItem сохранитьКакToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem открытьToolStripMenuItem;
         private System.Windows.Forms.OpenFileDialog openFileDialog;
+        private System.Windows.Forms.Button button3;
     }
 }
 

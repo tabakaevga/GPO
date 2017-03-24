@@ -7,7 +7,7 @@ namespace ModelArea
     /// <summary>
     /// Прямоугольник
     /// </summary>
-    [DataContract]
+    [Serializable]
     public class Rectangle : IFigure
     {
         #region Private members

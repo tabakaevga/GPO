@@ -7,7 +7,7 @@ namespace ModelArea
     /// <summary>
     /// Окружность
     /// </summary>
-    [DataContract]
+    [Serializable]
     public class Circle : IFigure
     {
         #region Private members
