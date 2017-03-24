@@ -1,18 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
+﻿#define DEVERSION
+using System;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.IO;
-using System.Linq;
+using System.Linq.Expressions;
 using System.Runtime.Serialization;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using ModelArea;
-using System.Security.Cryptography;
+using ModelView.Tools;
 
-namespace WindowsFormsApplication1
+namespace ModelView
 {
     public partial class StartingForm : Form
     {
@@ -24,7 +20,10 @@ namespace WindowsFormsApplication1
         public StartingForm()
         {
             InitializeComponent();
-            dataGridView1.DataSource = _figures;
+            DataGridView.DataSource = _figures;
+#if DEVERSION
+            GenerateRandomButton.Visible = true;
+#endif
         }
 
         /// <summary>
@@ -37,8 +36,8 @@ namespace WindowsFormsApplication1
             var addFigure = new AddingForm {Owner = this};
             addFigure.ShowDialog();
             _figures.Add(addFigure.Figure);
-            dataGridView1.DataSource = null;
-            dataGridView1.DataSource = _figures;
+            DataGridView.DataSource = null;
+            DataGridView.DataSource = _figures;
         }
 
         /// <summary>
@@ -48,9 +47,9 @@ namespace WindowsFormsApplication1
         /// <param name="e"></param>
         private void RemoveObjectButton_Click(object sender, EventArgs e)
         {
-            foreach (DataGridViewRow row in dataGridView1.SelectedRows)
+            foreach (DataGridViewRow row in DataGridView.SelectedRows)
             {
-                dataGridView1.Rows.Remove(row); 
+                DataGridView.Rows.Remove(row); 
             }
         }
 
@@ -86,23 +85,12 @@ namespace WindowsFormsApplication1
 
         private void openFileDialog_FileOk(object sender, CancelEventArgs e)
         {
-            try
-            {
-                string extension = Path.GetExtension(openFileDialog.FileName);
-
-                DataHandler.DeserializeBinary(openFileDialog.FileName, ref _figures);
-                dataGridView1.DataSource = null;
-                dataGridView1.DataSource = _figures;
-            }
-            catch (SerializationException exception)
-            {
-                MessageBox.Show("Выберите файл с расширением .fg", "Ошибка формата",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
-                throw;
-            }
-            
+            DataHandler.DeserializeBinary(openFileDialog.FileName, ref _figures);
+            DataGridView.DataSource = null;
+            DataGridView.DataSource = _figures;
         }
-        
+
+
         /// <summary>
         /// Генерация случайных данных
         /// </summary>
@@ -110,6 +98,7 @@ namespace WindowsFormsApplication1
         /// <param name="e"></param>
         private void GenerateRandomButton_Click(object sender, EventArgs e)
         {
+#if DEVERSION
             var random = new Random();
             for (var i = 0; i < 10; i++)
             {
@@ -125,7 +114,7 @@ namespace WindowsFormsApplication1
                     case 1:
                         sideA = random.NextDouble() * random.Next(1, 11);
                         sideB = random.NextDouble() * random.Next(1, 11);
-                        _figures.Add(new ModelArea.Rectangle(sideA, sideB));
+                        _figures.Add(new Rectangle(sideA, sideB));
                         break;
                     case 2:
                         sideA = random.NextDouble() * random.Next(1, 11);
@@ -136,7 +125,7 @@ namespace WindowsFormsApplication1
                 }
                     
             }
-
+#endif
         }
     }
-}
+    }
