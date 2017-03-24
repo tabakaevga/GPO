@@ -1,8 +1,14 @@
+<<<<<<< HEAD:ModelArea/WindowsFormsApplication1/StartingForm.cs
 ﻿#define DEVERSION
 using System;
 using System.ComponentModel;
 using System.IO;
 using System.Linq.Expressions;
+=======
+﻿using System;
+using System.ComponentModel;
+using System.IO;
+>>>>>>> master:ModelArea/ModelView/StartingForm.cs
 using System.Runtime.Serialization;
 using System.Windows.Forms;
 using ModelArea;

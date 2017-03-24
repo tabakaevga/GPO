@@ -26,11 +26,12 @@ namespace ConsoleLoader
         {
             return Convert.ToDouble(Console.ReadLine());
         }
-      
+
         static void Main(string[] args)
         {
             Console.WriteLine("Демонстрация нахождения площадей.");
             Console.WriteLine("Площадь окружности с радиусом 4");
+            //TODO:
             IFigure circleTest = new Circle(4);
             Console.WriteLine("Площадь окружности = {0}", circleTest.Area);
             Console.WriteLine("Площадь прямоугольника со сторонами A=4 и B=3.26");
