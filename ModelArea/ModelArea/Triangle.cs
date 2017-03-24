@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Runtime.Serialization;
+using ModelArea.Tools;
 
 namespace ModelArea
 {
@@ -69,7 +70,7 @@ namespace ModelArea
         {
             get
             {
-                double p = Length * 0.5;
+                var p = Length * 0.5;
                 return Math.Pow(p * (p - _sideA) * (p - _sideB) * (p - _sideC), 0.5);
             }
 

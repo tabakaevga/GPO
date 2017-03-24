@@ -5,7 +5,7 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModelArea", "ModelArea\ModelArea.csproj", "{8AF1AC15-091B-4584-B12E-A78FFEF2F70E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModelView", "WindowsFormsApplication1\ModelView.csproj", "{BC2DDDDE-738F-49A1-808B-52D07A93CE9E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModelView", "ModelView\ModelView.csproj", "{BC2DDDDE-738F-49A1-808B-52D07A93CE9E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

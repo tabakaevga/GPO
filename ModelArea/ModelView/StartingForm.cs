@@ -1,9 +1,6 @@
 ﻿#define DEVERSION
 using System;
 using System.ComponentModel;
-using System.IO;
-using System.Linq.Expressions;
-using System.Runtime.Serialization;
 using System.Windows.Forms;
 using ModelArea;
 using ModelView.Tools;

@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace ModelArea
+﻿namespace ModelArea
 {
     /// <summary>
     /// Интерфейс фигур
