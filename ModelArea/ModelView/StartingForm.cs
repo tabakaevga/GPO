@@ -10,7 +10,7 @@ namespace ModelView
 {
     public partial class StartingForm : Form
     {
-        private List<IFigure> _figures = new List<IFigure>();
+        private BindingList<IFigure> _figures = new BindingList<IFigure>();
 
         /// <summary>
         /// Конструктор формы
@@ -123,8 +123,6 @@ namespace ModelView
                 }
                     
             }
-            DataGridView.DataSource = null;
-            DataGridView.DataSource = _figures;
 #endif
         }
     }
