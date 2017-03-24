@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ModelArea
+namespace ModelArea.Tools
 {
     /// <summary>
     /// Статический класс, проверяющий корректность ввода входящих величин согласно требованиям к логике программы

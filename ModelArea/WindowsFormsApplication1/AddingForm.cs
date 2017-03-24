@@ -1,16 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Security.Permissions;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using ModelArea;
 
-namespace WindowsFormsApplication1
+namespace ModelView
 {
     public partial class AddingForm : Form
     {
