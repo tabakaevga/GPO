@@ -24,6 +24,12 @@ namespace ModelView
 #endif
         }
 
+        public BindingList<IFigure> FigureList
+        {
+            get { return _figures; }
+            set { value = _figures; }
+        }
+
         /// <summary>
         /// Кнопка "Добавить объект"
         /// </summary>
@@ -124,6 +130,12 @@ namespace ModelView
                     
             }
 #endif
+        }
+
+        private void SearchingObjectsButton_Click(object sender, EventArgs e)
+        {
+            var searchFigures = new SearchingForm(_figures) { Owner = this };
+            searchFigures.ShowDialog();
         }
     }
     }

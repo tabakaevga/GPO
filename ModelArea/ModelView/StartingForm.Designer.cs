@@ -39,6 +39,7 @@
             this.OpenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.GenerateRandomButton = new System.Windows.Forms.Button();
+            this.SearchingObjectsButton = new System.Windows.Forms.Button();
             this.GroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridView)).BeginInit();
             this.toolStrip.SuspendLayout();
@@ -94,7 +95,7 @@
             this.FileToolStripDropDownButton});
             this.toolStrip.Location = new System.Drawing.Point(0, 0);
             this.toolStrip.Name = "toolStrip";
-            this.toolStrip.Size = new System.Drawing.Size(399, 25);
+            this.toolStrip.Size = new System.Drawing.Size(386, 25);
             this.toolStrip.TabIndex = 15;
             this.toolStrip.Text = "toolStrip1";
             // 
@@ -140,11 +141,22 @@
             this.GenerateRandomButton.Visible = false;
             this.GenerateRandomButton.Click += new System.EventHandler(this.GenerateRandomButton_Click);
             // 
+            // SearchingObjectsButton
+            // 
+            this.SearchingObjectsButton.Location = new System.Drawing.Point(254, 264);
+            this.SearchingObjectsButton.Name = "SearchingObjectsButton";
+            this.SearchingObjectsButton.Size = new System.Drawing.Size(115, 33);
+            this.SearchingObjectsButton.TabIndex = 17;
+            this.SearchingObjectsButton.Text = "Найти объекты";
+            this.SearchingObjectsButton.UseVisualStyleBackColor = true;
+            this.SearchingObjectsButton.Click += new System.EventHandler(this.SearchingObjectsButton_Click);
+            // 
             // StartingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(399, 282);
+            this.ClientSize = new System.Drawing.Size(386, 320);
+            this.Controls.Add(this.SearchingObjectsButton);
             this.Controls.Add(this.GenerateRandomButton);
             this.Controls.Add(this.toolStrip);
             this.Controls.Add(this.GroupBox);
@@ -175,6 +187,7 @@
         private System.Windows.Forms.ToolStripMenuItem OpenToolStripMenuItem;
         private System.Windows.Forms.OpenFileDialog openFileDialog;
         private System.Windows.Forms.Button GenerateRandomButton;
+        private System.Windows.Forms.Button SearchingObjectsButton;
     }
 }
 
