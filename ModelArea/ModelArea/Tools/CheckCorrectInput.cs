@@ -5,7 +5,7 @@ namespace ModelArea.Tools
     /// <summary>
     /// Статический класс, проверяющий корректность ввода входящих величин согласно требованиям к логике программы
     /// </summary>
-    static class CheckCorrectInput
+    public static class CheckCorrectInput
     {
         /// <summary>
         /// Метод, проверяющий корректность ввода вещественных чисел для сторон фигуры/радиуса окружности

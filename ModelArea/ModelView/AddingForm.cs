@@ -6,8 +6,12 @@ namespace ModelView
 {
     public partial class AddingForm : Form
     {
+        #region Private members
+
         private IFigure _figure;
         private FigureType _figureType;
+
+        #endregion
 
         /// <summary>
         /// Конструктор формы

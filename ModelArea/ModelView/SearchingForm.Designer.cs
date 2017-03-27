@@ -40,7 +40,6 @@
             this.AreaLengthLabel = new System.Windows.Forms.Label();
             this.AreaLengthTextBox = new System.Windows.Forms.TextBox();
             this.OKButton = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.FigureSearchGroupBox.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -159,7 +158,7 @@
             // AreaLengthLabel
             // 
             this.AreaLengthLabel.AutoSize = true;
-            this.AreaLengthLabel.Location = new System.Drawing.Point(154, 111);
+            this.AreaLengthLabel.Location = new System.Drawing.Point(154, 124);
             this.AreaLengthLabel.Name = "AreaLengthLabel";
             this.AreaLengthLabel.Size = new System.Drawing.Size(54, 13);
             this.AreaLengthLabel.TabIndex = 2;
@@ -167,14 +166,14 @@
             // 
             // AreaLengthTextBox
             // 
-            this.AreaLengthTextBox.Location = new System.Drawing.Point(157, 130);
+            this.AreaLengthTextBox.Location = new System.Drawing.Point(157, 143);
             this.AreaLengthTextBox.Name = "AreaLengthTextBox";
             this.AreaLengthTextBox.Size = new System.Drawing.Size(100, 20);
             this.AreaLengthTextBox.TabIndex = 4;
             // 
             // OKButton
             // 
-            this.OKButton.Location = new System.Drawing.Point(12, 157);
+            this.OKButton.Location = new System.Drawing.Point(12, 172);
             this.OKButton.Name = "OKButton";
             this.OKButton.Size = new System.Drawing.Size(80, 23);
             this.OKButton.TabIndex = 6;
@@ -182,21 +181,11 @@
             this.OKButton.UseVisualStyleBackColor = true;
             this.OKButton.Click += new System.EventHandler(this.OKButton_Click);
             // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(12, 202);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(80, 23);
-            this.button2.TabIndex = 7;
-            this.button2.Text = "Cancel";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
             // SearchingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(322, 237);
-            this.Controls.Add(this.button2);
+            this.ClientSize = new System.Drawing.Size(322, 212);
             this.Controls.Add(this.OKButton);
             this.Controls.Add(this.AreaLengthTextBox);
             this.Controls.Add(this.AreaLengthLabel);
@@ -227,6 +216,5 @@
         private System.Windows.Forms.TextBox AreaLengthTextBox;
         private System.Windows.Forms.RadioButton AnyParamRadioButton;
         private System.Windows.Forms.Button OKButton;
-        private System.Windows.Forms.Button button2;
     }
 }

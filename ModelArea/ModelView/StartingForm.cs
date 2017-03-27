@@ -129,10 +129,14 @@ namespace ModelView
 #endif
         }
 
+        /// <summary>
+        /// Кнопка Найти объекты
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void SearchingObjectsButton_Click(object sender, EventArgs e)
         {
-            SearchingForm searchFigures = new SearchingForm(_figures);
-            searchFigures.Owner = this;
+            var searchFigures = new SearchingForm(_figures) {Owner = this};
             searchFigures.ShowDialog();
             DataGridView.DataSource = null;
             DataGridView.DataSource = searchFigures.FigureList;
