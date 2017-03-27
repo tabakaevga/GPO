@@ -1,6 +1,5 @@
 ﻿#define DEVERSION
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Windows.Forms;
 using ModelArea;
@@ -24,11 +23,7 @@ namespace ModelView
 #endif
         }
 
-        public BindingList<IFigure> FigureList
-        {
-            get { return _figures; }
-            set { value = _figures; }
-        }
+        public BindingList<IFigure> FigureList => _figures;
 
         /// <summary>
         /// Кнопка "Добавить объект"
@@ -106,13 +101,13 @@ namespace ModelView
             var random = new Random();
             for (var i = 0; i < 10; i++)
             {
-                int option = random.Next(0, 3);
+                var option = random.Next(0, 3);
                 double sideB;
                 double sideA;
                 switch (option)
                 {
                     case 0:
-                        double radius = random.NextDouble()*random.Next(1,11);
+                        var radius = random.NextDouble()*random.Next(1,11);
                         _figures.Add(new Circle(radius ));
                         break;
                     case 1:
@@ -123,19 +118,24 @@ namespace ModelView
                     case 2:
                         sideA = random.NextDouble() * random.Next(1, 11);
                         sideB = random.NextDouble() * random.Next(1, 11);
-                        double sideC = sideA + sideB - 0.000001; 
+                        var sideC = sideA + sideB - 0.000001; 
                         _figures.Add(new Triangle(sideA, sideB, sideC));
                         break;
                 }
                     
             }
+            DataGridView.DataSource = null;
+            DataGridView.DataSource = _figures;
 #endif
         }
 
         private void SearchingObjectsButton_Click(object sender, EventArgs e)
         {
-            var searchFigures = new SearchingForm(_figures) { Owner = this };
+            SearchingForm searchFigures = new SearchingForm(_figures);
+            searchFigures.Owner = this;
             searchFigures.ShowDialog();
+            DataGridView.DataSource = null;
+            DataGridView.DataSource = searchFigures.FigureList;
         }
     }
     }
