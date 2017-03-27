@@ -1,5 +1,9 @@
-﻿using System.IO;
+﻿using System;
+using System.ComponentModel;
+using System.IO;
+using System.Linq;
 using System.Runtime.Serialization.Formatters.Binary;
+using ModelArea;
 
 namespace ModelView.Tools
 {
@@ -39,5 +43,25 @@ namespace ModelView.Tools
             }
             deserializeFile.Close();
         }
+
+        public static BindingList<IFigure> SearchInList_ByFigureType(ref BindingList<IFigure> list, FigureType figureType) =>
+            new BindingList<IFigure>(list.Where(figure => figure.FigureType == figureType).ToList());
+
+        public static BindingList<IFigure> SearchInList(ref BindingList<IFigure> list, int paramNumber, string paramValue)
+        {
+            switch (paramNumber)
+            {
+                case 0:
+                    return new BindingList<IFigure>(list.Where(figure => Math.Abs(figure.Area - Convert.ToDouble(paramValue)) < 0.01).ToList());
+                case 1:
+                    return new BindingList<IFigure>(list.Where(figure => Math.Abs(figure.Length - Convert.ToDouble(paramValue)) < 0.01).ToList());
+                default:
+                    return new BindingList<IFigure>();
+            }
+                
+        }
+
+
     }
 }
+

@@ -1,7 +1,6 @@
-﻿using System;
+﻿#define DEVERSION
+using System;
 using System.ComponentModel;
-using System.IO;
-using System.Runtime.Serialization;
 using System.Windows.Forms;
 using ModelArea;
 using ModelView.Tools;
@@ -18,8 +17,13 @@ namespace ModelView
         public StartingForm()
         {
             InitializeComponent();
-            dataGridView1.DataSource = _figures;
+            DataGridView.DataSource = _figures;
+#if DEVERSION
+            GenerateRandomButton.Visible = true;
+#endif
         }
+
+        public BindingList<IFigure> FigureList => _figures;
 
         /// <summary>
         /// Кнопка "Добавить объект"
@@ -31,8 +35,8 @@ namespace ModelView
             var addFigure = new AddingForm {Owner = this};
             addFigure.ShowDialog();
             _figures.Add(addFigure.Figure);
-            dataGridView1.DataSource = null;
-            dataGridView1.DataSource = _figures;
+            DataGridView.DataSource = null;
+            DataGridView.DataSource = _figures;
         }
 
         /// <summary>
@@ -42,9 +46,9 @@ namespace ModelView
         /// <param name="e"></param>
         private void RemoveObjectButton_Click(object sender, EventArgs e)
         {
-            foreach (DataGridViewRow row in dataGridView1.SelectedRows)
+            foreach (DataGridViewRow row in DataGridView.SelectedRows)
             {
-                dataGridView1.Rows.Remove(row); 
+                DataGridView.Rows.Remove(row); 
             }
         }
 
@@ -80,21 +84,62 @@ namespace ModelView
 
         private void openFileDialog_FileOk(object sender, CancelEventArgs e)
         {
-            try
-            {
-                string extension = Path.GetExtension(openFileDialog.FileName);
+            DataHandler.DeserializeBinary(openFileDialog.FileName, ref _figures);
+            DataGridView.DataSource = null;
+            DataGridView.DataSource = _figures;
+        }
 
-                DataHandler.DeserializeBinary(openFileDialog.FileName, ref _figures);
-                dataGridView1.DataSource = null;
-                dataGridView1.DataSource = _figures;
-            }
-            catch (SerializationException exception)
+
+        /// <summary>
+        /// Генерация случайных данных
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void GenerateRandomButton_Click(object sender, EventArgs e)
+        {
+#if DEVERSION
+            var random = new Random();
+            for (var i = 0; i < 10; i++)
             {
-                MessageBox.Show("Выберите файл с расширением .fg", "Ошибка формата",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
-                throw;
+                var option = random.Next(0, 3);
+                double sideB;
+                double sideA;
+                switch (option)
+                {
+                    case 0:
+                        var radius = random.NextDouble()*random.Next(1,11);
+                        _figures.Add(new Circle(radius ));
+                        break;
+                    case 1:
+                        sideA = random.NextDouble() * random.Next(1, 11);
+                        sideB = random.NextDouble() * random.Next(1, 11);
+                        _figures.Add(new Rectangle(sideA, sideB));
+                        break;
+                    case 2:
+                        sideA = random.NextDouble() * random.Next(1, 11);
+                        sideB = random.NextDouble() * random.Next(1, 11);
+                        var sideC = sideA + sideB - 0.000001; 
+                        _figures.Add(new Triangle(sideA, sideB, sideC));
+                        break;
+                }
+                    
             }
-            
+            DataGridView.DataSource = null;
+            DataGridView.DataSource = _figures;
+#endif
+        }
+
+        /// <summary>
+        /// Кнопка Найти объекты
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void SearchingObjectsButton_Click(object sender, EventArgs e)
+        {
+            var searchFigures = new SearchingForm(_figures) {Owner = this};
+            searchFigures.ShowDialog();
+            DataGridView.DataSource = null;
+            DataGridView.DataSource = searchFigures.FigureList;
         }
     }
-}
+    }

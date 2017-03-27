@@ -71,6 +71,12 @@
     <Compile Include="AddingForm.Designer.cs">
       <DependentUpon>AddingForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="SearchingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SearchingForm.Designer.cs">
+      <DependentUpon>SearchingForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Tools\DataHandler.cs" />
     <Compile Include="StartingForm.cs">
       <SubType>Form</SubType>
@@ -82,6 +88,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="AddingForm.resx">
       <DependentUpon>AddingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SearchingForm.resx">
+      <DependentUpon>SearchingForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="StartingForm.resx">
       <DependentUpon>StartingForm.cs</DependentUpon>

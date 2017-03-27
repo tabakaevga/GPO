@@ -28,171 +28,171 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.groupBox1.SuspendLayout();
+            this.SideATextBox = new System.Windows.Forms.TextBox();
+            this.SideBTextBox = new System.Windows.Forms.TextBox();
+            this.SideCTextBox = new System.Windows.Forms.TextBox();
+            this.RadiusTextBox = new System.Windows.Forms.TextBox();
+            this.AddFigureGroupBox = new System.Windows.Forms.GroupBox();
+            this.TriangleRadioButton = new System.Windows.Forms.RadioButton();
+            this.RectangleRadioButton = new System.Windows.Forms.RadioButton();
+            this.CircleRadioButton = new System.Windows.Forms.RadioButton();
+            this.SideALabel = new System.Windows.Forms.Label();
+            this.SideBLabel = new System.Windows.Forms.Label();
+            this.SideCLabel = new System.Windows.Forms.Label();
+            this.RadiusLabel = new System.Windows.Forms.Label();
+            this.OKButton = new System.Windows.Forms.Button();
+            this.AddFigureGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
-            // textBox1
+            // SideATextBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(167, 28);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 0;
-            this.textBox1.Visible = false;
+            this.SideATextBox.Location = new System.Drawing.Point(167, 28);
+            this.SideATextBox.Name = "SideATextBox";
+            this.SideATextBox.Size = new System.Drawing.Size(100, 20);
+            this.SideATextBox.TabIndex = 0;
+            this.SideATextBox.Visible = false;
             // 
-            // textBox2
+            // SideBTextBox
             // 
-            this.textBox2.Location = new System.Drawing.Point(167, 71);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 1;
-            this.textBox2.Visible = false;
+            this.SideBTextBox.Location = new System.Drawing.Point(167, 71);
+            this.SideBTextBox.Name = "SideBTextBox";
+            this.SideBTextBox.Size = new System.Drawing.Size(100, 20);
+            this.SideBTextBox.TabIndex = 1;
+            this.SideBTextBox.Visible = false;
             // 
-            // textBox3
+            // SideCTextBox
             // 
-            this.textBox3.Location = new System.Drawing.Point(167, 115);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 20);
-            this.textBox3.TabIndex = 2;
-            this.textBox3.Visible = false;
+            this.SideCTextBox.Location = new System.Drawing.Point(167, 115);
+            this.SideCTextBox.Name = "SideCTextBox";
+            this.SideCTextBox.Size = new System.Drawing.Size(100, 20);
+            this.SideCTextBox.TabIndex = 2;
+            this.SideCTextBox.Visible = false;
             // 
-            // textBox4
+            // RadiusTextBox
             // 
-            this.textBox4.Location = new System.Drawing.Point(167, 28);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 20);
-            this.textBox4.TabIndex = 3;
+            this.RadiusTextBox.Location = new System.Drawing.Point(167, 28);
+            this.RadiusTextBox.Name = "RadiusTextBox";
+            this.RadiusTextBox.Size = new System.Drawing.Size(100, 20);
+            this.RadiusTextBox.TabIndex = 3;
             // 
-            // groupBox1
+            // AddFigureGroupBox
             // 
-            this.groupBox1.Controls.Add(this.radioButton3);
-            this.groupBox1.Controls.Add(this.radioButton2);
-            this.groupBox1.Controls.Add(this.radioButton1);
-            this.groupBox1.Location = new System.Drawing.Point(12, 12);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(133, 100);
-            this.groupBox1.TabIndex = 4;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Фигуры";
+            this.AddFigureGroupBox.Controls.Add(this.TriangleRadioButton);
+            this.AddFigureGroupBox.Controls.Add(this.RectangleRadioButton);
+            this.AddFigureGroupBox.Controls.Add(this.CircleRadioButton);
+            this.AddFigureGroupBox.Location = new System.Drawing.Point(12, 12);
+            this.AddFigureGroupBox.Name = "AddFigureGroupBox";
+            this.AddFigureGroupBox.Size = new System.Drawing.Size(133, 100);
+            this.AddFigureGroupBox.TabIndex = 4;
+            this.AddFigureGroupBox.TabStop = false;
+            this.AddFigureGroupBox.Text = "Фигуры";
             // 
-            // radioButton3
+            // TriangleRadioButton
             // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.Location = new System.Drawing.Point(22, 66);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(90, 17);
-            this.radioButton3.TabIndex = 2;
-            this.radioButton3.Text = "Треугольник";
-            this.radioButton3.UseVisualStyleBackColor = true;
-            this.radioButton3.CheckedChanged += new System.EventHandler(this.RadioSelectTriangle_CheckedChanged);
+            this.TriangleRadioButton.AutoSize = true;
+            this.TriangleRadioButton.Location = new System.Drawing.Point(22, 66);
+            this.TriangleRadioButton.Name = "TriangleRadioButton";
+            this.TriangleRadioButton.Size = new System.Drawing.Size(90, 17);
+            this.TriangleRadioButton.TabIndex = 2;
+            this.TriangleRadioButton.Text = "Треугольник";
+            this.TriangleRadioButton.UseVisualStyleBackColor = true;
+            this.TriangleRadioButton.CheckedChanged += new System.EventHandler(this.RadioSelectTriangle_CheckedChanged);
             // 
-            // radioButton2
+            // RectangleRadioButton
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(22, 43);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(105, 17);
-            this.radioButton2.TabIndex = 1;
-            this.radioButton2.Text = "Прямоугольник";
-            this.radioButton2.UseVisualStyleBackColor = true;
-            this.radioButton2.CheckedChanged += new System.EventHandler(this.RadioSelectRectangle_CheckedChanged);
+            this.RectangleRadioButton.AutoSize = true;
+            this.RectangleRadioButton.Location = new System.Drawing.Point(22, 43);
+            this.RectangleRadioButton.Name = "RectangleRadioButton";
+            this.RectangleRadioButton.Size = new System.Drawing.Size(105, 17);
+            this.RectangleRadioButton.TabIndex = 1;
+            this.RectangleRadioButton.Text = "Прямоугольник";
+            this.RectangleRadioButton.UseVisualStyleBackColor = true;
+            this.RectangleRadioButton.CheckedChanged += new System.EventHandler(this.RadioSelectRectangle_CheckedChanged);
             // 
-            // radioButton1
+            // CircleRadioButton
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Checked = true;
-            this.radioButton1.Location = new System.Drawing.Point(22, 20);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(87, 17);
-            this.radioButton1.TabIndex = 0;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Окружность";
-            this.radioButton1.UseVisualStyleBackColor = true;
-            this.radioButton1.CheckedChanged += new System.EventHandler(this.RadioSelectCircle_CheckedChanged);
+            this.CircleRadioButton.AutoSize = true;
+            this.CircleRadioButton.Checked = true;
+            this.CircleRadioButton.Location = new System.Drawing.Point(22, 20);
+            this.CircleRadioButton.Name = "CircleRadioButton";
+            this.CircleRadioButton.Size = new System.Drawing.Size(87, 17);
+            this.CircleRadioButton.TabIndex = 0;
+            this.CircleRadioButton.TabStop = true;
+            this.CircleRadioButton.Text = "Окружность";
+            this.CircleRadioButton.UseVisualStyleBackColor = true;
+            this.CircleRadioButton.CheckedChanged += new System.EventHandler(this.RadioSelectCircle_CheckedChanged);
             // 
-            // label1
+            // SideALabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(164, 12);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(59, 13);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "Сторона А";
-            this.label1.Visible = false;
+            this.SideALabel.AutoSize = true;
+            this.SideALabel.Location = new System.Drawing.Point(164, 12);
+            this.SideALabel.Name = "SideALabel";
+            this.SideALabel.Size = new System.Drawing.Size(59, 13);
+            this.SideALabel.TabIndex = 5;
+            this.SideALabel.Text = "Сторона А";
+            this.SideALabel.Visible = false;
             // 
-            // label2
+            // SideBLabel
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(164, 55);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(59, 13);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "Сторона В";
-            this.label2.Visible = false;
+            this.SideBLabel.AutoSize = true;
+            this.SideBLabel.Location = new System.Drawing.Point(164, 55);
+            this.SideBLabel.Name = "SideBLabel";
+            this.SideBLabel.Size = new System.Drawing.Size(59, 13);
+            this.SideBLabel.TabIndex = 6;
+            this.SideBLabel.Text = "Сторона В";
+            this.SideBLabel.Visible = false;
             // 
-            // label3
+            // SideCLabel
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(164, 99);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(59, 13);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "Сторона С";
-            this.label3.Visible = false;
+            this.SideCLabel.AutoSize = true;
+            this.SideCLabel.Location = new System.Drawing.Point(164, 99);
+            this.SideCLabel.Name = "SideCLabel";
+            this.SideCLabel.Size = new System.Drawing.Size(59, 13);
+            this.SideCLabel.TabIndex = 7;
+            this.SideCLabel.Text = "Сторона С";
+            this.SideCLabel.Visible = false;
             // 
-            // label4
+            // RadiusLabel
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(164, 12);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(43, 13);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "Радиус";
+            this.RadiusLabel.AutoSize = true;
+            this.RadiusLabel.Location = new System.Drawing.Point(164, 12);
+            this.RadiusLabel.Name = "RadiusLabel";
+            this.RadiusLabel.Size = new System.Drawing.Size(43, 13);
+            this.RadiusLabel.TabIndex = 8;
+            this.RadiusLabel.Text = "Радиус";
             // 
-            // button1
+            // OKButton
             // 
-            this.button1.Location = new System.Drawing.Point(12, 154);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 9;
-            this.button1.Text = "OK";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.OKbutton_Click);
+            this.OKButton.Location = new System.Drawing.Point(12, 154);
+            this.OKButton.Name = "OKButton";
+            this.OKButton.Size = new System.Drawing.Size(75, 23);
+            this.OKButton.TabIndex = 9;
+            this.OKButton.Text = "OK";
+            this.OKButton.UseVisualStyleBackColor = true;
+            this.OKButton.Click += new System.EventHandler(this.OKbutton_Click);
             // 
             // AddingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(309, 200);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.OKButton);
+            this.Controls.Add(this.RadiusLabel);
+            this.Controls.Add(this.SideCLabel);
+            this.Controls.Add(this.SideBLabel);
+            this.Controls.Add(this.SideALabel);
+            this.Controls.Add(this.AddFigureGroupBox);
+            this.Controls.Add(this.RadiusTextBox);
+            this.Controls.Add(this.SideCTextBox);
+            this.Controls.Add(this.SideBTextBox);
+            this.Controls.Add(this.SideATextBox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximumSize = new System.Drawing.Size(325, 239);
             this.MinimumSize = new System.Drawing.Size(325, 239);
             this.Name = "AddingForm";
             this.Text = "Добавление Фигуры";
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.AddFigureGroupBox.ResumeLayout(false);
+            this.AddFigureGroupBox.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -200,18 +200,18 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.RadioButton radioButton3;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox SideATextBox;
+        private System.Windows.Forms.TextBox SideBTextBox;
+        private System.Windows.Forms.TextBox SideCTextBox;
+        private System.Windows.Forms.TextBox RadiusTextBox;
+        private System.Windows.Forms.GroupBox AddFigureGroupBox;
+        private System.Windows.Forms.RadioButton TriangleRadioButton;
+        private System.Windows.Forms.RadioButton RectangleRadioButton;
+        private System.Windows.Forms.RadioButton CircleRadioButton;
+        private System.Windows.Forms.Label SideALabel;
+        private System.Windows.Forms.Label SideBLabel;
+        private System.Windows.Forms.Label SideCLabel;
+        private System.Windows.Forms.Label RadiusLabel;
+        private System.Windows.Forms.Button OKButton;
     }
 }

@@ -7,7 +7,7 @@ namespace ModelArea
     /// <summary>
     /// Треугольник.
     /// </summary>
-    [DataContract]
+    [Serializable]
     public class Triangle : IFigure
     {
         #region Private members
@@ -70,7 +70,7 @@ namespace ModelArea
         {
             get
             {
-                double p = Length * 0.5;
+                var p = Length * 0.5;
                 return Math.Pow(p * (p - _sideA) * (p - _sideB) * (p - _sideC), 0.5);
             }
 

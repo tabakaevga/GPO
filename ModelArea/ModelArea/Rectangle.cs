@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Runtime.Serialization;
-using System.Runtime.Serialization.Json;
 using ModelArea.Tools;
 
 namespace ModelArea
@@ -8,7 +7,7 @@ namespace ModelArea
     /// <summary>
     /// Прямоугольник
     /// </summary>
-    [DataContract]
+    [Serializable]
     public class Rectangle : IFigure
     {
         #region Private members
