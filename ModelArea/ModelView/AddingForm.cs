@@ -90,47 +90,54 @@ namespace ModelView
         {
             try
             {
-                //TODO: Плохая практика использовать одни и теже переменные для различных случаев, лучше создать из заново
-                double sideB;
-                double sideA;
                 switch (_figureType)
                 {
                     case FigureType.Circle:
                         _figure = new Circle(Convert.ToDouble(RadiusTextBox.Text));
                         break;
                     case FigureType.Triangle:
-                        sideA = Convert.ToDouble(SideATextBox.Text);
-                        sideB = Convert.ToDouble(SideBTextBox.Text);
+                        double sideA = Convert.ToDouble(SideATextBox.Text);
+                        double sideB = Convert.ToDouble(SideBTextBox.Text);
                         double sideC = Convert.ToDouble(SideCTextBox.Text);
                         _figure = new Triangle(sideA, sideB, sideC);
                         break;
                     case FigureType.Rectangle:
-                        sideA = Convert.ToDouble(SideATextBox.Text);
-                        sideB = Convert.ToDouble(SideBTextBox.Text);
-                        _figure = new Rectangle(sideA, sideB);
+                        double height = Convert.ToDouble(SideATextBox.Text);
+                        double width = Convert.ToDouble(SideBTextBox.Text);
+                        _figure = new Rectangle(height, width);
                         break;
                 }
                 Close();
             }
-            catch (Exception ex)
+            catch (ArgumentOutOfRangeException)
             {
-                //TODO: правильнее будет написать несколько Catch
-                if (ex is NotFiniteNumberException || ex is FormatException)
-                {
-                    MessageBox.Show(@"Введите вещественное число", @"Ошибка ввода",
-                        MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                if (ex is ArgumentOutOfRangeException)
-                {
-                    MessageBox.Show(@"Введите числа больше 0", @"Ошибка ввода",
-                        MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                if (ex is ArgumentException && (_figureType == FigureType.Triangle))
+                MessageBox.Show(@"Введите числа больше 0", @"Ошибка ввода",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (FormatException)
+            {
+                MessageBox.Show(@"Введите вещественное число", @"Ошибка ввода",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (NotFiniteNumberException)
+            {
+                MessageBox.Show(@"Введите вещественное число", @"Ошибка ввода",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (ArgumentException)
+            {
+                if (_figureType == FigureType.Triangle)
                 {
                     MessageBox.Show(@"Стороны треугольника должны соответстовать условию существования треугольника",
                         @"Ошибка ввода", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
+
+        private void AddingForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            _figure = null;
+        }
     }
 }
+

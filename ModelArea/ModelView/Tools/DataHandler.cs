@@ -7,12 +7,11 @@ using ModelArea;
 
 namespace ModelView.Tools
 {
-    //TODO: Правильнее такой класс сам сделать статическим
     /// <summary>
     /// Класс реализующий различные манипуляции с данными
     /// (сохранение в файл, загрузка из файла, поиск по списку)
     /// </summary>
-    public class DataHandler
+    public static class DataHandler
     {
         /// <summary>
         /// Сериализатор данных
@@ -45,21 +44,33 @@ namespace ModelView.Tools
             deserializeFile.Close();
         }
 
-        //TODO: XML комментарии
+        /// <summary>
+        /// Поиск в списке по типу фигуры
+        /// </summary>
+        /// <param name="list"> Список, в котором производится поиск</param>
+        /// <param name="figureType"> Тип искомой фигуры</param>
+        /// <returns></returns>
         public static BindingList<IFigure> SearchInList_ByFigureType(ref BindingList<IFigure> list, FigureType figureType) =>
             new BindingList<IFigure>(list.Where(figure => figure.FigureType == figureType).ToList());
-
-        //TODO: XML комментарии
+        
+        /// <summary>
+        /// Поиск в списке по параметрам класса
+        /// </summary>
+        /// <param name="list"></param>
+        /// <param name="paramNumber"> Номер параметра: 0 - площадь фигуры, 1 - Периметр фигуры </param>
+        /// <param name="paramValue"></param>
+        /// <returns></returns>
         public static BindingList<IFigure> SearchInList(ref BindingList<IFigure> list, int paramNumber, string paramValue)
         {
             switch (paramNumber)
             {
-                //TODO: Не очевидно, что это за операции paramNumber
+                
                 case 0:
-                    //TODO: Длинная строка
-                    return new BindingList<IFigure>(list.Where(figure => Math.Abs(figure.Area - Convert.ToDouble(paramValue)) < 0.01).ToList());
+                    return new BindingList<IFigure>(list.Where
+                        (figure => Math.Abs(figure.Area - Convert.ToDouble(paramValue)) < 0.01).ToList());
                 case 1:
-                    return new BindingList<IFigure>(list.Where(figure => Math.Abs(figure.Length - Convert.ToDouble(paramValue)) < 0.01).ToList());
+                    return new BindingList<IFigure>(list.Where
+                        (figure => Math.Abs(figure.Length - Convert.ToDouble(paramValue)) < 0.01).ToList());
                 default:
                     return new BindingList<IFigure>();
             }

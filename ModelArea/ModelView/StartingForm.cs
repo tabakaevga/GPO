@@ -1,5 +1,4 @@
-﻿#define DEVERSION
-using System;
+﻿using System;
 using System.ComponentModel;
 using System.Windows.Forms;
 using ModelArea;
@@ -8,7 +7,6 @@ using ModelView.Tools;
 namespace ModelView
 {
     //BUG: Можно добавить пустой объект, если нажать на крестик при выборе фигуры
-    //BUG: При переходе на Release не исчезает кнопка генерации случайных фигур
     //BUG: Пользовательский интерфейс должен оформляться в одном стиле: всё по-русски или всё по-английски
     public partial class StartingForm : Form
     {
@@ -21,7 +19,7 @@ namespace ModelView
         {
             InitializeComponent();
             DataGridView.DataSource = _figures;
-#if DEVERSION
+#if DEBUG
             GenerateRandomButton.Visible = true;
 #endif
         }
@@ -37,7 +35,10 @@ namespace ModelView
         {
             var addFigure = new AddingForm {Owner = this};
             addFigure.ShowDialog();
-            _figures.Add(addFigure.Figure);
+            if (addFigure.Figure != null)
+            {
+                _figures.Add(addFigure.Figure);
+            }
             DataGridView.DataSource = null;
             DataGridView.DataSource = _figures;
         }
@@ -100,7 +101,7 @@ namespace ModelView
         /// <param name="e"></param>
         private void GenerateRandomButton_Click(object sender, EventArgs e)
         {
-#if DEVERSION
+#if DEBUG
             var random = new Random();
             for (var i = 0; i < 10; i++)
             {

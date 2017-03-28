@@ -191,6 +191,7 @@
             this.MinimumSize = new System.Drawing.Size(325, 239);
             this.Name = "AddingForm";
             this.Text = "Добавление Фигуры";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AddingForm_FormClosing);
             this.AddFigureGroupBox.ResumeLayout(false);
             this.AddFigureGroupBox.PerformLayout();
             this.ResumeLayout(false);

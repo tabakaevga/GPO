@@ -12,8 +12,7 @@ namespace ModelView
         #region Private members
 
         private BindingList<IFigure> _figureList;
-        //TODO: Зачем оно?
-        private readonly BindingList<IFigure> _figureListInitial;
+        
         private FigureType _figureType;
 
         /// <summary>
@@ -21,15 +20,10 @@ namespace ModelView
         /// </summary>
         private void ParamSearchingRoutine()
         {
-            //TODO: Код переписывается проще, Resharper подскажет
-            if (LengthRadioButton.Checked)
-            {
-                _figureList = DataHandler.SearchInList(ref _figureList, 1, AreaLengthTextBox.Text);
-            }
-            else
-            {
-                _figureList = DataHandler.SearchInList(ref _figureList, 0, AreaLengthTextBox.Text);
-            }
+            //TODO: Код переписывается проще, Resharper подскажет 
+            //NOTE: посчитал выражение слишком длинным
+            _figureList = LengthRadioButton.Checked ? DataHandler.SearchInList(ref _figureList, 1, AreaLengthTextBox.Text)
+                : DataHandler.SearchInList(ref _figureList, 0, AreaLengthTextBox.Text);
         }
 
         #endregion
@@ -46,7 +40,6 @@ namespace ModelView
         public SearchingForm(BindingList<IFigure> figureList )
         {
             _figureList = figureList;
-            _figureListInitial = figureList;
             InitializeComponent();
         }
 
@@ -158,22 +151,21 @@ namespace ModelView
                 }
                 Close();
             }
-            catch (Exception ex)
+            catch (FormatException)
             {
-                //TODO: правильнее будет написать несколько Catch
-                if (ex is NotFiniteNumberException || ex is FormatException)
-                {
-                    MessageBox.Show(@"Введите вещественное число", @"Ошибка ввода",
-                        MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                if (ex is ArgumentOutOfRangeException)
-                {
-                    MessageBox.Show(@"Введите числа больше 0", @"Ошибка ввода",
-                        MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                MessageBox.Show(@"Введите вещественное число", @"Ошибка ввода",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (NotFiniteNumberException)
+            {
+                MessageBox.Show(@"Введите вещественное число", @"Ошибка ввода",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                MessageBox.Show(@"Введите числа больше 0", @"Ошибка ввода",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
-        
     }
 }
