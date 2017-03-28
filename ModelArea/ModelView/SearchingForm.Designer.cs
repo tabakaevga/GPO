@@ -55,17 +55,17 @@
             this.FigureSearchGroupBox.Size = new System.Drawing.Size(108, 112);
             this.FigureSearchGroupBox.TabIndex = 0;
             this.FigureSearchGroupBox.TabStop = false;
-            this.FigureSearchGroupBox.Text = "Фигуры";
+            this.FigureSearchGroupBox.Text = "Figures";
             // 
             // AnyFigureRadioButton
             // 
             this.AnyFigureRadioButton.AutoSize = true;
             this.AnyFigureRadioButton.Location = new System.Drawing.Point(6, 88);
             this.AnyFigureRadioButton.Name = "AnyFigureRadioButton";
-            this.AnyFigureRadioButton.Size = new System.Drawing.Size(74, 17);
+            this.AnyFigureRadioButton.Size = new System.Drawing.Size(51, 17);
             this.AnyFigureRadioButton.TabIndex = 3;
             this.AnyFigureRadioButton.TabStop = true;
-            this.AnyFigureRadioButton.Text = "Не важно";
+            this.AnyFigureRadioButton.Text = "None";
             this.AnyFigureRadioButton.UseVisualStyleBackColor = true;
             this.AnyFigureRadioButton.CheckedChanged += new System.EventHandler(this.AnyFigureRadioButton_CheckedChanged);
             // 
@@ -74,10 +74,10 @@
             this.TriangleRadioButton.AutoSize = true;
             this.TriangleRadioButton.Location = new System.Drawing.Point(6, 65);
             this.TriangleRadioButton.Name = "TriangleRadioButton";
-            this.TriangleRadioButton.Size = new System.Drawing.Size(90, 17);
+            this.TriangleRadioButton.Size = new System.Drawing.Size(63, 17);
             this.TriangleRadioButton.TabIndex = 2;
             this.TriangleRadioButton.TabStop = true;
-            this.TriangleRadioButton.Text = "Треугольник";
+            this.TriangleRadioButton.Text = "Triangle";
             this.TriangleRadioButton.UseVisualStyleBackColor = true;
             this.TriangleRadioButton.CheckedChanged += new System.EventHandler(this.TriangleRadioButton_CheckedChanged);
             // 
@@ -86,10 +86,10 @@
             this.RectangleRadioButton.AutoSize = true;
             this.RectangleRadioButton.Location = new System.Drawing.Point(6, 42);
             this.RectangleRadioButton.Name = "RectangleRadioButton";
-            this.RectangleRadioButton.Size = new System.Drawing.Size(105, 17);
+            this.RectangleRadioButton.Size = new System.Drawing.Size(74, 17);
             this.RectangleRadioButton.TabIndex = 1;
             this.RectangleRadioButton.TabStop = true;
-            this.RectangleRadioButton.Text = "Прямоугольник";
+            this.RectangleRadioButton.Text = "Rectangle";
             this.RectangleRadioButton.UseVisualStyleBackColor = true;
             this.RectangleRadioButton.CheckedChanged += new System.EventHandler(this.RectangleRadioButton_CheckedChanged);
             // 
@@ -99,10 +99,10 @@
             this.CircleRadioButton.Checked = true;
             this.CircleRadioButton.Location = new System.Drawing.Point(6, 19);
             this.CircleRadioButton.Name = "CircleRadioButton";
-            this.CircleRadioButton.Size = new System.Drawing.Size(87, 17);
+            this.CircleRadioButton.Size = new System.Drawing.Size(51, 17);
             this.CircleRadioButton.TabIndex = 0;
             this.CircleRadioButton.TabStop = true;
-            this.CircleRadioButton.Text = "Окружность";
+            this.CircleRadioButton.Text = "Circle";
             this.CircleRadioButton.UseVisualStyleBackColor = true;
             this.CircleRadioButton.CheckedChanged += new System.EventHandler(this.CircleRadioButton_CheckedChanged);
             // 
@@ -116,17 +116,17 @@
             this.groupBox1.Size = new System.Drawing.Size(124, 92);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Площадь/Периметр";
+            this.groupBox1.Text = "Area/Length";
             // 
             // AnyParamRadioButton
             // 
             this.AnyParamRadioButton.AutoSize = true;
             this.AnyParamRadioButton.Location = new System.Drawing.Point(6, 61);
             this.AnyParamRadioButton.Name = "AnyParamRadioButton";
-            this.AnyParamRadioButton.Size = new System.Drawing.Size(74, 17);
+            this.AnyParamRadioButton.Size = new System.Drawing.Size(51, 17);
             this.AnyParamRadioButton.TabIndex = 2;
             this.AnyParamRadioButton.TabStop = true;
-            this.AnyParamRadioButton.Text = "Не важно";
+            this.AnyParamRadioButton.Text = "None";
             this.AnyParamRadioButton.UseVisualStyleBackColor = true;
             this.AnyParamRadioButton.CheckedChanged += new System.EventHandler(this.AnyParamRadioButton_CheckedChanged);
             // 
@@ -135,10 +135,10 @@
             this.LengthRadioButton.AutoSize = true;
             this.LengthRadioButton.Location = new System.Drawing.Point(6, 38);
             this.LengthRadioButton.Name = "LengthRadioButton";
-            this.LengthRadioButton.Size = new System.Drawing.Size(76, 17);
+            this.LengthRadioButton.Size = new System.Drawing.Size(58, 17);
             this.LengthRadioButton.TabIndex = 1;
             this.LengthRadioButton.TabStop = true;
-            this.LengthRadioButton.Text = "Периметр";
+            this.LengthRadioButton.Text = "Length";
             this.LengthRadioButton.UseVisualStyleBackColor = true;
             this.LengthRadioButton.CheckedChanged += new System.EventHandler(this.LengthRadioButton_CheckedChanged);
             // 
@@ -148,10 +148,10 @@
             this.AreaRadioButton.Checked = true;
             this.AreaRadioButton.Location = new System.Drawing.Point(6, 19);
             this.AreaRadioButton.Name = "AreaRadioButton";
-            this.AreaRadioButton.Size = new System.Drawing.Size(72, 17);
+            this.AreaRadioButton.Size = new System.Drawing.Size(47, 17);
             this.AreaRadioButton.TabIndex = 0;
             this.AreaRadioButton.TabStop = true;
-            this.AreaRadioButton.Text = "Площадь";
+            this.AreaRadioButton.Text = "Area";
             this.AreaRadioButton.UseVisualStyleBackColor = true;
             this.AreaRadioButton.CheckedChanged += new System.EventHandler(this.AreaRadioButton_CheckedChanged);
             // 
@@ -160,9 +160,9 @@
             this.AreaLengthLabel.AutoSize = true;
             this.AreaLengthLabel.Location = new System.Drawing.Point(154, 124);
             this.AreaLengthLabel.Name = "AreaLengthLabel";
-            this.AreaLengthLabel.Size = new System.Drawing.Size(54, 13);
+            this.AreaLengthLabel.Size = new System.Drawing.Size(29, 13);
             this.AreaLengthLabel.TabIndex = 2;
-            this.AreaLengthLabel.Text = "Площадь";
+            this.AreaLengthLabel.Text = "Area";
             // 
             // AreaLengthTextBox
             // 
@@ -192,7 +192,7 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.FigureSearchGroupBox);
             this.Name = "SearchingForm";
-            this.Text = "Поиск фигуры";
+            this.Text = "Search Figure";
             this.FigureSearchGroupBox.ResumeLayout(false);
             this.FigureSearchGroupBox.PerformLayout();
             this.groupBox1.ResumeLayout(false);

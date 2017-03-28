@@ -111,7 +111,7 @@ namespace ModelView
             AnyFigureRadioButton.Enabled = true;
             AreaLengthLabel.Visible = true;
             AreaLengthTextBox.Visible = true;
-            AreaLengthLabel.Text = @"Периметр";
+            AreaLengthLabel.Text = @"Length";
         }
 
         /// <summary>
@@ -124,7 +124,7 @@ namespace ModelView
             AnyFigureRadioButton.Enabled = true;
             AreaLengthLabel.Visible = true;
             AreaLengthTextBox.Visible = true;
-            AreaLengthLabel.Text = @"Площадь";
+            AreaLengthLabel.Text = @"Area";
         }
 
         /// <summary>

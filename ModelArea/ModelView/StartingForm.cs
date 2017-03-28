@@ -6,7 +6,6 @@ using ModelView.Tools;
 
 namespace ModelView
 {
-    //BUG: Можно добавить пустой объект, если нажать на крестик при выборе фигуры
     //BUG: Пользовательский интерфейс должен оформляться в одном стиле: всё по-русски или всё по-английски
     public partial class StartingForm : Form
     {

@@ -49,19 +49,19 @@
             // 
             this.AddObjectButton.Location = new System.Drawing.Point(12, 213);
             this.AddObjectButton.Name = "AddObjectButton";
-            this.AddObjectButton.Size = new System.Drawing.Size(115, 33);
+            this.AddObjectButton.Size = new System.Drawing.Size(86, 33);
             this.AddObjectButton.TabIndex = 0;
-            this.AddObjectButton.Text = "Добавить Объект";
+            this.AddObjectButton.Text = "AddObject";
             this.AddObjectButton.UseVisualStyleBackColor = true;
             this.AddObjectButton.Click += new System.EventHandler(this.AddObjectButton_Click);
             // 
             // RemoveObjectButton
             // 
-            this.RemoveObjectButton.Location = new System.Drawing.Point(133, 213);
+            this.RemoveObjectButton.Location = new System.Drawing.Point(104, 213);
             this.RemoveObjectButton.Name = "RemoveObjectButton";
-            this.RemoveObjectButton.Size = new System.Drawing.Size(115, 33);
+            this.RemoveObjectButton.Size = new System.Drawing.Size(86, 33);
             this.RemoveObjectButton.TabIndex = 1;
-            this.RemoveObjectButton.Text = "Удалить объект";
+            this.RemoveObjectButton.Text = "Delete Objects";
             this.RemoveObjectButton.UseVisualStyleBackColor = true;
             this.RemoveObjectButton.Click += new System.EventHandler(this.RemoveObjectButton_Click);
             // 
@@ -73,7 +73,7 @@
             this.GroupBox.Size = new System.Drawing.Size(354, 167);
             this.GroupBox.TabIndex = 14;
             this.GroupBox.TabStop = false;
-            this.GroupBox.Text = "Фигуры:";
+            this.GroupBox.Text = "Figures:";
             // 
             // DataGridView
             // 
@@ -107,22 +107,22 @@
             this.OpenToolStripMenuItem});
             this.FileToolStripDropDownButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.FileToolStripDropDownButton.Name = "FileToolStripDropDownButton";
-            this.FileToolStripDropDownButton.Size = new System.Drawing.Size(49, 22);
+            this.FileToolStripDropDownButton.Size = new System.Drawing.Size(38, 22);
             this.FileToolStripDropDownButton.Tag = "";
-            this.FileToolStripDropDownButton.Text = "Файл";
+            this.FileToolStripDropDownButton.Text = "File";
             // 
             // SaveAsToolStripMenuItem
             // 
             this.SaveAsToolStripMenuItem.Name = "SaveAsToolStripMenuItem";
-            this.SaveAsToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
-            this.SaveAsToolStripMenuItem.Text = "Сохранить как...";
+            this.SaveAsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.SaveAsToolStripMenuItem.Text = "Save as..";
             this.SaveAsToolStripMenuItem.Click += new System.EventHandler(this.SaveAsToolStripMenuItem_Click);
             // 
             // OpenToolStripMenuItem
             // 
             this.OpenToolStripMenuItem.Name = "OpenToolStripMenuItem";
-            this.OpenToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
-            this.OpenToolStripMenuItem.Text = "Открыть";
+            this.OpenToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.OpenToolStripMenuItem.Text = "Open";
             this.OpenToolStripMenuItem.Click += new System.EventHandler(this.OpenFileToolStripMenuItem_Click);
             // 
             // openFileDialog
@@ -132,22 +132,22 @@
             // 
             // GenerateRandomButton
             // 
-            this.GenerateRandomButton.Location = new System.Drawing.Point(254, 201);
+            this.GenerateRandomButton.Location = new System.Drawing.Point(12, 252);
             this.GenerateRandomButton.Name = "GenerateRandomButton";
-            this.GenerateRandomButton.Size = new System.Drawing.Size(115, 57);
+            this.GenerateRandomButton.Size = new System.Drawing.Size(270, 33);
             this.GenerateRandomButton.TabIndex = 16;
-            this.GenerateRandomButton.Text = "Сгенерировать случайные данные";
+            this.GenerateRandomButton.Text = "Generate Random Data";
             this.GenerateRandomButton.UseVisualStyleBackColor = true;
             this.GenerateRandomButton.Visible = false;
             this.GenerateRandomButton.Click += new System.EventHandler(this.GenerateRandomButton_Click);
             // 
             // SearchingObjectsButton
             // 
-            this.SearchingObjectsButton.Location = new System.Drawing.Point(254, 264);
+            this.SearchingObjectsButton.Location = new System.Drawing.Point(196, 213);
             this.SearchingObjectsButton.Name = "SearchingObjectsButton";
-            this.SearchingObjectsButton.Size = new System.Drawing.Size(115, 33);
+            this.SearchingObjectsButton.Size = new System.Drawing.Size(86, 33);
             this.SearchingObjectsButton.TabIndex = 17;
-            this.SearchingObjectsButton.Text = "Найти объекты";
+            this.SearchingObjectsButton.Text = "Find Objects";
             this.SearchingObjectsButton.UseVisualStyleBackColor = true;
             this.SearchingObjectsButton.Click += new System.EventHandler(this.SearchingObjectsButton_Click);
             // 
@@ -164,7 +164,7 @@
             this.Controls.Add(this.AddObjectButton);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "StartingForm";
-            this.Text = "Расчет площадей";
+            this.Text = "Model View";
             this.GroupBox.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DataGridView)).EndInit();
             this.toolStrip.ResumeLayout(false);
