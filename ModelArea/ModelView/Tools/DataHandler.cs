@@ -7,6 +7,7 @@ using ModelArea;
 
 namespace ModelView.Tools
 {
+    //TODO: Правильнее такой класс сам сделать статическим
     /// <summary>
     /// Класс реализующий различные манипуляции с данными
     /// (сохранение в файл, загрузка из файла, поиск по списку)
@@ -44,14 +45,18 @@ namespace ModelView.Tools
             deserializeFile.Close();
         }
 
+        //TODO: XML комментарии
         public static BindingList<IFigure> SearchInList_ByFigureType(ref BindingList<IFigure> list, FigureType figureType) =>
             new BindingList<IFigure>(list.Where(figure => figure.FigureType == figureType).ToList());
 
+        //TODO: XML комментарии
         public static BindingList<IFigure> SearchInList(ref BindingList<IFigure> list, int paramNumber, string paramValue)
         {
             switch (paramNumber)
             {
+                //TODO: Не очевидно, что это за операции paramNumber
                 case 0:
+                    //TODO: Длинная строка
                     return new BindingList<IFigure>(list.Where(figure => Math.Abs(figure.Area - Convert.ToDouble(paramValue)) < 0.01).ToList());
                 case 1:
                     return new BindingList<IFigure>(list.Where(figure => Math.Abs(figure.Length - Convert.ToDouble(paramValue)) < 0.01).ToList());

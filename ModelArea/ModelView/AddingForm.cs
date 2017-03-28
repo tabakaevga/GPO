@@ -90,6 +90,7 @@ namespace ModelView
         {
             try
             {
+                //TODO: Плохая практика использовать одни и теже переменные для различных случаев, лучше создать из заново
                 double sideB;
                 double sideA;
                 switch (_figureType)
@@ -113,6 +114,7 @@ namespace ModelView
             }
             catch (Exception ex)
             {
+                //TODO: правильнее будет написать несколько Catch
                 if (ex is NotFiniteNumberException || ex is FormatException)
                 {
                     MessageBox.Show(@"Введите вещественное число", @"Ошибка ввода",

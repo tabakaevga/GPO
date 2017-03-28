@@ -12,6 +12,7 @@ namespace ModelView
         #region Private members
 
         private BindingList<IFigure> _figureList;
+        //TODO: Зачем оно?
         private readonly BindingList<IFigure> _figureListInitial;
         private FigureType _figureType;
 
@@ -20,6 +21,7 @@ namespace ModelView
         /// </summary>
         private void ParamSearchingRoutine()
         {
+            //TODO: Код переписывается проще, Resharper подскажет
             if (LengthRadioButton.Checked)
             {
                 _figureList = DataHandler.SearchInList(ref _figureList, 1, AreaLengthTextBox.Text);
@@ -158,6 +160,7 @@ namespace ModelView
             }
             catch (Exception ex)
             {
+                //TODO: правильнее будет написать несколько Catch
                 if (ex is NotFiniteNumberException || ex is FormatException)
                 {
                     MessageBox.Show(@"Введите вещественное число", @"Ошибка ввода",

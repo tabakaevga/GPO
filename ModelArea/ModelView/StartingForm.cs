@@ -7,6 +7,9 @@ using ModelView.Tools;
 
 namespace ModelView
 {
+    //BUG: Можно добавить пустой объект, если нажать на крестик при выборе фигуры
+    //BUG: При переходе на Release не исчезает кнопка генерации случайных фигур
+    //BUG: Пользовательский интерфейс должен оформляться в одном стиле: всё по-русски или всё по-английски
     public partial class StartingForm : Form
     {
         private BindingList<IFigure> _figures = new BindingList<IFigure>();
@@ -142,4 +145,4 @@ namespace ModelView
             DataGridView.DataSource = searchFigures.FigureList;
         }
     }
-    }
+}
