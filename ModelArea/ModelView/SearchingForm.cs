@@ -13,7 +13,7 @@ namespace ModelView
 
         private BindingList<IFigure> _figureList;
         
-        private FigureType _figureType;
+        private FigureType _figureType = FigureType.Circle;
 
         /// <summary>
         /// Метод, отбирающий поисковые методы
@@ -22,6 +22,7 @@ namespace ModelView
         {
             //TODO: Код переписывается проще, Resharper подскажет 
             //NOTE: посчитал выражение слишком длинным
+            CheckCorrectInput.CheckDouble(Convert.ToDouble(AreaLengthTextBox.Text));
             _figureList = LengthRadioButton.Checked ? DataHandler.SearchInList(ref _figureList, 1, AreaLengthTextBox.Text)
                 : DataHandler.SearchInList(ref _figureList, 0, AreaLengthTextBox.Text);
         }
@@ -29,7 +30,7 @@ namespace ModelView
         #endregion
 
         /// <summary>
-        /// Метод для передачи обработанного списка
+        /// Свойство для передачи обработанного списка
         /// </summary>
         public BindingList<IFigure> FigureList => _figureList;
 
@@ -136,7 +137,6 @@ namespace ModelView
         {
             try
             {
-                CheckCorrectInput.CheckDouble(Convert.ToDouble(AreaLengthTextBox.Text));
                 if (AnyFigureRadioButton.Checked)
                 {
                     ParamSearchingRoutine();
@@ -151,12 +151,13 @@ namespace ModelView
                 }
                 Close();
             }
-            catch (FormatException)
+
+            catch (NotFiniteNumberException)
             {
                 MessageBox.Show(@"Введите вещественное число", @"Ошибка ввода",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            catch (NotFiniteNumberException)
+            catch (FormatException)
             {
                 MessageBox.Show(@"Введите вещественное число", @"Ошибка ввода",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);

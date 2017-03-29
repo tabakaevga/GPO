@@ -57,7 +57,7 @@ namespace ModelView.Tools
         /// Поиск в списке по параметрам класса
         /// </summary>
         /// <param name="list"></param>
-        /// <param name="paramNumber"> Номер параметра: 0 - площадь фигуры, 1 - Периметр фигуры </param>
+        /// <param name="paramNumber"> Номер параметра: 0 -  Площадь фигуры, 1 - Периметр фигуры </param>
         /// <param name="paramValue"></param>
         /// <returns></returns>
         public static BindingList<IFigure> SearchInList(ref BindingList<IFigure> list, int paramNumber, string paramValue)
