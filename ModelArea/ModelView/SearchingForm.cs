@@ -22,9 +22,11 @@ namespace ModelView
         {
             //TODO: Код переписывается проще, Resharper подскажет 
             //NOTE: посчитал выражение слишком длинным
+            //NOTE: Решарпер длинно сделал - переписал ниже
             CheckCorrectInput.CheckDouble(Convert.ToDouble(AreaLengthTextBox.Text));
-            _figureList = LengthRadioButton.Checked ? DataHandler.SearchInList(ref _figureList, 1, AreaLengthTextBox.Text)
-                : DataHandler.SearchInList(ref _figureList, 0, AreaLengthTextBox.Text);
+            _figureList = DataHandler.SearchInList(ref _figureList, 
+                LengthRadioButton.Checked ? 1 : 0,
+                AreaLengthTextBox.Text);
         }
 
         #endregion
@@ -143,29 +145,27 @@ namespace ModelView
                 }
                 else
                 {
-                    _figureList = DataHandler.SearchInList_ByFigureType(ref _figureList, _figureType);
                     if (!AnyParamRadioButton.Checked)
                     {
                         ParamSearchingRoutine();
                     }
+                    _figureList = DataHandler.SearchInList_ByFigureType(ref _figureList, _figureType);
                 }
                 Close();
             }
 
-            catch (NotFiniteNumberException)
+            catch (NotFiniteNumberException exception)
             {
-                MessageBox.Show(@"Введите вещественное число", @"Ошибка ввода",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(exception.Message, @"Ошибка ввода", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             catch (FormatException)
             {
                 MessageBox.Show(@"Введите вещественное число", @"Ошибка ввода",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            catch (ArgumentOutOfRangeException)
+            catch (ArgumentOutOfRangeException exception)
             {
-                MessageBox.Show(@"Введите числа больше 0", @"Ошибка ввода",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(exception.Message, @"Ошибка ввода", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

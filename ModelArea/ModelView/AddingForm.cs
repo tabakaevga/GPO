@@ -27,58 +27,21 @@ namespace ModelView
         public IFigure Figure => _figure;
 
         /// <summary>
-        /// Радио-кнопка Окружность
+        /// Метод выбора фигуры
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void RadioSelectCircle_CheckedChanged(object sender, EventArgs e)
+        private void FiguresComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            SideATextBox.Visible = false;
-            SideBTextBox.Visible = false;
-            SideCTextBox.Visible = false;
-            RadiusTextBox.Visible = true;
-            SideALabel.Visible = false;
-            SideBLabel.Visible = false;
-            SideCLabel.Visible = false;
-            RadiusLabel.Visible = true;
-            _figureType = FigureType.Circle;
-        }
-
-        /// <summary>
-        /// Радио-кнопка Прямоугольник
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void RadioSelectRectangle_CheckedChanged(object sender, EventArgs e)
-        {
-            SideATextBox.Visible = true;
-            SideBTextBox.Visible = true;
-            SideCTextBox.Visible = false;
-            RadiusTextBox.Visible = false;
-            SideALabel.Visible = true;
-            SideBLabel.Visible = true;
-            SideCLabel.Visible = false;
-            RadiusLabel.Visible = false;
-            _figureType = FigureType.Rectangle;
-            
-        }
-
-        /// <summary>
-        /// Радио-кнопка Треугольник
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void RadioSelectTriangle_CheckedChanged(object sender, EventArgs e)
-        {
-            SideATextBox.Visible = true;
-            SideBTextBox.Visible = true;
-            SideCTextBox.Visible = true;
-            RadiusTextBox.Visible = false;
-            SideALabel.Visible = true;
-            SideBLabel.Visible = true;
-            SideCLabel.Visible = true;
-            RadiusLabel.Visible = false;
-            _figureType = FigureType.Triangle;
+            SideATextBox.Visible = FiguresComboBox.SelectedIndex == 1 || FiguresComboBox.SelectedIndex == 2;
+            SideBTextBox.Visible = FiguresComboBox.SelectedIndex == 1 || FiguresComboBox.SelectedIndex == 2;
+            SideCTextBox.Visible = FiguresComboBox.SelectedIndex == 1;
+            RadiusTextBox.Visible = FiguresComboBox.SelectedIndex == 0;
+            SideALabel.Visible = FiguresComboBox.SelectedIndex == 1 || FiguresComboBox.SelectedIndex == 2;
+            SideBLabel.Visible = FiguresComboBox.SelectedIndex == 1 || FiguresComboBox.SelectedIndex == 2;
+            SideCLabel.Visible = FiguresComboBox.SelectedIndex == 1;
+            RadiusLabel.Visible = FiguresComboBox.SelectedIndex == 0;
+            _figureType = (FigureType)FiguresComboBox.SelectedIndex;
         }
 
         /// <summary>
@@ -109,30 +72,29 @@ namespace ModelView
                 }
                 Close();
             }
-            catch (ArgumentOutOfRangeException)
+            catch (ArgumentOutOfRangeException exception)
             {
-                MessageBox.Show(@"Введите числа больше 0", @"Ошибка ввода",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(exception.Message, @"Ошибка ввода", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             catch (FormatException)
             {
                 MessageBox.Show(@"Введите вещественное число", @"Ошибка ввода",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            catch (NotFiniteNumberException)
+            catch (NotFiniteNumberException exception)
             {
-                MessageBox.Show(@"Введите вещественное число", @"Ошибка ввода",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(exception.Message, @"Ошибка ввода", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            catch (ArgumentException)
+            catch (ArgumentException exception)
             {
                 if (_figureType == FigureType.Triangle)
                 {
-                    MessageBox.Show(@"Стороны треугольника должны соответстовать условию существования треугольника",
-                        @"Ошибка ввода", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(exception.Message, @"Ошибка ввода", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
+
+        
     }
 }
 

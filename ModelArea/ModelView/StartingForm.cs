@@ -6,7 +6,6 @@ using ModelView.Tools;
 
 namespace ModelView
 {
-    //BUG: Пользовательский интерфейс должен оформляться в одном стиле: всё по-русски или всё по-английски
     public partial class StartingForm : Form
     {
         private BindingList<IFigure> _figures = new BindingList<IFigure>();
@@ -22,8 +21,6 @@ namespace ModelView
             GenerateRandomButton.Visible = true;
 #endif
         }
-
-        public BindingList<IFigure> FigureList => _figures;
 
         /// <summary>
         /// Кнопка "Добавить объект"
