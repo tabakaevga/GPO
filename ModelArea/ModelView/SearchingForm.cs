@@ -40,9 +40,6 @@ namespace ModelView
         /// <param name="figureList"> Список объектов Фигура </param>
         public SearchingForm(BindingList<IFigure> figureList )
         {
-            //BUG: Открыл форму, поочередно потыкал радиобаттоны из группы Ареа\ленс сверху вниз
-            //Потом так же потыкал радиобаттоны из группы фигуры, и загрыл форму.
-            //Данные в гридВью почему то изменились, хотя я не нажимал кнопку поиска
             _figureList = figureList;
             InitializeComponent();
         }
@@ -146,29 +143,27 @@ namespace ModelView
                 }
                 else
                 {
-                    _figureList = DataHandler.SearchInList_ByFigureType(ref _figureList, _figureType);
                     if (!AnyParamRadioButton.Checked)
                     {
                         ParamSearchingRoutine();
                     }
+                    _figureList = DataHandler.SearchInList_ByFigureType(ref _figureList, _figureType);
                 }
                 Close();
             }
 
-            catch (NotFiniteNumberException)
+            catch (NotFiniteNumberException exception)
             {
-                MessageBox.Show(@"Введите вещественное число", @"Ошибка ввода",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(exception.Message, @"Ошибка ввода", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             catch (FormatException)
             {
                 MessageBox.Show(@"Введите вещественное число", @"Ошибка ввода",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            catch (ArgumentOutOfRangeException)
+            catch (ArgumentOutOfRangeException exception)
             {
-                MessageBox.Show(@"Введите числа больше 0", @"Ошибка ввода",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(exception.Message, @"Ошибка ввода", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

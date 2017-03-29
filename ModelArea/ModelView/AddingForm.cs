@@ -18,8 +18,6 @@ namespace ModelView
         /// </summary>
         public AddingForm()
         {
-            //BUG: Создал рандомные данные, потом нажал добавить,
-            //Ввел радиус круга 11, нажал ОК, и не обнаружил в таблице круга с радиусом 11
             InitializeComponent();
         }
 
@@ -119,36 +117,26 @@ namespace ModelView
                 }
                 Close();
             }
-            catch (ArgumentOutOfRangeException)
+            catch (ArgumentOutOfRangeException exception)
             {
-                MessageBox.Show(@"Введите числа больше 0", @"Ошибка ввода",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(exception.Message, @"Ошибка ввода", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             catch (FormatException)
             {
                 MessageBox.Show(@"Введите вещественное число", @"Ошибка ввода",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            catch (NotFiniteNumberException)
+            catch (NotFiniteNumberException exception)
             {
-                MessageBox.Show(@"Введите вещественное число", @"Ошибка ввода",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(exception.Message, @"Ошибка ввода", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            catch (ArgumentException)
+            catch (ArgumentException exception)
             {
                 if (_figureType == FigureType.Triangle)
                 {
-                    //TODO: У тебя же в классе исключение выбрасывается с сообщением, 
-                    //почему бы не использовать exception.message 
-                    MessageBox.Show(@"Стороны треугольника должны соответстовать условию существования треугольника",
-                        @"Ошибка ввода", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(exception.Message, @"Ошибка ввода", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-        }
-
-        private void AddingForm_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            _figure = null;
         }
     }
 }

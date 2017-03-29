@@ -6,7 +6,6 @@ using ModelView.Tools;
 
 namespace ModelView
 {
-    //BUG: Пользовательский интерфейс должен оформляться в одном стиле: всё по-русски или всё по-английски
     public partial class StartingForm : Form
     {
         private BindingList<IFigure> _figures = new BindingList<IFigure>();
@@ -23,8 +22,6 @@ namespace ModelView
 #endif
         }
 
-        public BindingList<IFigure> FigureList => _figures;
-
         /// <summary>
         /// Кнопка "Добавить объект"
         /// </summary>
@@ -32,7 +29,6 @@ namespace ModelView
         /// <param name="e"></param>
         private void AddObjectButton_Click(object sender, EventArgs e)
         {
-            //BUG: Сразу после запуска программы не работает
             var addFigure = new AddingForm {Owner = this};
             addFigure.ShowDialog();
             if (addFigure.Figure != null)
