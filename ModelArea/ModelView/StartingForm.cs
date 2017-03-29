@@ -23,6 +23,7 @@ namespace ModelView
 #endif
         }
 
+        //TODO: Не разу не используется, зачем?
         public BindingList<IFigure> FigureList => _figures;
 
         /// <summary>
