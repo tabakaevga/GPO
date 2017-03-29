@@ -133,11 +133,6 @@ namespace ModelView
                 }
             }
         }
-
-        private void AddingForm_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            _figure = null;
-        }
     }
 }
 
