@@ -18,6 +18,8 @@ namespace ModelView
         /// </summary>
         public AddingForm()
         {
+            //BUG: Создал рандомные данные, потом нажал добавить,
+            //Ввел радиус круга 11, нажал ОК, и не обнаружил в таблице круга с радиусом 11
             InitializeComponent();
         }
 
@@ -70,6 +72,14 @@ namespace ModelView
         /// <param name="e"></param>
         private void RadioSelectTriangle_CheckedChanged(object sender, EventArgs e)
         {
+            /*
+             * Можно сделать комбоБокс с фигурами
+             * Что бы не писать 3 метода, которые у тебя скрывают контролы, можно
+             * написать один:
+             * При изменениии индекса комбо бокса:
+             * SideATextBox.Visible = sampleComboBox.SelectedIndex == 0;
+             * итд
+             */
             SideATextBox.Visible = true;
             SideBTextBox.Visible = true;
             SideCTextBox.Visible = true;
@@ -128,6 +138,8 @@ namespace ModelView
             {
                 if (_figureType == FigureType.Triangle)
                 {
+                    //TODO: У тебя же в классе исключение выбрасывается с сообщением, 
+                    //почему бы не использовать exception.message 
                     MessageBox.Show(@"Стороны треугольника должны соответстовать условию существования треугольника",
                         @"Ошибка ввода", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }

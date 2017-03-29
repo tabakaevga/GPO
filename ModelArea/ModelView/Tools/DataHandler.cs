@@ -13,6 +13,7 @@ namespace ModelView.Tools
     /// </summary>
     public static class DataHandler
     {
+        //TODO: Логичнее вынести сириализацию и десериализацию в отдельный класс 
         /// <summary>
         /// Сериализатор данных
         /// </summary>
@@ -41,6 +42,7 @@ namespace ModelView.Tools
             {
                 container = (T)formatter.Deserialize(deserializeFile);
             }
+            //BUG: Не предусмотрена возможность того, что файл может быть с ошибками.
             deserializeFile.Close();
         }
 
