@@ -40,6 +40,9 @@ namespace ModelView
         /// <param name="figureList"> Список объектов Фигура </param>
         public SearchingForm(BindingList<IFigure> figureList )
         {
+            //BUG: Открыл форму, поочередно потыкал радиобаттоны из группы Ареа\ленс сверху вниз
+            //Потом так же потыкал радиобаттоны из группы фигуры, и загрыл форму.
+            //Данные в гридВью почему то изменились, хотя я не нажимал кнопку поиска
             _figureList = figureList;
             InitializeComponent();
         }
