@@ -52,7 +52,7 @@
             this.AddObjectButton.Name = "AddObjectButton";
             this.AddObjectButton.Size = new System.Drawing.Size(86, 33);
             this.AddObjectButton.TabIndex = 0;
-            this.AddObjectButton.Text = "AddObject";
+            this.AddObjectButton.Text = "Add Object";
             this.AddObjectButton.UseVisualStyleBackColor = true;
             this.AddObjectButton.Click += new System.EventHandler(this.AddObjectButton_Click);
             // 
@@ -160,6 +160,7 @@
             this.ReturnListButton.TabIndex = 18;
             this.ReturnListButton.Text = "Return List";
             this.ReturnListButton.UseVisualStyleBackColor = true;
+            this.ReturnListButton.Visible = false;
             this.ReturnListButton.Click += new System.EventHandler(this.ReturnListButton_Click);
             // 
             // StartingForm

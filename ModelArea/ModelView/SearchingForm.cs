@@ -13,6 +13,7 @@ namespace ModelView
         #region Private members
         
         private BindingList<IFigure> _figureList;
+        private BindingList<IFigure> _figuresInitial;
         private FigureType _figureType = FigureType.Circle;
         private bool _mouseDown;
         private Point _lastLocation;
@@ -81,6 +82,7 @@ namespace ModelView
         /// <param name="figureList"> Список объектов Фигура </param>
         public SearchingForm(BindingList<IFigure> figureList )
         {
+            _figuresInitial = figureList;
             _figureList = figureList;
             InitializeComponent();
         }
@@ -215,7 +217,7 @@ namespace ModelView
         /// <param name="e"></param>
         private void CancelButton_Click(object sender, EventArgs e)
         {
-            _figureList = null;
+            _figureList = _figuresInitial;
             Close();
         }
         

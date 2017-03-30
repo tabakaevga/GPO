@@ -70,6 +70,7 @@ namespace ModelView
         public AddingForm()
         {
             InitializeComponent();
+            FiguresComboBox.SelectedIndex = 0;
         }
 
         /// <summary>
@@ -84,12 +85,20 @@ namespace ModelView
         /// <param name="e"></param>
         private void FiguresComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            SideATextBox.Visible = FiguresComboBox.SelectedIndex == 1 || FiguresComboBox.SelectedIndex == 2;
-            SideBTextBox.Visible = FiguresComboBox.SelectedIndex == 1 || FiguresComboBox.SelectedIndex == 2;
+            SideATextBox.Visible = 
+                FiguresComboBox.SelectedIndex == 1 
+                || FiguresComboBox.SelectedIndex == 2;
+            SideBTextBox.Visible = 
+                FiguresComboBox.SelectedIndex == 1 
+                || FiguresComboBox.SelectedIndex == 2;
             SideCTextBox.Visible = FiguresComboBox.SelectedIndex == 1;
             RadiusTextBox.Visible = FiguresComboBox.SelectedIndex == 0;
-            SideALabel.Visible = FiguresComboBox.SelectedIndex == 1 || FiguresComboBox.SelectedIndex == 2;
-            SideBLabel.Visible = FiguresComboBox.SelectedIndex == 1 || FiguresComboBox.SelectedIndex == 2;
+            SideALabel.Visible = 
+                FiguresComboBox.SelectedIndex == 1 
+                || FiguresComboBox.SelectedIndex == 2;
+            SideBLabel.Visible = 
+                FiguresComboBox.SelectedIndex == 1 
+                || FiguresComboBox.SelectedIndex == 2;
             SideCLabel.Visible = FiguresComboBox.SelectedIndex == 1;
             RadiusLabel.Visible = FiguresComboBox.SelectedIndex == 0;
             _figureType = (FigureType)FiguresComboBox.SelectedIndex;
@@ -144,6 +153,7 @@ namespace ModelView
                 }
             }
         }
+
         
     }
 }

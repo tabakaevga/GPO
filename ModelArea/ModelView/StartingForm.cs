@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
+using System.Linq;
 using System.Windows.Forms;
 using ModelArea;
 using ModelView.Tools;
@@ -9,7 +10,8 @@ namespace ModelView
     public partial class StartingForm : Form
     {
         private BindingList<IFigure> _figures = new BindingList<IFigure>();
-        private BindingList<IFigure> _figuresSearched = new BindingList<IFigure>();
+        private BindingList<IFigure> _figuresSearched;
+        
 
         /// <summary>
         /// Конструктор формы
@@ -18,10 +20,12 @@ namespace ModelView
         {
             InitializeComponent();
             DataGridView.DataSource = _figures;
+            _figuresSearched = null;
 #if DEBUG
             GenerateRandomButton.Visible = true;
 #endif
         }
+
 
         /// <summary>
         /// Кнопка "Добавить объект"
@@ -36,6 +40,7 @@ namespace ModelView
             {
                 _figures.Add(addFigure.Figure);
             }
+            
             DataGridView.DataSource = null;
             DataGridView.DataSource = _figures;
         }
@@ -49,6 +54,14 @@ namespace ModelView
         {
             foreach (DataGridViewRow row in DataGridView.SelectedRows)
             {
+                if (_figuresSearched.Any())
+                {
+                    if (DataGridView.CurrentRow != null)
+                    {
+                        var currentFigure = (IFigure) DataGridView.CurrentRow.DataBoundItem;
+                        _figures.Remove(currentFigure);
+                    }
+                }
                 DataGridView.Rows.Remove(row); 
             }
         }
@@ -90,11 +103,9 @@ namespace ModelView
         /// <param name="e"></param>
         private void openFileDialog_FileOk(object sender, CancelEventArgs e)
         {
-            
             DataHandler.DeserializeBinary(openFileDialog.FileName, ref _figures);
             DataGridView.DataSource = null;
             DataGridView.DataSource = _figures;
-            
         }
 
         /// <summary>
@@ -143,19 +154,16 @@ namespace ModelView
         /// <param name="e"></param>
         private void SearchingObjectsButton_Click(object sender, EventArgs e)
         {
-            var searchFigures = new SearchingForm(_figures) {Owner = this};
+            _figuresSearched = _figures;
+            var searchFigures = new SearchingForm(_figuresSearched) {Owner = this};
             searchFigures.ShowDialog();
-            if (searchFigures.FigureList != null)
+            if (_figuresSearched != searchFigures.FigureList)
             {
-                DataGridView.DataSource = searchFigures.FigureList;
-                _figuresSearched = searchFigures.FigureList;
+                ReturnListButton.Visible = true;
             }
-            else
-            {
-                DataGridView.DataSource = _figuresSearched;
-            }
-            
-
+            _figuresSearched = searchFigures.FigureList;
+            DataGridView.DataSource = null;
+            DataGridView.DataSource = _figuresSearched;
         }
 
         /// <summary>
@@ -167,6 +175,7 @@ namespace ModelView
         {
             DataGridView.DataSource = null;
             DataGridView.DataSource = _figures;
+            ReturnListButton.Visible = false;
         }
     }
 }
