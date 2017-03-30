@@ -40,6 +40,7 @@
             this.AreaLengthLabel = new System.Windows.Forms.Label();
             this.AreaLengthTextBox = new System.Windows.Forms.TextBox();
             this.OKButton = new System.Windows.Forms.Button();
+            this.CancelButton = new System.Windows.Forms.Button();
             this.FigureSearchGroupBox.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -181,18 +182,36 @@
             this.OKButton.UseVisualStyleBackColor = true;
             this.OKButton.Click += new System.EventHandler(this.OKButton_Click);
             // 
+            // CancelButton
+            // 
+            this.CancelButton.Location = new System.Drawing.Point(103, 172);
+            this.CancelButton.Name = "CancelButton";
+            this.CancelButton.Size = new System.Drawing.Size(80, 23);
+            this.CancelButton.TabIndex = 7;
+            this.CancelButton.Text = "Cancel";
+            this.CancelButton.UseVisualStyleBackColor = true;
+            this.CancelButton.Click += new System.EventHandler(this.CancelButton_Click);
+            // 
             // SearchingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(322, 212);
+            this.Controls.Add(this.CancelButton);
             this.Controls.Add(this.OKButton);
             this.Controls.Add(this.AreaLengthTextBox);
             this.Controls.Add(this.AreaLengthLabel);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.FigureSearchGroupBox);
+            this.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Location = new System.Drawing.Point(500, 200);
             this.Name = "SearchingForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Search Figure";
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.SearchingForm_MouseDown);
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.SearchingForm_MouseMove);
+            this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.SearchingForm_MouseUp);
             this.FigureSearchGroupBox.ResumeLayout(false);
             this.FigureSearchGroupBox.PerformLayout();
             this.groupBox1.ResumeLayout(false);
@@ -216,5 +235,6 @@
         private System.Windows.Forms.TextBox AreaLengthTextBox;
         private System.Windows.Forms.RadioButton AnyParamRadioButton;
         private System.Windows.Forms.Button OKButton;
+        private System.Windows.Forms.Button CancelButton;
     }
 }

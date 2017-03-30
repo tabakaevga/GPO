@@ -9,6 +9,7 @@ namespace ModelView
     public partial class StartingForm : Form
     {
         private BindingList<IFigure> _figures = new BindingList<IFigure>();
+        private BindingList<IFigure> _figuresSearched = new BindingList<IFigure>();
 
         /// <summary>
         /// Конструктор формы
@@ -73,7 +74,7 @@ namespace ModelView
         }
 
         /// <summary>
-        /// Событие Файл-диалога, открытие
+        /// Кнопка "Открыть"
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -82,6 +83,11 @@ namespace ModelView
             openFileDialog.ShowDialog();
         }
 
+        /// <summary>
+        /// Событие Файл-диалога, открытие
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void openFileDialog_FileOk(object sender, CancelEventArgs e)
         {
             
@@ -90,7 +96,6 @@ namespace ModelView
             DataGridView.DataSource = _figures;
             
         }
-
 
         /// <summary>
         /// Генерация случайных данных
@@ -140,8 +145,28 @@ namespace ModelView
         {
             var searchFigures = new SearchingForm(_figures) {Owner = this};
             searchFigures.ShowDialog();
+            if (searchFigures.FigureList != null)
+            {
+                DataGridView.DataSource = searchFigures.FigureList;
+                _figuresSearched = searchFigures.FigureList;
+            }
+            else
+            {
+                DataGridView.DataSource = _figuresSearched;
+            }
+            
+
+        }
+
+        /// <summary>
+        /// Кнопка возврата списка к начальному состоянию
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ReturnListButton_Click(object sender, EventArgs e)
+        {
             DataGridView.DataSource = null;
-            DataGridView.DataSource = searchFigures.FigureList;
+            DataGridView.DataSource = _figures;
         }
     }
 }

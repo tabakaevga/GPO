@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Drawing;
 using System.Windows.Forms;
 using ModelArea;
+using Rectangle = ModelArea.Rectangle;
 
 namespace ModelView
 {
@@ -10,8 +12,57 @@ namespace ModelView
 
         private IFigure _figure;
         private FigureType _figureType;
+        private bool _mouseDown;
+        private Point _lastLocation;
 
         #endregion
+
+        /// <summary>
+        /// Кнопка Отмена
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void CancelButton_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        /// <summary>
+        /// Зажатие кнопки
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void AddingForm_MouseDown(object sender, MouseEventArgs e)
+        {
+            _mouseDown = true;
+            _lastLocation = e.Location;
+        }
+
+        /// <summary>
+        /// Перемещение формы
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void AddingForm_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (_mouseDown)
+            {
+                this.Location = new Point(
+                    (this.Location.X - _lastLocation.X) + e.X, (this.Location.Y - _lastLocation.Y) + e.Y);
+
+                this.Update();
+            }
+        }
+
+        /// <summary>
+        /// Отжатие кнопки
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void AddingForm_MouseUp(object sender, MouseEventArgs e)
+        {
+            _mouseDown = false;
+        }
 
         /// <summary>
         /// Конструктор формы
@@ -93,7 +144,6 @@ namespace ModelView
                 }
             }
         }
-
         
     }
 }

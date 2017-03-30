@@ -40,7 +40,6 @@ namespace ModelView.Tools
         {
             try
             {
-
             var formatter = new BinaryFormatter();
             var deserializeFile = new FileStream(fileName, FileMode.OpenOrCreate);
             if (deserializeFile.Length > 0)
@@ -49,16 +48,13 @@ namespace ModelView.Tools
             }
             deserializeFile.Close();
             }
-            catch (Exception)
+            catch (OutOfMemoryException)
             {
-                MessageBox.Show(@"Выберите файл с корректным расширением.", @"Ошибка открытия.", MessageBoxButtons.OK,
+                MessageBox.Show(@"Выбранный файл поврежден.", @"Ошибка открытия.", MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
                 container = default(T);
             }
-    //BUG: Не предусмотрена возможность того, что файл может быть с ошибками.
-    //NOTE: SaveFileDialog дает возможность открывать только 
-
-}
+        }
 
         /// <summary>
         /// Поиск в списке по типу фигуры

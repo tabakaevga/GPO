@@ -38,6 +38,7 @@
             this.RadiusLabel = new System.Windows.Forms.Label();
             this.OKButton = new System.Windows.Forms.Button();
             this.FiguresComboBox = new System.Windows.Forms.ComboBox();
+            this.CancelButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // SideATextBox
@@ -136,11 +137,22 @@
             this.FiguresComboBox.Text = "Figures";
             this.FiguresComboBox.SelectedIndexChanged += new System.EventHandler(this.FiguresComboBox_SelectedIndexChanged);
             // 
+            // CancelButton
+            // 
+            this.CancelButton.Location = new System.Drawing.Point(103, 119);
+            this.CancelButton.Name = "CancelButton";
+            this.CancelButton.Size = new System.Drawing.Size(75, 23);
+            this.CancelButton.TabIndex = 11;
+            this.CancelButton.Text = "Cancel";
+            this.CancelButton.UseVisualStyleBackColor = true;
+            this.CancelButton.Click += new System.EventHandler(this.CancelButton_Click);
+            // 
             // AddingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(344, 171);
+            this.ClientSize = new System.Drawing.Size(344, 180);
+            this.Controls.Add(this.CancelButton);
             this.Controls.Add(this.FiguresComboBox);
             this.Controls.Add(this.OKButton);
             this.Controls.Add(this.RadiusLabel);
@@ -151,11 +163,14 @@
             this.Controls.Add(this.SideCTextBox);
             this.Controls.Add(this.SideBTextBox);
             this.Controls.Add(this.SideATextBox);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximumSize = new System.Drawing.Size(360, 239);
-            this.MinimumSize = new System.Drawing.Size(325, 210);
+            this.MinimumSize = new System.Drawing.Size(325, 180);
             this.Name = "AddingForm";
             this.Text = "Add Figure";
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.AddingForm_MouseDown);
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.AddingForm_MouseMove);
+            this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.AddingForm_MouseUp);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -173,5 +188,6 @@
         private System.Windows.Forms.Label RadiusLabel;
         private System.Windows.Forms.Button OKButton;
         private System.Windows.Forms.ComboBox FiguresComboBox;
+        private System.Windows.Forms.Button CancelButton;
     }
 }
