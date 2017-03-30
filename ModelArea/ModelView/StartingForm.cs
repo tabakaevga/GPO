@@ -84,9 +84,11 @@ namespace ModelView
 
         private void openFileDialog_FileOk(object sender, CancelEventArgs e)
         {
+            
             DataHandler.DeserializeBinary(openFileDialog.FileName, ref _figures);
             DataGridView.DataSource = null;
             DataGridView.DataSource = _figures;
+            
         }
 
 

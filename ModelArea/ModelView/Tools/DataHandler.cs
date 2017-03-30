@@ -3,6 +3,7 @@ using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Runtime.Serialization.Formatters.Binary;
+using System.Windows.Forms;
 using ModelArea;
 
 namespace ModelView.Tools
@@ -14,6 +15,7 @@ namespace ModelView.Tools
     public static class DataHandler
     {
         //TODO: Логичнее вынести сириализацию и десериализацию в отдельный класс 
+        //NOTE: Она и так в отдельном классе. Класс "Обработчик данных" же
         /// <summary>
         /// Сериализатор данных
         /// </summary>
@@ -36,15 +38,27 @@ namespace ModelView.Tools
         /// <param name="container"> Контейнер данных </param>
         public static void DeserializeBinary<T>(string fileName, ref T container)
         {
+            try
+            {
+
             var formatter = new BinaryFormatter();
             var deserializeFile = new FileStream(fileName, FileMode.OpenOrCreate);
             if (deserializeFile.Length > 0)
             {
                 container = (T)formatter.Deserialize(deserializeFile);
             }
-            //BUG: Не предусмотрена возможность того, что файл может быть с ошибками.
             deserializeFile.Close();
-        }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show(@"Выберите файл с корректным расширением.", @"Ошибка открытия.", MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+                container = default(T);
+            }
+    //BUG: Не предусмотрена возможность того, что файл может быть с ошибками.
+    //NOTE: SaveFileDialog дает возможность открывать только 
+
+}
 
         /// <summary>
         /// Поиск в списке по типу фигуры
