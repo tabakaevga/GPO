@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
+using System.Drawing;
 using System.Windows.Forms;
 using ModelArea;
 using ModelArea.Tools;
@@ -10,10 +11,12 @@ namespace ModelView
     public partial class SearchingForm : Form
     {
         #region Private members
-
-        private BindingList<IFigure> _figureList;
         
+        private BindingList<IFigure> _figureList;
+        private BindingList<IFigure> _figuresInitial;
         private FigureType _figureType = FigureType.Circle;
+        private bool _mouseDown;
+        private Point _lastLocation;
 
         /// <summary>
         /// Метод, отбирающий поисковые методы
@@ -32,6 +35,43 @@ namespace ModelView
         #endregion
 
         /// <summary>
+        /// Обработчик зажатой кнопки мыши
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void SearchingForm_MouseDown(object sender, MouseEventArgs e)
+        {
+            _mouseDown = true;
+            _lastLocation = e.Location;
+        }
+
+        /// <summary>
+        /// Перемещение формы
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void SearchingForm_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (_mouseDown)
+            {
+                this.Location = new Point(
+                    (this.Location.X - _lastLocation.X) + e.X, (this.Location.Y - _lastLocation.Y) + e.Y);
+
+                this.Update();
+            }
+        }
+
+        /// <summary>
+        /// Переработчик отжатой кнопки мыши
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void SearchingForm_MouseUp(object sender, MouseEventArgs e)
+        {
+            _mouseDown = false;
+        }
+
+        /// <summary>
         /// Свойство для передачи обработанного списка
         /// </summary>
         public BindingList<IFigure> FigureList => _figureList;
@@ -42,6 +82,7 @@ namespace ModelView
         /// <param name="figureList"> Список объектов Фигура </param>
         public SearchingForm(BindingList<IFigure> figureList )
         {
+            _figuresInitial = figureList;
             _figureList = figureList;
             InitializeComponent();
         }
@@ -168,5 +209,17 @@ namespace ModelView
                 MessageBox.Show(exception.Message, @"Ошибка ввода", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        /// <summary>
+        /// Кнопка Отмена
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void CancelButton_Click(object sender, EventArgs e)
+        {
+            _figureList = _figuresInitial;
+            Close();
+        }
+        
     }
 }

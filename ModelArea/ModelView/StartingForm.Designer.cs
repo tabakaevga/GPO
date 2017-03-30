@@ -40,6 +40,7 @@
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.GenerateRandomButton = new System.Windows.Forms.Button();
             this.SearchingObjectsButton = new System.Windows.Forms.Button();
+            this.ReturnListButton = new System.Windows.Forms.Button();
             this.GroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridView)).BeginInit();
             this.toolStrip.SuspendLayout();
@@ -51,7 +52,7 @@
             this.AddObjectButton.Name = "AddObjectButton";
             this.AddObjectButton.Size = new System.Drawing.Size(86, 33);
             this.AddObjectButton.TabIndex = 0;
-            this.AddObjectButton.Text = "AddObject";
+            this.AddObjectButton.Text = "Add Object";
             this.AddObjectButton.UseVisualStyleBackColor = true;
             this.AddObjectButton.Click += new System.EventHandler(this.AddObjectButton_Click);
             // 
@@ -114,14 +115,14 @@
             // SaveAsToolStripMenuItem
             // 
             this.SaveAsToolStripMenuItem.Name = "SaveAsToolStripMenuItem";
-            this.SaveAsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.SaveAsToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
             this.SaveAsToolStripMenuItem.Text = "Save as..";
             this.SaveAsToolStripMenuItem.Click += new System.EventHandler(this.SaveAsToolStripMenuItem_Click);
             // 
             // OpenToolStripMenuItem
             // 
             this.OpenToolStripMenuItem.Name = "OpenToolStripMenuItem";
-            this.OpenToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.OpenToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
             this.OpenToolStripMenuItem.Text = "Open";
             this.OpenToolStripMenuItem.Click += new System.EventHandler(this.OpenFileToolStripMenuItem_Click);
             // 
@@ -151,11 +152,23 @@
             this.SearchingObjectsButton.UseVisualStyleBackColor = true;
             this.SearchingObjectsButton.Click += new System.EventHandler(this.SearchingObjectsButton_Click);
             // 
+            // ReturnListButton
+            // 
+            this.ReturnListButton.Location = new System.Drawing.Point(288, 213);
+            this.ReturnListButton.Name = "ReturnListButton";
+            this.ReturnListButton.Size = new System.Drawing.Size(86, 33);
+            this.ReturnListButton.TabIndex = 18;
+            this.ReturnListButton.Text = "Return List";
+            this.ReturnListButton.UseVisualStyleBackColor = true;
+            this.ReturnListButton.Visible = false;
+            this.ReturnListButton.Click += new System.EventHandler(this.ReturnListButton_Click);
+            // 
             // StartingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(386, 320);
+            this.Controls.Add(this.ReturnListButton);
             this.Controls.Add(this.SearchingObjectsButton);
             this.Controls.Add(this.GenerateRandomButton);
             this.Controls.Add(this.toolStrip);
@@ -188,6 +201,7 @@
         private System.Windows.Forms.OpenFileDialog openFileDialog;
         private System.Windows.Forms.Button GenerateRandomButton;
         private System.Windows.Forms.Button SearchingObjectsButton;
+        private System.Windows.Forms.Button ReturnListButton;
     }
 }
 

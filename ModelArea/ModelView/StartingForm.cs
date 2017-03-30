@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
+using System.Linq;
 using System.Windows.Forms;
 using ModelArea;
 using ModelView.Tools;
@@ -9,6 +10,8 @@ namespace ModelView
     public partial class StartingForm : Form
     {
         private BindingList<IFigure> _figures = new BindingList<IFigure>();
+        private BindingList<IFigure> _figuresSearched;
+        
 
         /// <summary>
         /// Конструктор формы
@@ -17,10 +20,12 @@ namespace ModelView
         {
             InitializeComponent();
             DataGridView.DataSource = _figures;
+            _figuresSearched = null;
 #if DEBUG
             GenerateRandomButton.Visible = true;
 #endif
         }
+
 
         /// <summary>
         /// Кнопка "Добавить объект"
@@ -35,6 +40,7 @@ namespace ModelView
             {
                 _figures.Add(addFigure.Figure);
             }
+            
             DataGridView.DataSource = null;
             DataGridView.DataSource = _figures;
         }
@@ -48,6 +54,14 @@ namespace ModelView
         {
             foreach (DataGridViewRow row in DataGridView.SelectedRows)
             {
+                if (_figuresSearched.Any())
+                {
+                    if (DataGridView.CurrentRow != null)
+                    {
+                        var currentFigure = (IFigure) DataGridView.CurrentRow.DataBoundItem;
+                        _figures.Remove(currentFigure);
+                    }
+                }
                 DataGridView.Rows.Remove(row); 
             }
         }
@@ -73,7 +87,7 @@ namespace ModelView
         }
 
         /// <summary>
-        /// Событие Файл-диалога, открытие
+        /// Кнопка "Открыть"
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -82,13 +96,17 @@ namespace ModelView
             openFileDialog.ShowDialog();
         }
 
+        /// <summary>
+        /// Событие Файл-диалога, открытие
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void openFileDialog_FileOk(object sender, CancelEventArgs e)
         {
             DataHandler.DeserializeBinary(openFileDialog.FileName, ref _figures);
             DataGridView.DataSource = null;
             DataGridView.DataSource = _figures;
         }
-
 
         /// <summary>
         /// Генерация случайных данных
@@ -136,10 +154,28 @@ namespace ModelView
         /// <param name="e"></param>
         private void SearchingObjectsButton_Click(object sender, EventArgs e)
         {
-            var searchFigures = new SearchingForm(_figures) {Owner = this};
+            _figuresSearched = _figures;
+            var searchFigures = new SearchingForm(_figuresSearched) {Owner = this};
             searchFigures.ShowDialog();
+            if (_figuresSearched != searchFigures.FigureList)
+            {
+                ReturnListButton.Visible = true;
+            }
+            _figuresSearched = searchFigures.FigureList;
             DataGridView.DataSource = null;
-            DataGridView.DataSource = searchFigures.FigureList;
+            DataGridView.DataSource = _figuresSearched;
+        }
+
+        /// <summary>
+        /// Кнопка возврата списка к начальному состоянию
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ReturnListButton_Click(object sender, EventArgs e)
+        {
+            DataGridView.DataSource = null;
+            DataGridView.DataSource = _figures;
+            ReturnListButton.Visible = false;
         }
     }
 }
