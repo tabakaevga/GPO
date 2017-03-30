@@ -12,28 +12,27 @@ namespace ModelView
         #region Private members
 
         private BindingList<IFigure> _figureList;
-        private readonly BindingList<IFigure> _figureListInitial;
-        private FigureType _figureType;
+        
+        private FigureType _figureType = FigureType.Circle;
 
         /// <summary>
         /// Метод, отбирающий поисковые методы
         /// </summary>
         private void ParamSearchingRoutine()
         {
-            if (LengthRadioButton.Checked)
-            {
-                _figureList = DataHandler.SearchInList(ref _figureList, 1, AreaLengthTextBox.Text);
-            }
-            else
-            {
-                _figureList = DataHandler.SearchInList(ref _figureList, 0, AreaLengthTextBox.Text);
-            }
+            //TODO: Код переписывается проще, Resharper подскажет 
+            //NOTE: посчитал выражение слишком длинным
+            //NOTE: Решарпер длинно сделал - переписал ниже
+            CheckCorrectInput.CheckDouble(Convert.ToDouble(AreaLengthTextBox.Text));
+            _figureList = DataHandler.SearchInList(ref _figureList, 
+                LengthRadioButton.Checked ? 1 : 0,
+                AreaLengthTextBox.Text);
         }
 
         #endregion
 
         /// <summary>
-        /// Метод для передачи обработанного списка
+        /// Свойство для передачи обработанного списка
         /// </summary>
         public BindingList<IFigure> FigureList => _figureList;
 
@@ -44,7 +43,6 @@ namespace ModelView
         public SearchingForm(BindingList<IFigure> figureList )
         {
             _figureList = figureList;
-            _figureListInitial = figureList;
             InitializeComponent();
         }
 
@@ -116,7 +114,7 @@ namespace ModelView
             AnyFigureRadioButton.Enabled = true;
             AreaLengthLabel.Visible = true;
             AreaLengthTextBox.Visible = true;
-            AreaLengthLabel.Text = @"Периметр";
+            AreaLengthLabel.Text = @"Length";
         }
 
         /// <summary>
@@ -129,7 +127,7 @@ namespace ModelView
             AnyFigureRadioButton.Enabled = true;
             AreaLengthLabel.Visible = true;
             AreaLengthTextBox.Visible = true;
-            AreaLengthLabel.Text = @"Площадь";
+            AreaLengthLabel.Text = @"Area";
         }
 
         /// <summary>
@@ -141,36 +139,34 @@ namespace ModelView
         {
             try
             {
-                CheckCorrectInput.CheckDouble(Convert.ToDouble(AreaLengthTextBox.Text));
                 if (AnyFigureRadioButton.Checked)
                 {
                     ParamSearchingRoutine();
                 }
                 else
                 {
-                    _figureList = DataHandler.SearchInList_ByFigureType(ref _figureList, _figureType);
                     if (!AnyParamRadioButton.Checked)
                     {
                         ParamSearchingRoutine();
                     }
+                    _figureList = DataHandler.SearchInList_ByFigureType(ref _figureList, _figureType);
                 }
                 Close();
             }
-            catch (Exception ex)
+
+            catch (NotFiniteNumberException exception)
             {
-                if (ex is NotFiniteNumberException || ex is FormatException)
-                {
-                    MessageBox.Show(@"Введите вещественное число", @"Ошибка ввода",
-                        MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                if (ex is ArgumentOutOfRangeException)
-                {
-                    MessageBox.Show(@"Введите числа больше 0", @"Ошибка ввода",
-                        MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                MessageBox.Show(exception.Message, @"Ошибка ввода", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (FormatException)
+            {
+                MessageBox.Show(@"Введите вещественное число", @"Ошибка ввода",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (ArgumentOutOfRangeException exception)
+            {
+                MessageBox.Show(exception.Message, @"Ошибка ввода", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
-        
     }
 }
