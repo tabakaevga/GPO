@@ -1,31 +1,30 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using ModelArea;
 using NUnit.Framework;
-
 
 namespace UnitTests.Model
 {
     /// <summary>
-    /// Набор тестов для класса Circle
+    ///     Набор тестов для класса Circle
     /// </summary>
     [TestFixture]
-    class CircleTest
+    internal class CircleTest
     {
+        /// <summary>
+        ///     Набор тестовых случаев для свойства Area
+        /// </summary>
+        /// <param name="radius"> Радиус окружности</param>
         [Test]
-        [TestCase(5,  TestName = "Тестирование Area при радиусе = 5.")]
-        [TestCase(-1, ExpectedException = typeof(ArgumentOutOfRangeException), 
+        [TestCase(5, TestName = "Тестирование Area при радиусе = 5.")]
+        [TestCase(-1, ExpectedException = typeof(ArgumentOutOfRangeException),
             TestName = "Тестирование Area при радиусе = -1.")]
-        [TestCase("asdf", ExpectedException = typeof(ArgumentException), 
+        [TestCase("asdf", ExpectedException = typeof(ArgumentException),
             TestName = "Тестирование Area при радиусе не выраженном вещественным числом.")]
         [TestCase(double.NaN, ExpectedException = typeof(NotFiniteNumberException),
             TestName = "Тестирование Area при радиусе не являющимся числом")]
         [TestCase(double.PositiveInfinity, ExpectedException = typeof(NotFiniteNumberException),
             TestName = "Тестирование Area при радиусе, явлюящимся положительной бесконечностью")]
-        [TestCase(double.PositiveInfinity, ExpectedException = typeof(NotFiniteNumberException),
+        [TestCase(double.NegativeInfinity, ExpectedException = typeof(NotFiniteNumberException),
             TestName = "Тестирование Area при радиусе, явлюящимся отрицательной бесконечностью")]
         public void AreaTest(double radius)
         {
@@ -33,6 +32,10 @@ namespace UnitTests.Model
             Assert.AreEqual(Math.PI * Math.Pow(radius, 2), circle.Area);
         }
 
+        /// <summary>
+        ///     Набор тестовых случаев для свойства Length
+        /// </summary>
+        /// <param name="radius"> Радиус окружности</param>
         [Test]
         [TestCase(5, TestName = "Тестирование Length при радиусе = 5.")]
         [TestCase(-1, ExpectedException = typeof(ArgumentOutOfRangeException),
@@ -49,9 +52,6 @@ namespace UnitTests.Model
         {
             var circle = new Circle(radius);
             Assert.AreEqual(Math.PI * 2 * radius, circle.Length);
-
         }
-
-
     }
 }

@@ -49,7 +49,9 @@
   <ItemGroup>
     <Compile Include="Model\CheckCorrectInputTest.cs" />
     <Compile Include="Model\CircleTest.cs" />
-    <Compile Include="UnitTests.cs" />
+    <Compile Include="Model\FigureTypeTest.cs" />
+    <Compile Include="Model\RectangleTest.cs" />
+    <Compile Include="Model\TriangleTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
