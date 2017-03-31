@@ -6,6 +6,10 @@ namespace UnitTests.Model
     [TestFixture]
     internal class FigureTypeTest
     {
+        /// <summary>
+        /// Набор тестов для свойства FigureType
+        /// </summary>
+        /// <param name="figureType"> Тип фигуры</param>
         [Test]
         [TestCase(FigureType.Circle, TestName = "Тест объекта типа \u0022Окружность\u0022.")]
         [TestCase(FigureType.Rectangle, TestName = "Тест объекта типа \u0022Прямоугольник\u0022.")]
