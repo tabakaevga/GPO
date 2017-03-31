@@ -21,6 +21,8 @@ namespace UnitTests.Model
             TestName = "Тестирование Area при сторонах = 5 и -1.")]
         [TestCase(-5, 1, ExpectedException = typeof(ArgumentOutOfRangeException),
             TestName = "Тестирование Area при сторонах = -5 и 1.")]
+        [TestCase(-5, -1, ExpectedException = typeof(ArgumentOutOfRangeException),
+            TestName = "Тестирование Area при сторонах = -5 и -1.")]
         [TestCase(5, "asdf", ExpectedException = typeof(ArgumentException),
             TestName = "Тестирование Area при стороне не выраженной вещественным числом.")]
         [TestCase("asdf", 5, ExpectedException = typeof(ArgumentException),
@@ -63,7 +65,7 @@ namespace UnitTests.Model
         [TestCase(-5, 1, ExpectedException = typeof(ArgumentOutOfRangeException),
             TestName = "Тестирование Length при сторонах = -5 и 1.")]
         [TestCase(-5, -1, ExpectedException = typeof(ArgumentOutOfRangeException),
-            TestName = "Тестирование Length при сторонах = -5 и 1.")]
+            TestName = "Тестирование Length при сторонах = -5 и -1.")]
         [TestCase(5, "asdf", ExpectedException = typeof(ArgumentException),
             TestName = "Тестирование Length при стороне не выраженной вещественным числом.")]
         [TestCase("asdf", 5, ExpectedException = typeof(ArgumentException),

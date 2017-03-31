@@ -23,7 +23,7 @@ namespace UnitTests.Model
         [TestCase(double.NaN, ExpectedException = typeof(NotFiniteNumberException),
             TestName = "Тестирование Area при радиусе не являющимся числом")]
         [TestCase(double.PositiveInfinity, ExpectedException = typeof(NotFiniteNumberException),
-            TestName = "Тестирование Area при радиусе, явлюящимся положительной бесконечностью")]
+            TestName = "Тестирование Area при радиусе, являющимся положительной бесконечностью")]
         [TestCase(double.NegativeInfinity, ExpectedException = typeof(NotFiniteNumberException),
             TestName = "Тестирование Area при радиусе, явлюящимся отрицательной бесконечностью")]
         public void AreaTest(double radius)
@@ -45,9 +45,9 @@ namespace UnitTests.Model
         [TestCase(double.NaN, ExpectedException = typeof(NotFiniteNumberException),
             TestName = "Тестирование Length при радиусе не являющимся числом")]
         [TestCase(double.PositiveInfinity, ExpectedException = typeof(NotFiniteNumberException),
-            TestName = "Тестирование Length при радиусе, явлюящимся положительной бесконечностью")]
-        [TestCase(double.PositiveInfinity, ExpectedException = typeof(NotFiniteNumberException),
-            TestName = "Тестирование Area при радиусе, явлюящимся отрицательной бесконечностью")]
+            TestName = "Тестирование Length при радиусе, являющимся положительной бесконечностью")]
+        [TestCase(double.NegativeInfinity, ExpectedException = typeof(NotFiniteNumberException),
+            TestName = "Тестирование Length при радиусе, являющимся отрицательной бесконечностью")]
         public void LengthTest(double radius)
         {
             var circle = new Circle(radius);
