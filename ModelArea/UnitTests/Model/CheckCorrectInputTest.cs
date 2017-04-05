@@ -15,16 +15,16 @@ namespace UnitTests.Model
         /// <param name="input"> Входящие данные</param>
         [Test]
         [TestCase(-4, ExpectedException = typeof(ArgumentOutOfRangeException),
-            TestName = "Проверка корректности ввода отрицательного числа -4")]
+            TestName = "Проверка некорректности ввода отрицательного числа -4")]
         [TestCase(5, TestName = "Проверка ввода корректного числа 5")]
         [TestCase(double.NaN, ExpectedException = typeof(NotFiniteNumberException),
-            TestName = "Проверка ввода не являющегося числом")]
+            TestName = "Проверка ошибочного ввода не являющегося числом")]
         [TestCase(double.PositiveInfinity, ExpectedException = typeof(NotFiniteNumberException),
-            TestName = "Проверка ввода положительной бесконечностью")]
+            TestName = "Проверка ошибочного ввода положительной бесконечностью")]
         [TestCase(double.NegativeInfinity, ExpectedException = typeof(NotFiniteNumberException),
-            TestName = "Проверка ввода отрицательной бесконечностью")]
+            TestName = "Проверка ошибочного ввода отрицательной бесконечностью")]
         [TestCase("asdf", ExpectedException = typeof(ArgumentException),
-            TestName = "Проверка ввода не выраженном вещественным числом.")]
+            TestName = "Проверка ошибочного ввода не выраженного вещественным числом.")]
         public void CheckDoubleTest(double input)
         {
             CheckCorrectInput.CheckDouble(input);

@@ -18,35 +18,35 @@ namespace UnitTests.Model
         [Test]
         [TestCase(5, 2, TestName = "Тестирование Area при сторонах = 5 и 2.")]
         [TestCase(5, -1, ExpectedException = typeof(ArgumentOutOfRangeException),
-            TestName = "Тестирование Area при сторонах = 5 и -1.")]
+            TestName = "Тестирование Area при стороне = 5 и ошибочной стороне = -1.")]
         [TestCase(-5, 1, ExpectedException = typeof(ArgumentOutOfRangeException),
-            TestName = "Тестирование Area при сторонах = -5 и 1.")]
+            TestName = "Тестирование Area при ошибочной стороне = -5 и 1.")]
         [TestCase(-5, -1, ExpectedException = typeof(ArgumentOutOfRangeException),
-            TestName = "Тестирование Area при сторонах = -5 и -1.")]
+            TestName = "Тестирование Area при ошибочных сторонах = -5 и -1.")]
         [TestCase(5, "asdf", ExpectedException = typeof(ArgumentException),
-            TestName = "Тестирование Area при стороне не выраженной вещественным числом.")]
+            TestName = "Тестирование Area при ошибочной стороне не выраженной вещественным числом.")]
         [TestCase("asdf", 5, ExpectedException = typeof(ArgumentException),
-            TestName = "Тестирование Area при стороне не выраженной вещественным числом.")]
+            TestName = "Тестирование Area при ошибочной стороне не выраженной вещественным числом.")]
         [TestCase("asdf", "asdf", ExpectedException = typeof(ArgumentException),
-            TestName = "Тестирование Area при обеих сторонах не выраженных вещественным числом.")]
+            TestName = "Тестирование Area при обеих ошибочных сторонах не выраженных вещественным числом.")]
         [TestCase(double.NaN, 5, ExpectedException = typeof(NotFiniteNumberException),
-            TestName = "Тестирование Area при стороне не являющейся числом")]
+            TestName = "Тестирование Area при ошибочной стороне не являющейся числом")]
         [TestCase(5, double.NaN, ExpectedException = typeof(NotFiniteNumberException),
-            TestName = "Тестирование Area при стороне не являющейся числом")]
+            TestName = "Тестирование Area при ошибочной стороне не являющейся числом")]
         [TestCase(double.NaN, double.NaN, ExpectedException = typeof(NotFiniteNumberException),
-            TestName = "Тестирование Area при сторонах не являющихся числом")]
+            TestName = "Тестирование Area при ошибочных сторонах не являющихся числом")]
         [TestCase(double.PositiveInfinity, 5, ExpectedException = typeof(NotFiniteNumberException),
-            TestName = "Тестирование Area при стороне, являющейся положительной бесконечностью")]
+            TestName = "Тестирование Area при ошибочной стороне, являющейся положительной бесконечностью")]
         [TestCase(5, double.PositiveInfinity, ExpectedException = typeof(NotFiniteNumberException),
-            TestName = "Тестирование Area при стороне, являющейся положительной бесконечностью")]
+            TestName = "Тестирование Area при ошибочной стороне, являющейся положительной бесконечностью")]
         [TestCase(double.PositiveInfinity, double.PositiveInfinity, ExpectedException = typeof(NotFiniteNumberException),
-            TestName = "Тестирование Area при сторонах, являющихся положительной бесконечностью")]
+            TestName = "Тестирование Area при ошибочных сторонах, являющихся положительной бесконечностью")]
         [TestCase(double.NegativeInfinity, 5, ExpectedException = typeof(NotFiniteNumberException),
-            TestName = "Тестирование Area при стороне, являющейся отрицательной бесконечностью")]
+            TestName = "Тестирование Area при ошибочной стороне, являющейся отрицательной бесконечностью")]
         [TestCase(5, double.NegativeInfinity, ExpectedException = typeof(NotFiniteNumberException),
-            TestName = "Тестирование Area при стороне, являющейся отрицательной бесконечностью")]
+            TestName = "Тестирование Area при ошибочной стороне, являющейся отрицательной бесконечностью")]
         [TestCase(double.NegativeInfinity, double.NegativeInfinity, ExpectedException = typeof(NotFiniteNumberException),
-            TestName = "Тестирование Area при сторонах, являющихся отрицательной бесконечностью")]
+            TestName = "Тестирование Area при ошибочных сторонах, являющихся отрицательной бесконечностью")]
         public void AreaTest(double sideA, double sideB)
         {
             var rectangle = new Rectangle(sideA, sideB);
@@ -61,35 +61,35 @@ namespace UnitTests.Model
         [Test]
         [TestCase(5, 2, TestName = "Тестирование Length при сторонах = 5 и 2.")]
         [TestCase(5, -1, ExpectedException = typeof(ArgumentOutOfRangeException),
-            TestName = "Тестирование Length при сторонах = 5 и -1.")]
+            TestName = "Тестирование Length при стороне = 5 и ошибочной стороне = -1.")]
         [TestCase(-5, 1, ExpectedException = typeof(ArgumentOutOfRangeException),
-            TestName = "Тестирование Length при сторонах = -5 и 1.")]
+            TestName = "Тестирование Length при ошибочной стороне = -5 и 1.")]
         [TestCase(-5, -1, ExpectedException = typeof(ArgumentOutOfRangeException),
-            TestName = "Тестирование Length при сторонах = -5 и -1.")]
+            TestName = "Тестирование Length при ошибочных сторонах = -5 и -1.")]
         [TestCase(5, "asdf", ExpectedException = typeof(ArgumentException),
-            TestName = "Тестирование Length при стороне не выраженной вещественным числом.")]
+            TestName = "Тестирование Length при ошибочной стороне не выраженной вещественным числом.")]
         [TestCase("asdf", 5, ExpectedException = typeof(ArgumentException),
-            TestName = "Тестирование Length при стороне не выраженной вещественным числом.")]
+            TestName = "Тестирование Length при ошибочной стороне не выраженной вещественным числом.")]
         [TestCase("asdf", "asdf", ExpectedException = typeof(ArgumentException),
-            TestName = "Тестирование Length при обеих сторонах не выраженных вещественным числом.")]
+            TestName = "Тестирование Length при обеих ошибочных сторонах не выраженных вещественным числом.")]
         [TestCase(double.NaN, 5, ExpectedException = typeof(NotFiniteNumberException),
-            TestName = "Тестирование Length при стороне не являющейся числом")]
+            TestName = "Тестирование Length при ошибочной стороне не являющейся числом")]
         [TestCase(5, double.NaN, ExpectedException = typeof(NotFiniteNumberException),
-            TestName = "Тестирование Length при стороне не являющейся числом")]
+            TestName = "Тестирование Length при ошибочной стороне не являющейся числом")]
         [TestCase(double.NaN, double.NaN, ExpectedException = typeof(NotFiniteNumberException),
-            TestName = "Тестирование Length при сторонах не являющихся числом")]
+            TestName = "Тестирование Length при ошибочных сторонах не являющихся числом")]
         [TestCase(double.PositiveInfinity, 5, ExpectedException = typeof(NotFiniteNumberException),
-            TestName = "Тестирование Length при стороне, являющейся положительной бесконечностью")]
+            TestName = "Тестирование Length при ошибочной стороне, являющейся положительной бесконечностью")]
         [TestCase(5, double.PositiveInfinity, ExpectedException = typeof(NotFiniteNumberException),
-            TestName = "Тестирование Length при стороне, являющейся положительной бесконечностью")]
+            TestName = "Тестирование Length при ошибочной стороне, являющейся положительной бесконечностью")]
         [TestCase(double.PositiveInfinity, double.PositiveInfinity, ExpectedException = typeof(NotFiniteNumberException),
-            TestName = "Тестирование Length при сторонах, являющихся положительной бесконечностью")]
+            TestName = "Тестирование Length при ошибочных сторонах, являющихся положительной бесконечностью")]
         [TestCase(double.NegativeInfinity, 5, ExpectedException = typeof(NotFiniteNumberException),
-            TestName = "Тестирование Length при стороне, являющейся отрицательной бесконечностью")]
+            TestName = "Тестирование Length при ошибочной стороне, являющейся отрицательной бесконечностью")]
         [TestCase(5, double.NegativeInfinity, ExpectedException = typeof(NotFiniteNumberException),
-            TestName = "Тестирование Length при стороне, являющейся отрицательной бесконечностью")]
+            TestName = "Тестирование Length при ошибочной стороне, являющейся отрицательной бесконечностью")]
         [TestCase(double.NegativeInfinity, double.NegativeInfinity, ExpectedException = typeof(NotFiniteNumberException),
-            TestName = "Тестирование Length при сторонах, являющихся отрицательной бесконечностью")]
+            TestName = "Тестирование Length при ошибочных сторонах, являющихся отрицательной бесконечностью")]
         public void LengthTest(double sideA, double sideB)
         {
             var rectangle = new Rectangle(sideA, sideB);
