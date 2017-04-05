@@ -10,22 +10,22 @@ namespace UnitTests.Model
     [TestFixture]
     internal class CircleTest
     {
-        /// <summary> //TODO: Не стоит писать название свойства - оперируйте терминами предметной области (площадь, периметр и пр.)
-        ///     Набор тестовых случаев для свойства Area
+        /// <summary>
+        ///     Набор тестовых случаев для свойства Площадь
         /// </summary>
         /// <param name="radius"> Радиус окружности</param>
         [Test]
-        [TestCase(5, TestName = "Тестирование Area при радиусе = 5.")]
+        [TestCase(5, TestName = "Тестирование площади при радиусе = 5.")]
         [TestCase(-1, ExpectedException = typeof(ArgumentOutOfRangeException),
-            TestName = "Тестирование Area при ошибочном радиусе = -1.")]
+            TestName = "Тестирование площади при ошибочном радиусе = -1.")]
         [TestCase("asdf", ExpectedException = typeof(ArgumentException),
-            TestName = "Тестирование Area при ошибочном радиусе не выраженном вещественным числом.")]
+            TestName = "Тестирование площади при ошибочном радиусе не выраженном вещественным числом.")]
         [TestCase(double.NaN, ExpectedException = typeof(NotFiniteNumberException),
-            TestName = "Тестирование Area при ошибочном радиусе не являющимся числом")]
+            TestName = "Тестирование площади при ошибочном радиусе не являющимся числом")]
         [TestCase(double.PositiveInfinity, ExpectedException = typeof(NotFiniteNumberException),
-            TestName = "Тестирование Area при ошибочном радиусе, являющимся положительной бесконечностью")]
+            TestName = "Тестирование площади при ошибочном радиусе, являющимся положительной бесконечностью")]
         [TestCase(double.NegativeInfinity, ExpectedException = typeof(NotFiniteNumberException),
-            TestName = "Тестирование Area при ошибочном радиусе, являющимся отрицательной бесконечностью")]
+            TestName = "Тестирование площади при ошибочном радиусе, являющимся отрицательной бесконечностью")]
         public void AreaTest(double radius)
         {
             var circle = new Circle(radius);
@@ -33,20 +33,20 @@ namespace UnitTests.Model
         }
 
         /// <summary>
-        ///     Набор тестовых случаев для свойства Length
+        ///     Набор тестовых случаев для свойства Периметр
         /// </summary>
         /// <param name="radius"> Радиус окружности</param>
-        [TestCase(5, TestName = "Тестирование Length при радиусе = 5.")]
+        [TestCase(5, TestName = "Тестирование периметра при радиусе = 5.")]
         [TestCase(-1, ExpectedException = typeof(ArgumentOutOfRangeException),
-            TestName = "Тестирование Length при ошибочном радиусе = -1.")]
+            TestName = "Тестирование периметра при ошибочном радиусе = -1.")]
         [TestCase("asdf", ExpectedException = typeof(ArgumentException),
-            TestName = "Тестирование Length при ошибочном радиусе не выраженном вещественным числом.")]
+            TestName = "Тестирование периметра при ошибочном радиусе не выраженном вещественным числом.")]
         [TestCase(double.NaN, ExpectedException = typeof(NotFiniteNumberException),
-            TestName = "Тестирование Length при ошибочном радиусе не являющимся числом")]
+            TestName = "Тестирование периметра при ошибочном радиусе не являющимся числом")]
         [TestCase(double.PositiveInfinity, ExpectedException = typeof(NotFiniteNumberException),
-            TestName = "Тестирование Length при ошибочном радиусе, являющимся положительной бесконечностью")]
+            TestName = "Тестирование периметра при ошибочном радиусе, являющимся положительной бесконечностью")]
         [TestCase(double.NegativeInfinity, ExpectedException = typeof(NotFiniteNumberException),
-            TestName = "Тестирование Length при ошибочном радиусе, являющимсящимся отрицательной бесконечностью")]
+            TestName = "Тестирование периметра при ошибочном радиусе, являющимсящимся отрицательной бесконечностью")]
         public void LengthTest(double radius)
         {
             var circle = new Circle(radius);

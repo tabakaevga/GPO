@@ -13,7 +13,7 @@ namespace ModelView
         #region Private members
         
         private BindingList<IFigure> _figureList;
-        private BindingList<IFigure> _figuresInitial;
+        private readonly BindingList<IFigure> _figuresInitial;
         private FigureType _figureType = FigureType.Circle;
         private bool _mouseDown;
         private Point _lastLocation;
