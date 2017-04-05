@@ -10,7 +10,7 @@ namespace UnitTests.Model
     [TestFixture]
     internal class CircleTest
     {
-        /// <summary>
+        /// <summary> //TODO: Не стоит писать название свойства - оперируйте терминами предметной области (площадь, периметр и пр.)
         ///     Набор тестовых случаев для свойства Area
         /// </summary>
         /// <param name="radius"> Радиус окружности</param>

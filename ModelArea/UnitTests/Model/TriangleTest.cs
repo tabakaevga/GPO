@@ -19,6 +19,7 @@ namespace UnitTests.Model
         [Test]
         [TestCase(5, 2, 6, TestName = "Тестирование Area при сторонах = 5, 2, 6.")]
         [TestCase(5, 2, 2,
+            //TOOD: По идее должны тестироваться все три случая в условии на треугольник
             ExpectedException = typeof(ArgumentException), ExpectedMessage = "Такой треугольник существовать не может",
             TestName = "Тестирование Area при сторонах, при которых треугольник не существует")]
         [TestCase(5, -2, 6, ExpectedException = typeof(ArgumentOutOfRangeException),
