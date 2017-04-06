@@ -5,6 +5,7 @@ using System.Linq;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Windows.Forms;
 using ModelArea;
+using ModelArea.Tools;
 
 namespace ModelView.Tools
 {
@@ -74,6 +75,7 @@ namespace ModelView.Tools
         /// <returns></returns>
         public static BindingList<IFigure> SearchInList(ref BindingList<IFigure> list, int paramNumber, string paramValue)
         {
+            CheckCorrectInput.CheckDouble(Convert.ToDouble(paramValue));
             switch (paramNumber)
             {
                 

@@ -5,8 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 using ModelArea;
 
-namespace UnitTests
+namespace UnitTests.View
 {
+    /// <summary>
+    /// Перегрузка метода Compare
+    /// </summary>
     class FiguresComparer : Comparer<IFigure>
     {
         public override int Compare(IFigure x, IFigure y)
