@@ -1,22 +1,22 @@
 ﻿namespace ModelArea
 {
     /// <summary>
-    /// Интерфейс фигур
+    ///     Интерфейс фигур
     /// </summary>
     public interface IFigure
     {
         /// <summary>
-        /// Тип фигуры
+        ///     Тип фигуры
         /// </summary>
         FigureType FigureType { get; }
 
         /// <summary>
-        /// Вычисление площади
+        ///     Вычисление площади
         /// </summary>
         double Area { get; }
 
         /// <summary>
-        /// Вычисление длины/периметра
+        ///     Вычисление длины/периметра
         /// </summary>
         double Length { get; }
     }

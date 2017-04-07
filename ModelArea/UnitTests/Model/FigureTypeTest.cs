@@ -7,7 +7,7 @@ namespace UnitTests.Model
     internal class FigureTypeTest
     {
         /// <summary>
-        /// Набор тестов для свойства FigureType
+        ///     Набор тестов для свойства FigureType
         /// </summary>
         /// <param name="figureType"> Тип фигуры</param>
         [Test]

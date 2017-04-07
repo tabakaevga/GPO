@@ -10,32 +10,24 @@ namespace ModelView
 {
     public partial class SearchingForm : Form
     {
-        #region Private members
-        
-        private BindingList<IFigure> _figureList;
-        private readonly BindingList<IFigure> _figuresInitial;
-        private FigureType _figureType = FigureType.Circle;
-        private bool _mouseDown;
-        private Point _lastLocation;
-
         /// <summary>
-        /// Метод, отбирающий поисковые методы
+        ///     Конструктор формы SearchingForm
         /// </summary>
-        private void ParamSearchingRoutine()
+        /// <param name="figureList"> Список объектов Фигура </param>
+        public SearchingForm(BindingList<IFigure> figureList)
         {
-            //TODO: Код переписывается проще, Resharper подскажет 
-            //NOTE: посчитал выражение слишком длинным
-            //NOTE: Решарпер длинно сделал - переписал ниже
-            CheckCorrectInput.CheckDouble(Convert.ToDouble(AreaLengthTextBox.Text));
-            _figureList = DataHandler.SearchInList(ref _figureList, 
-                LengthRadioButton.Checked ? 1 : 0,
-                AreaLengthTextBox.Text);
+            _figuresInitial = figureList;
+            _figureList = figureList;
+            InitializeComponent();
         }
 
-        #endregion
+        /// <summary>
+        ///     Свойство для передачи обработанного списка
+        /// </summary>
+        public BindingList<IFigure> FigureList => _figureList;
 
         /// <summary>
-        /// Обработчик зажатой кнопки мыши
+        ///     Обработчик зажатой кнопки мыши
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -46,7 +38,7 @@ namespace ModelView
         }
 
         /// <summary>
-        /// Перемещение формы
+        ///     Перемещение формы
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -54,15 +46,15 @@ namespace ModelView
         {
             if (_mouseDown)
             {
-                this.Location = new Point(
-                    (this.Location.X - _lastLocation.X) + e.X, (this.Location.Y - _lastLocation.Y) + e.Y);
+                Location = new Point(
+                    Location.X - _lastLocation.X + e.X, Location.Y - _lastLocation.Y + e.Y);
 
-                this.Update();
+                Update();
             }
         }
 
         /// <summary>
-        /// Переработчик отжатой кнопки мыши
+        ///     Переработчик отжатой кнопки мыши
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -72,23 +64,7 @@ namespace ModelView
         }
 
         /// <summary>
-        /// Свойство для передачи обработанного списка
-        /// </summary>
-        public BindingList<IFigure> FigureList => _figureList;
-
-        /// <summary>
-        /// Конструктор формы SearchingForm
-        /// </summary>
-        /// <param name="figureList"> Список объектов Фигура </param>
-        public SearchingForm(BindingList<IFigure> figureList )
-        {
-            _figuresInitial = figureList;
-            _figureList = figureList;
-            InitializeComponent();
-        }
-
-        /// <summary>
-        /// Радио-кнопка Окружность
+        ///     Радио-кнопка Окружность
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -99,7 +75,7 @@ namespace ModelView
         }
 
         /// <summary>
-        /// Радио-кнопка Прямоугольник
+        ///     Радио-кнопка Прямоугольник
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -107,10 +83,10 @@ namespace ModelView
         {
             _figureType = FigureType.Rectangle;
             AnyParamRadioButton.Enabled = true;
-        }   
+        }
 
         /// <summary>
-        /// Радио-кнопка Треугольник
+        ///     Радио-кнопка Треугольник
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -121,7 +97,7 @@ namespace ModelView
         }
 
         /// <summary>
-        /// Радио-кнопка Любая фигура
+        ///     Радио-кнопка Любая фигура
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -132,7 +108,7 @@ namespace ModelView
         }
 
         /// <summary>
-        /// Радио-кнопка Любой параметр
+        ///     Радио-кнопка Любой параметр
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -142,11 +118,10 @@ namespace ModelView
             AnyFigureRadioButton.Checked = false;
             AreaLengthLabel.Visible = false;
             AreaLengthTextBox.Visible = false;
-
         }
 
         /// <summary>
-        /// Радио-кнопка Периметр
+        ///     Радио-кнопка Периметр
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -159,7 +134,7 @@ namespace ModelView
         }
 
         /// <summary>
-        /// Радио-кнопка Площадь
+        ///     Радио-кнопка Площадь
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -172,7 +147,7 @@ namespace ModelView
         }
 
         /// <summary>
-        /// Кнопка OK 
+        ///     Кнопка OK
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -187,9 +162,7 @@ namespace ModelView
                 else
                 {
                     if (!AnyParamRadioButton.Checked)
-                    {
                         ParamSearchingRoutine();
-                    }
                     _figureList = DataHandler.SearchInList_ByFigureType(ref _figureList, _figureType);
                 }
                 Close();
@@ -211,7 +184,7 @@ namespace ModelView
         }
 
         /// <summary>
-        /// Кнопка Отмена
+        ///     Кнопка Отмена
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -220,6 +193,29 @@ namespace ModelView
             _figureList = _figuresInitial;
             Close();
         }
-        
+
+        #region Private members
+
+        private BindingList<IFigure> _figureList;
+        private readonly BindingList<IFigure> _figuresInitial;
+        private FigureType _figureType = FigureType.Circle;
+        private bool _mouseDown;
+        private Point _lastLocation;
+
+        /// <summary>
+        ///     Метод, отбирающий поисковые методы
+        /// </summary>
+        private void ParamSearchingRoutine()
+        {
+            //TODO: Код переписывается проще, Resharper подскажет 
+            //NOTE: посчитал выражение слишком длинным
+            //NOTE: Решарпер длинно сделал - переписал ниже
+            CheckCorrectInput.CheckDouble(Convert.ToDouble(AreaLengthTextBox.Text));
+            _figureList = DataHandler.SearchInList(ref _figureList,
+                LengthRadioButton.Checked ? 1 : 0,
+                AreaLengthTextBox.Text);
+        }
+
+        #endregion
     }
 }

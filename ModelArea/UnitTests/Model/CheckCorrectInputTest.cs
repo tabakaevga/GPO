@@ -11,7 +11,7 @@ namespace UnitTests.Model
     internal class CheckCorrectInputTest
     {
         /// <summary>
-        /// Набор тестовых случаев для метода CheckDouble
+        ///     Набор тестовых случаев для метода CheckDouble
         /// </summary>
         /// <param name="input"> Входящие данные</param>
         [Test]

@@ -1,22 +1,22 @@
 ﻿namespace ModelArea
 {
     /// <summary>
-    /// Тип фигуры
+    ///     Тип фигуры
     /// </summary>
     public enum FigureType
     {
         /// <summary>
-        /// Окружность
+        ///     Окружность
         /// </summary>
         Circle = 0,
 
         /// <summary>
-        /// Треугольник
+        ///     Треугольник
         /// </summary>
         Triangle = 1,
 
         /// <summary>
-        /// Прямоугольник
+        ///     Прямоугольник
         /// </summary>
         Rectangle = 2
     }

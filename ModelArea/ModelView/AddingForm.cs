@@ -8,17 +8,22 @@ namespace ModelView
 {
     public partial class AddingForm : Form
     {
-        #region Private members
-
-        private IFigure _figure;
-        private FigureType _figureType;
-        private bool _mouseDown;
-        private Point _lastLocation;
-
-        #endregion
+        /// <summary>
+        ///     Конструктор формы
+        /// </summary>
+        public AddingForm()
+        {
+            InitializeComponent();
+            FiguresComboBox.SelectedIndex = 0;
+        }
 
         /// <summary>
-        /// Кнопка Отмена
+        ///     Свойство передачи данных фигуры
+        /// </summary>
+        public IFigure Figure { get; private set; }
+
+        /// <summary>
+        ///     Кнопка Отмена
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -28,7 +33,7 @@ namespace ModelView
         }
 
         /// <summary>
-        /// Зажатие кнопки
+        ///     Зажатие кнопки
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -39,7 +44,7 @@ namespace ModelView
         }
 
         /// <summary>
-        /// Перемещение формы
+        ///     Перемещение формы
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -47,15 +52,15 @@ namespace ModelView
         {
             if (_mouseDown)
             {
-                this.Location = new Point(
-                    (this.Location.X - _lastLocation.X) + e.X, (this.Location.Y - _lastLocation.Y) + e.Y);
+                Location = new Point(
+                    Location.X - _lastLocation.X + e.X, Location.Y - _lastLocation.Y + e.Y);
 
-                this.Update();
+                Update();
             }
         }
 
         /// <summary>
-        /// Отжатие кнопки
+        ///     Отжатие кнопки
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -65,47 +70,33 @@ namespace ModelView
         }
 
         /// <summary>
-        /// Конструктор формы
-        /// </summary>
-        public AddingForm()
-        {
-            InitializeComponent();
-            FiguresComboBox.SelectedIndex = 0;
-        }
-
-        /// <summary>
-        /// Свойство передачи данных фигуры
-        /// </summary>
-        public IFigure Figure => _figure;
-
-        /// <summary>
-        /// Метод выбора фигуры
+        ///     Метод выбора фигуры
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void FiguresComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            SideATextBox.Visible = 
-                FiguresComboBox.SelectedIndex == 1 
+            SideATextBox.Visible =
+                FiguresComboBox.SelectedIndex == 1
                 || FiguresComboBox.SelectedIndex == 2;
-            SideBTextBox.Visible = 
-                FiguresComboBox.SelectedIndex == 1 
+            SideBTextBox.Visible =
+                FiguresComboBox.SelectedIndex == 1
                 || FiguresComboBox.SelectedIndex == 2;
             SideCTextBox.Visible = FiguresComboBox.SelectedIndex == 1;
             RadiusTextBox.Visible = FiguresComboBox.SelectedIndex == 0;
-            SideALabel.Visible = 
-                FiguresComboBox.SelectedIndex == 1 
+            SideALabel.Visible =
+                FiguresComboBox.SelectedIndex == 1
                 || FiguresComboBox.SelectedIndex == 2;
-            SideBLabel.Visible = 
-                FiguresComboBox.SelectedIndex == 1 
+            SideBLabel.Visible =
+                FiguresComboBox.SelectedIndex == 1
                 || FiguresComboBox.SelectedIndex == 2;
             SideCLabel.Visible = FiguresComboBox.SelectedIndex == 1;
             RadiusLabel.Visible = FiguresComboBox.SelectedIndex == 0;
-            _figureType = (FigureType)FiguresComboBox.SelectedIndex;
+            _figureType = (FigureType) FiguresComboBox.SelectedIndex;
         }
 
         /// <summary>
-        /// Кнопка ОК
+        ///     Кнопка ОК
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -116,18 +107,18 @@ namespace ModelView
                 switch (_figureType)
                 {
                     case FigureType.Circle:
-                        _figure = new Circle(Convert.ToDouble(RadiusTextBox.Text));
+                        Figure = new Circle(Convert.ToDouble(RadiusTextBox.Text));
                         break;
                     case FigureType.Triangle:
-                        double sideA = Convert.ToDouble(SideATextBox.Text);
-                        double sideB = Convert.ToDouble(SideBTextBox.Text);
-                        double sideC = Convert.ToDouble(SideCTextBox.Text);
-                        _figure = new Triangle(sideA, sideB, sideC);
+                        var sideA = Convert.ToDouble(SideATextBox.Text);
+                        var sideB = Convert.ToDouble(SideBTextBox.Text);
+                        var sideC = Convert.ToDouble(SideCTextBox.Text);
+                        Figure = new Triangle(sideA, sideB, sideC);
                         break;
                     case FigureType.Rectangle:
-                        double height = Convert.ToDouble(SideATextBox.Text);
-                        double width = Convert.ToDouble(SideBTextBox.Text);
-                        _figure = new Rectangle(height, width);
+                        var height = Convert.ToDouble(SideATextBox.Text);
+                        var width = Convert.ToDouble(SideBTextBox.Text);
+                        Figure = new Rectangle(height, width);
                         break;
                 }
                 Close();
@@ -148,13 +139,16 @@ namespace ModelView
             catch (ArgumentException exception)
             {
                 if (_figureType == FigureType.Triangle)
-                {
                     MessageBox.Show(exception.Message, @"Ошибка ввода", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
             }
         }
 
-        
+        #region Private members
+
+        private FigureType _figureType;
+        private bool _mouseDown;
+        private Point _lastLocation;
+
+        #endregion
     }
 }
-

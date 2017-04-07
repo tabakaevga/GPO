@@ -5,20 +5,13 @@ using ModelArea.Tools;
 namespace ModelArea
 {
     /// <summary>
-    /// Прямоугольник
+    ///     Прямоугольник
     /// </summary>
     [Serializable]
     public class Rectangle : IFigure
     {
-        #region Private members
-
-        private readonly double _sideA;
-        private readonly double _sideB;
-
-        #endregion
-
         /// <summary>
-        /// Конструктор класса Rectangle
+        ///     Конструктор класса Rectangle
         /// </summary>
         /// <param name="sideA"> Сторона А (ширина) </param>
         /// <param name="sideB"> Сторона B (высота) </param>
@@ -29,25 +22,30 @@ namespace ModelArea
             _sideA = sideA;
             _sideB = sideB;
         }
-        
+
         /// <summary>
-        /// Тип фигуры
+        ///     Тип фигуры
         /// </summary>
         [DataMember]
         public FigureType FigureType => FigureType.Rectangle;
 
         /// <summary>
-        /// Свойство периметр прямоугольника
+        ///     Свойство периметр прямоугольника
         /// </summary>
         [DataMember]
         public double Length => (_sideA + _sideB) * 2;
 
         /// <summary>
-        /// Свойство площадь прямоугольника
+        ///     Свойство площадь прямоугольника
         /// </summary>
         [DataMember]
         public double Area => _sideA * _sideB;
-    }
 
-    
+        #region Private members
+
+        private readonly double _sideA;
+        private readonly double _sideB;
+
+        #endregion
+    }
 }

@@ -11,10 +11,10 @@ namespace ModelView
     {
         private BindingList<IFigure> _figures = new BindingList<IFigure>();
         private BindingList<IFigure> _figuresSearched;
-        
+
 
         /// <summary>
-        /// Конструктор формы
+        ///     Конструктор формы
         /// </summary>
         public StartingForm()
         {
@@ -28,7 +28,7 @@ namespace ModelView
 
 
         /// <summary>
-        /// Кнопка "Добавить объект"
+        ///     Кнопка "Добавить объект"
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -37,16 +37,14 @@ namespace ModelView
             var addFigure = new AddingForm {Owner = this};
             addFigure.ShowDialog();
             if (addFigure.Figure != null)
-            {
                 _figures.Add(addFigure.Figure);
-            }
-            
+
             DataGridView.DataSource = null;
             DataGridView.DataSource = _figures;
         }
 
         /// <summary>
-        /// Кнопка "Удалить объект"
+        ///     Кнопка "Удалить объект"
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -55,19 +53,17 @@ namespace ModelView
             foreach (DataGridViewRow row in DataGridView.SelectedRows)
             {
                 if (_figuresSearched.Any())
-                {
                     if (DataGridView.CurrentRow != null)
                     {
                         var currentFigure = (IFigure) DataGridView.CurrentRow.DataBoundItem;
                         _figures.Remove(currentFigure);
                     }
-                }
-                DataGridView.Rows.Remove(row); 
+                DataGridView.Rows.Remove(row);
             }
         }
 
         /// <summary>
-        /// Кнопка "Сохранить как"
+        ///     Кнопка "Сохранить как"
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -77,7 +73,7 @@ namespace ModelView
         }
 
         /// <summary>
-        /// Событие Файл-диалога, сохранение
+        ///     Событие Файл-диалога, сохранение
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -87,7 +83,7 @@ namespace ModelView
         }
 
         /// <summary>
-        /// Кнопка "Открыть"
+        ///     Кнопка "Открыть"
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -97,7 +93,7 @@ namespace ModelView
         }
 
         /// <summary>
-        /// Событие Файл-диалога, открытие
+        ///     Событие Файл-диалога, открытие
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -109,7 +105,7 @@ namespace ModelView
         }
 
         /// <summary>
-        /// Генерация случайных данных
+        ///     Генерация случайных данных
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -125,8 +121,8 @@ namespace ModelView
                 switch (option)
                 {
                     case 0:
-                        var radius = random.NextDouble()*random.Next(1,11);
-                        _figures.Add(new Circle(radius ));
+                        var radius = random.NextDouble() * random.Next(1, 11);
+                        _figures.Add(new Circle(radius));
                         break;
                     case 1:
                         sideA = random.NextDouble() * random.Next(1, 11);
@@ -136,11 +132,10 @@ namespace ModelView
                     case 2:
                         sideA = random.NextDouble() * random.Next(1, 11);
                         sideB = random.NextDouble() * random.Next(1, 11);
-                        var sideC = sideA + sideB - 0.000001; 
+                        var sideC = sideA + sideB - 0.000001;
                         _figures.Add(new Triangle(sideA, sideB, sideC));
                         break;
                 }
-                    
             }
             DataGridView.DataSource = null;
             DataGridView.DataSource = _figures;
@@ -148,7 +143,7 @@ namespace ModelView
         }
 
         /// <summary>
-        /// Кнопка Найти объекты
+        ///     Кнопка Найти объекты
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -158,16 +153,14 @@ namespace ModelView
             var searchFigures = new SearchingForm(_figuresSearched) {Owner = this};
             searchFigures.ShowDialog();
             if (_figuresSearched != searchFigures.FigureList)
-            {
                 ReturnListButton.Visible = true;
-            }
             _figuresSearched = searchFigures.FigureList;
             DataGridView.DataSource = null;
             DataGridView.DataSource = _figuresSearched;
         }
 
         /// <summary>
-        /// Кнопка возврата списка к начальному состоянию
+        ///     Кнопка возврата списка к начальному состоянию
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
