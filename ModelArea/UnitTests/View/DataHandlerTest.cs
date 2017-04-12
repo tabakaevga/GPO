@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
+using System.Reflection;
 using ModelArea;
 using ModelView.Tools;
 using NUnit.Framework;
@@ -20,12 +21,16 @@ namespace UnitTests.View
         [SetUp]
         public void SerializationSetup()
         {
-            for (var i = 0; i < 3; i++)
-                if (File.Exists(FileNames[i]))
-                    File.Delete(FileNames[i]);
+            foreach (KeyValuePair<string, string> entry in FileNames)
+            {
+                if (File.Exists(entry.Value))
+                {
+                    File.Delete(entry.Value);
+                }
+            }
             var listForFile = DictionaryOfLists["Standard list"];
-            DataHandler.SerializeBinary(FileNames[3], ref listForFile);
-            DataHandler.SerializeBinary(FileNames[4], ref listForFile);
+            DataHandler.SerializeBinary(FileNames["ExpectedResult"], ref listForFile);
+            DataHandler.SerializeBinary(FileNames["CorrectDeserializable"], ref listForFile);
         }
 
         /// <summary>
@@ -34,15 +39,17 @@ namespace UnitTests.View
         [TearDown]
         public void SerializationTearDown()
         {
-            for (var i = 0; i < 5; i++)
-                File.Delete(FileNames[i]);
+            foreach (KeyValuePair<string, string> entry in FileNames)
+            {
+                if (File.Exists(entry.Value))
+                {
+                    File.Delete(entry.Value);
+                }
+            }
         }
 
-        /// <summary>
-        ///     Директория файлов
-        /// </summary>
-        private const string FileDir = "C:\\Users\\Администратор\\Desktop\\GPO\\ModelArea\\UnitTests\\View\\";
-
+        private static readonly string FileDir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+        
         /// <summary>
         ///     Словарь списков объектов
         /// </summary>
@@ -105,15 +112,16 @@ namespace UnitTests.View
         /// <summary>
         ///     Наименования файлов
         /// </summary>
-        private static readonly string[] FileNames =
+        private static readonly Dictionary<string,string> FileNames = new Dictionary<string, string>
         {
-            FileDir + "CorrectSerializationResult.fg",
-            FileDir + "SerializationResultDifferentList.fg",
-            FileDir + "SerializationResultDifferentExtension.differ",
-            FileDir + "CorrectList.fg",
-            FileDir + "CorrectDeserializable.fg",
-            FileDir + "IncorrectDeserializable.fg"
+            {"CorrectSerialization", FileDir + "CorrectSerializationResult.fg"} ,
+            {"SerializationDifferentList", FileDir + "SerializationResultDifferentList.fg"},
+            {"DifferentExtension", FileDir + "SerializationResultDifferentExtension.differ"},
+            {"ExpectedResult", FileDir + "CorrectList.fg"} ,
+            {"CorrectDeserializable", FileDir + "CorrectDeserializable.fg"},
+            {"IncorrectDeserializable", FileDir + "IncorrectDeserializable.fg"} 
         };
+        
 
         /// <summary>
         /// Тестирование бинарного десериализатора
@@ -121,12 +129,12 @@ namespace UnitTests.View
         /// <param name="fileNameDeserialized"> Название десериализируемого файла</param>
         /// <param name="listExpectedKey"> Ключ ожидаемого списка</param>
         [Test]
-        [TestCase(FileDir + "CorrectDeserializable.fg", "Standard list", TestName = "Корректная десериализация файла.")]
+        [TestCase("CorrectDeserializable", "Standard list", TestName = "Корректная десериализация файла.")]
         public void BinaryDeserializerTest(string fileNameDeserialized, string listExpectedKey)
         {
             var listExpected = DictionaryOfLists[listExpectedKey];
             var listActual = new BindingList<IFigure>();
-            DataHandler.DeserializeBinary(fileNameDeserialized, ref listActual);
+            DataHandler.DeserializeBinary(FileNames[fileNameDeserialized], ref listActual);
             CollectionAssert.AreEqual(listExpected, listActual, new FiguresComparer());
         }
 
@@ -137,17 +145,17 @@ namespace UnitTests.View
         /// <param name="listKey"> Ключ сериализируемого списка </param>
         /// <param name="fileExpected"> Ожидаемый файл </param>
         [Test]
-        [TestCase(FileDir + "CorrectSerializationResult.fg", "Standard list", FileDir + "CorrectList.fg",
+        [TestCase("CorrectSerialization", "Standard list", "ExpectedResult",
             TestName = "Сериализация корректных данных")]
-        [TestCase(FileDir + "SerializationResultDifferentList.fg", "ExpectedListNo1", FileDir + "CorrectList.fg",
+        [TestCase("SerializationDifferentList", "ExpectedListNo1", "ExpectedResult",
             ExpectedException = typeof(AssertionException), TestName = "Сериализация списка, отличного от ожидаемого")]
-        [TestCase(FileDir + "SerializationResultDifferentExtension.differ", "Standard list", FileDir + "CorrectList.fg",
+        [TestCase("DifferentExtension", "Standard list", "ExpectedResult",
             TestName = "Сериализация списка в файл с другим расширением")]
         public void BinarySerializerTest(string fileNameSerialized, string listKey, string fileExpected)
         {
             var list = DictionaryOfLists[listKey];
-            DataHandler.SerializeBinary(fileNameSerialized, ref list);
-            FileAssert.AreEqual(fileExpected, fileNameSerialized);
+            DataHandler.SerializeBinary(FileNames[fileNameSerialized], ref list);
+            FileAssert.AreEqual(FileNames[fileExpected], FileNames[fileNameSerialized]);
         }
 
         /// <summary>
