@@ -22,10 +22,25 @@ namespace ModelArea
             CheckCorrectInput.CheckDouble(sideB);
             CheckCorrectInput.CheckDouble(sideC);
             CheckSides(sideA, sideB, sideC);
-            _sideA = sideA;
-            _sideB = sideB;
-            _sideC = sideC;
+            SideA = sideA;
+            SideB = sideB;
+            SideC = sideC;
         }
+
+        /// <summary>
+        ///     Сторона А
+        /// </summary>
+        public double SideA { get; }
+
+        /// <summary>
+        ///     Сторона B
+        /// </summary>
+        public double SideB { get; }
+
+        /// <summary>
+        ///     Сторона С
+        /// </summary>
+        public double SideC { get; }
 
         /// <summary>
         ///     Тип фигуры
@@ -37,7 +52,7 @@ namespace ModelArea
         ///     Свойство длина(периметр) треугольника.
         /// </summary>
         [DataMember]
-        public double Length => _sideA + _sideB + _sideC;
+        public double Length => SideA + SideB + SideC;
 
         /// <summary>
         ///     Свойство площадь окружности.
@@ -48,15 +63,11 @@ namespace ModelArea
             get
             {
                 var p = Length * 0.5;
-                return Math.Pow(p * (p - _sideA) * (p - _sideB) * (p - _sideC), 0.5);
+                return Math.Pow(p * (p - SideA) * (p - SideB) * (p - SideC), 0.5);
             }
         }
 
         #region Private members
-
-        private readonly double _sideA;
-        private readonly double _sideB;
-        private readonly double _sideC;
 
         /// <summary>
         ///     Проверка сторон треугольника на предмет существования данного треугольника

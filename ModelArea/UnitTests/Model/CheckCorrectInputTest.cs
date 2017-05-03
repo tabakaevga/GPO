@@ -4,7 +4,7 @@ using NUnit.Framework;
 
 namespace UnitTests.Model
 {
-    //TODO: Нужны ещё тесты для DataHandler
+    //TODO: Нужны ещё тесты для Serializer
     /// <summary>
     ///     Набор тестов класса CheckCorrectInput
     /// </summary>

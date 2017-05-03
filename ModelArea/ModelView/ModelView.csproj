@@ -47,12 +47,16 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>square-outline-512.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="ModelArea">
       <HintPath>..\ModelArea\bin\Debug\ModelArea.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Messaging" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -65,17 +69,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddingForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="AddingForm.Designer.cs">
-      <DependentUpon>AddingForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Controls\FigureControls\CircleControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Controls\FigureControls\CircleControl.Designer.cs">
       <DependentUpon>CircleControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\FigureControls\FigureControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\FigureControls\FigureControl.Designer.cs">
+      <DependentUpon>FigureControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\FigureControls\RectangleControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\FigureControls\RectangleControl.Designer.cs">
+      <DependentUpon>RectangleControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\FigureControls\TriangleControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\FigureControls\TriangleControl.Designer.cs">
+      <DependentUpon>TriangleControl.cs</DependentUpon>
     </Compile>
     <Compile Include="ModifyObject.cs">
       <SubType>Form</SubType>
@@ -89,17 +105,27 @@
     <Compile Include="SearchingForm.Designer.cs">
       <DependentUpon>SearchingForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Tools\DataHandler.cs" />
-    <Compile Include="StartingForm.cs">
+    <Compile Include="Tools\Serializer.cs" />
+    <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="StartingForm.Designer.cs">
-      <DependentUpon>StartingForm.cs</DependentUpon>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="AddingForm.resx">
-      <DependentUpon>AddingForm.cs</DependentUpon>
+    <Compile Include="Tools\Searcher.cs" />
+    <EmbeddedResource Include="Controls\FigureControls\CircleControl.resx">
+      <DependentUpon>CircleControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\FigureControls\FigureControl.resx">
+      <DependentUpon>FigureControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\FigureControls\RectangleControl.resx">
+      <DependentUpon>RectangleControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\FigureControls\TriangleControl.resx">
+      <DependentUpon>TriangleControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ModifyObject.resx">
       <DependentUpon>ModifyObject.cs</DependentUpon>
@@ -107,8 +133,8 @@
     <EmbeddedResource Include="SearchingForm.resx">
       <DependentUpon>SearchingForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="StartingForm.resx">
-      <DependentUpon>StartingForm.cs</DependentUpon>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -144,6 +170,9 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="square-outline-512.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

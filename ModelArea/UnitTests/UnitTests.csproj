@@ -55,9 +55,27 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="View\DataHandlerTest.cs" />
     <Compile Include="View\FiguresComparer.cs" />
+    <Compile Include="View\TestData\TestDataDictionaries.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <None Include="View\TestData\CorrectDeserializable.fg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="View\TestData\CorrectList.fg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="View\TestData\DamagedFile.fg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="View\TestData\EmptyFile.fg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="View\TestData\EmptyList.fg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />

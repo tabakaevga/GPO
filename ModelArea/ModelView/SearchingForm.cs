@@ -163,23 +163,24 @@ namespace ModelView
                 {
                     if (!AnyParamRadioButton.Checked)
                         ParamSearchingRoutine();
-                    _figureList = DataHandler.SearchInList_ByFigureType(ref _figureList, _figureType);
+                    _figureList = Searcher.SearchInList_ByFigureType(ref _figureList, _figureType);
                 }
                 Close();
             }
 
-            catch (NotFiniteNumberException exception)
+            catch (ArgumentOutOfRangeException)
             {
-                MessageBox.Show(exception.Message, @"Ошибка ввода", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(@"Value can't be less than 0", @"Input Error", MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
             }
             catch (FormatException)
             {
-                MessageBox.Show(@"Введите вещественное число", @"Ошибка ввода",
+                MessageBox.Show(@"Invalid input type (not real)/", @"Input Error",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            catch (ArgumentOutOfRangeException exception)
+            catch (NotFiniteNumberException)
             {
-                MessageBox.Show(exception.Message, @"Ошибка ввода", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(@"Value must be finite.", @"Input error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -211,7 +212,7 @@ namespace ModelView
             //NOTE: посчитал выражение слишком длинным
             //NOTE: Решарпер длинно сделал - переписал ниже
             CheckCorrectInput.CheckDouble(Convert.ToDouble(AreaLengthTextBox.Text));
-            _figureList = DataHandler.SearchInList(ref _figureList,
+            _figureList = Searcher.SearchInList(ref _figureList,
                 LengthRadioButton.Checked ? 1 : 0,
                 AreaLengthTextBox.Text);
         }

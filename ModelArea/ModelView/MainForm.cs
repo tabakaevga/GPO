@@ -7,7 +7,7 @@ using ModelView.Tools;
 
 namespace ModelView
 {
-    public partial class StartingForm : Form
+    public partial class MainForm : Form
     {
         private BindingList<IFigure> _figures = new BindingList<IFigure>();
         private BindingList<IFigure> _figuresSearched;
@@ -16,7 +16,7 @@ namespace ModelView
         /// <summary>
         ///     Конструктор формы
         /// </summary>
-        public StartingForm()
+        public MainForm()
         {
             InitializeComponent();
             DataGridView.DataSource = _figures;
@@ -24,23 +24,6 @@ namespace ModelView
 #if DEBUG
             GenerateRandomButton.Visible = true;
 #endif
-        }
-
-
-        /// <summary>
-        ///     Кнопка "Добавить объект"
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void AddObjectButton_Click(object sender, EventArgs e)
-        {
-            var addFigure = new AddingForm {Owner = this};
-            addFigure.ShowDialog();
-            if (addFigure.Figure != null)
-                _figures.Add(addFigure.Figure);
-
-            DataGridView.DataSource = null;
-            DataGridView.DataSource = _figures;
         }
 
         /// <summary>
@@ -52,7 +35,7 @@ namespace ModelView
         {
             foreach (DataGridViewRow row in DataGridView.SelectedRows)
             {
-                if (_figuresSearched.Any())
+                if (_figuresSearched != null && _figuresSearched.Any())
                     if (DataGridView.CurrentRow != null)
                     {
                         var currentFigure = (IFigure) DataGridView.CurrentRow.DataBoundItem;
@@ -79,7 +62,7 @@ namespace ModelView
         /// <param name="e"></param>
         private void saveFileDialog_FileOk(object sender, CancelEventArgs e)
         {
-            DataHandler.SerializeBinary(saveFileDialog.FileName, ref _figures);
+            Serializer.SerializeBinary(saveFileDialog.FileName, ref _figures);
         }
 
         /// <summary>
@@ -99,9 +82,16 @@ namespace ModelView
         /// <param name="e"></param>
         private void openFileDialog_FileOk(object sender, CancelEventArgs e)
         {
-            DataHandler.DeserializeBinary(openFileDialog.FileName, ref _figures);
-            DataGridView.DataSource = null;
-            DataGridView.DataSource = _figures;
+            try
+            {
+                Serializer.DeserializeBinary(openFileDialog.FileName, ref _figures);
+                DataGridView.DataSource = null;
+                DataGridView.DataSource = _figures;
+            }
+            catch (Exception)
+            {
+                MessageBox.Show(@"File is damaged.", @"Opening error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         /// <summary>
@@ -169,6 +159,60 @@ namespace ModelView
             DataGridView.DataSource = null;
             DataGridView.DataSource = _figures;
             ReturnListButton.Visible = false;
+        }
+
+        /// <summary>
+        ///     Обработчик выбора элемента в DataGrid
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void DataGridView_SelectionChanged(object sender, EventArgs e)
+        {
+            if (DataGridView.SelectedRows.Count == 1)
+            {
+                if (DataGridView.CurrentRow != null)
+                    AddOrModifyObjectButton.Text = "Modify Object";
+            }
+            else
+            {
+                AddOrModifyObjectButton.Text = "Add Object";
+            }
+        }
+
+        /// <summary>
+        ///     Кнопка добавления или изменения объекта
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void AddOrModifyObjectButton_Click(object sender, EventArgs e)
+        {
+            if (DataGridView.SelectedRows.Count == 1)
+            {
+                if (DataGridView.CurrentRow != null)
+                {
+                    var figure = _figures.ElementAt(DataGridView.CurrentRow.Index);
+                    var modFigure = new ModifyObject(figure);
+                    modFigure.ShowDialog();
+
+                    figure = modFigure.FigureSent;
+                    if (figure != null)
+                    {
+                        _figures.RemoveAt(DataGridView.CurrentRow.Index);
+                        _figures.Insert(DataGridView.CurrentRow.Index, figure);
+                    }
+                }
+            }
+            else
+            {
+                var addFigure = new ModifyObject();
+                addFigure.ShowDialog();
+                if (addFigure.FigureSent != null)
+                    _figures.Add(addFigure.FigureSent);
+            }
+
+
+            DataGridView.DataSource = null;
+            DataGridView.DataSource = _figures;
         }
     }
 }

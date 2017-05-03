@@ -19,9 +19,19 @@ namespace ModelArea
         {
             CheckCorrectInput.CheckDouble(sideA);
             CheckCorrectInput.CheckDouble(sideB);
-            _sideA = sideA;
-            _sideB = sideB;
+            Width = sideA;
+            Height = sideB;
         }
+
+        /// <summary>
+        ///     Ширина прямоугольника
+        /// </summary>
+        public double Width { get; }
+
+        /// <summary>
+        ///     Высота прямоугольника
+        /// </summary>
+        public double Height { get; }
 
         /// <summary>
         ///     Тип фигуры
@@ -33,18 +43,15 @@ namespace ModelArea
         ///     Свойство периметр прямоугольника
         /// </summary>
         [DataMember]
-        public double Length => (_sideA + _sideB) * 2;
+        public double Length => (Width + Height) * 2;
 
         /// <summary>
         ///     Свойство площадь прямоугольника
         /// </summary>
         [DataMember]
-        public double Area => _sideA * _sideB;
+        public double Area => Width * Height;
 
         #region Private members
-
-        private readonly double _sideA;
-        private readonly double _sideB;
 
         #endregion
     }

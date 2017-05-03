@@ -1,6 +1,6 @@
 ﻿namespace ModelView
 {
-    partial class StartingForm
+    partial class MainForm
     {
         /// <summary>
         /// Обязательная переменная конструктора.
@@ -28,7 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.AddObjectButton = new System.Windows.Forms.Button();
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
+            this.AddOrModifyObjectButton = new System.Windows.Forms.Button();
             this.RemoveObjectButton = new System.Windows.Forms.Button();
             this.GroupBox = new System.Windows.Forms.GroupBox();
             this.DataGridView = new System.Windows.Forms.DataGridView();
@@ -41,20 +43,21 @@
             this.GenerateRandomButton = new System.Windows.Forms.Button();
             this.SearchingObjectsButton = new System.Windows.Forms.Button();
             this.ReturnListButton = new System.Windows.Forms.Button();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.GroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridView)).BeginInit();
             this.toolStrip.SuspendLayout();
             this.SuspendLayout();
             // 
-            // AddObjectButton
+            // AddOrModifyObjectButton
             // 
-            this.AddObjectButton.Location = new System.Drawing.Point(12, 213);
-            this.AddObjectButton.Name = "AddObjectButton";
-            this.AddObjectButton.Size = new System.Drawing.Size(86, 33);
-            this.AddObjectButton.TabIndex = 0;
-            this.AddObjectButton.Text = "Add Object";
-            this.AddObjectButton.UseVisualStyleBackColor = true;
-            this.AddObjectButton.Click += new System.EventHandler(this.AddObjectButton_Click);
+            this.AddOrModifyObjectButton.Location = new System.Drawing.Point(12, 213);
+            this.AddOrModifyObjectButton.Name = "AddOrModifyObjectButton";
+            this.AddOrModifyObjectButton.Size = new System.Drawing.Size(86, 33);
+            this.AddOrModifyObjectButton.TabIndex = 0;
+            this.AddOrModifyObjectButton.Text = "Add Object";
+            this.AddOrModifyObjectButton.UseVisualStyleBackColor = true;
+            this.AddOrModifyObjectButton.Click += new System.EventHandler(this.AddOrModifyObjectButton_Click);
             // 
             // RemoveObjectButton
             // 
@@ -83,6 +86,7 @@
             this.DataGridView.Name = "DataGridView";
             this.DataGridView.Size = new System.Drawing.Size(346, 143);
             this.DataGridView.TabIndex = 0;
+            this.DataGridView.SelectionChanged += new System.EventHandler(this.DataGridView_SelectionChanged);
             // 
             // saveFileDialog
             // 
@@ -163,7 +167,12 @@
             this.ReturnListButton.Visible = false;
             this.ReturnListButton.Click += new System.EventHandler(this.ReturnListButton_Click);
             // 
-            // StartingForm
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+            // 
+            // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -174,10 +183,11 @@
             this.Controls.Add(this.toolStrip);
             this.Controls.Add(this.GroupBox);
             this.Controls.Add(this.RemoveObjectButton);
-            this.Controls.Add(this.AddObjectButton);
+            this.Controls.Add(this.AddOrModifyObjectButton);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Name = "StartingForm";
-            this.Text = "Model View";
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Name = "MainForm";
+            this.Text = "Figure Calc";
             this.GroupBox.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DataGridView)).EndInit();
             this.toolStrip.ResumeLayout(false);
@@ -189,7 +199,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Button AddObjectButton;
+        private System.Windows.Forms.Button AddOrModifyObjectButton;
         private System.Windows.Forms.Button RemoveObjectButton;
         private System.Windows.Forms.GroupBox GroupBox;
         private System.Windows.Forms.DataGridView DataGridView;
@@ -202,6 +212,7 @@
         private System.Windows.Forms.Button GenerateRandomButton;
         private System.Windows.Forms.Button SearchingObjectsButton;
         private System.Windows.Forms.Button ReturnListButton;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
     }
 }
 
