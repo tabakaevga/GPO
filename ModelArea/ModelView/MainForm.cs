@@ -197,8 +197,16 @@ namespace ModelView
                     figure = modFigure.FigureSent;
                     if (figure != null)
                     {
-                        _figures.RemoveAt(DataGridView.CurrentRow.Index);
-                        _figures.Insert(DataGridView.CurrentRow.Index, figure);
+                        if (_figures.Count == 1)
+                        {
+                            _figures.RemoveAt(DataGridView.CurrentRow.Index);
+                            _figures.Add(figure);
+                        }
+                        else
+                        {
+                            _figures.RemoveAt(DataGridView.CurrentRow.Index);
+                            _figures.Insert(DataGridView.CurrentRow.Index, figure);
+                        }
                     }
                 }
             }

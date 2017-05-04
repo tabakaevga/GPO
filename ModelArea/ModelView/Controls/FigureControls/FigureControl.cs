@@ -53,17 +53,14 @@ namespace ModelView.Controls.FigureControls
                     switch (value.FigureType)
                     {
                         case FigureType.Circle:
-                            _figureType = FigureType.Circle;
                             FiguresComboBox.SelectedIndex = 0;
                             CircleControl.ObjectCircle = (Circle) _objectFigure;
                             break;
                         case FigureType.Triangle:
-                            _figureType = FigureType.Triangle;
                             FiguresComboBox.SelectedIndex = 1;
                             TriangleControl.ObjectTriangle = (Triangle) _objectFigure;
                             break;
                         case FigureType.Rectangle:
-                            _figureType = FigureType.Rectangle;
                             FiguresComboBox.SelectedIndex = 2;
                             RectangleControl.ObjectRectangle = (Rectangle) _objectFigure;
                             break;

@@ -10,13 +10,22 @@ namespace ModelView.Controls.FigureControls
     {
         private bool _readOnly;
 
+        /// <summary>
+        /// Конструктор класса
+        /// </summary>
         public TriangleControl()
         {
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Свойство, возвращающее истину, если был активирован ToolTip
+        /// </summary>
         public bool ToolTipShown { get; private set; }
 
+        /// <summary>
+        /// Свойство объекта типа Треугольник
+        /// </summary>
         public Triangle ObjectTriangle
         {
             set
@@ -35,13 +44,18 @@ namespace ModelView.Controls.FigureControls
             }
             get
             {
-                if (SideATextBox.Text == "" && SideBTextBox.Text == "" && SideCTextBox.Text == "")
+                if (!(SideATextBox.Text == "" || SideBTextBox.Text == "" || SideCTextBox.Text == ""))
+                {
                     return new Triangle(Convert.ToDouble(SideATextBox.Text),
                         Convert.ToDouble(SideBTextBox.Text), Convert.ToDouble(SideCTextBox.Text));
+                }
                 return null;
             }
         }
 
+        /// <summary>
+        /// Свойство "только для чтения"
+        /// </summary>
         public bool ReadOnly
         {
             set
@@ -54,6 +68,11 @@ namespace ModelView.Controls.FigureControls
             get { return _readOnly; }
         }
 
+        /// <summary>
+        /// Обработчик нажатия клавиши на всех TextBox
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void AllTriangleTextBox_KeyPressed(object sender, KeyPressEventArgs e)
         {
             var regex = new Regex(@"[0-9,\b]");
@@ -61,6 +80,11 @@ namespace ModelView.Controls.FigureControls
                 e.Handled = true;
         }
 
+        /// <summary>
+        /// Обработчик изменения текста на всех TextBox
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void AllTriangleTextBox_TextChanged(object sender, EventArgs e)
         {
             double sideA;

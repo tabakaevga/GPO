@@ -10,11 +10,17 @@ namespace ModelView.Controls.FigureControls
     {
         private bool _readOnly;
 
+        /// <summary>
+        /// Конструктор класса
+        /// </summary>
         public RectangleControl()
         {
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Свойство объекта типа Прямоугольник
+        /// </summary>
         public Rectangle ObjectRectangle
         {
             set
@@ -37,6 +43,9 @@ namespace ModelView.Controls.FigureControls
             }
         }
 
+        /// <summary>
+        /// Свойство "только для чтения"
+        /// </summary>
         public bool ReadOnly
         {
             set
@@ -48,6 +57,11 @@ namespace ModelView.Controls.FigureControls
             get { return _readOnly; }
         }
 
+        /// <summary>
+        /// Обработчик нажатия клавиши на все TextBox
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void AllRectangleTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
             var regex = new Regex(@"[0-9,\b]");
@@ -55,6 +69,11 @@ namespace ModelView.Controls.FigureControls
                 e.Handled = true;
         }
 
+        /// <summary>
+        /// Обработчик изменения текста на всех TextBox
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void AllRectangleTextBox_TextChanged(object sender, EventArgs e)
         {
             double width;

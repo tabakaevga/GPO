@@ -175,7 +175,7 @@ namespace ModelView
             }
             catch (FormatException)
             {
-                MessageBox.Show(@"Invalid input type (not real)/", @"Input Error",
+                MessageBox.Show(@"Invalid input type (not real).", @"Input Error",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             catch (NotFiniteNumberException)
