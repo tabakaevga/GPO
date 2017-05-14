@@ -26,6 +26,10 @@ namespace ModelView
 #endif
         }
 
+        /// <summary>
+        /// Конструктор запуска с файлом
+        /// </summary>
+        /// <param name="filepath"></param>
         public MainForm(string filepath)
         {
             InitializeComponent();

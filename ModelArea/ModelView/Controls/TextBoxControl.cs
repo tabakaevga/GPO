@@ -19,6 +19,9 @@ namespace ModelView.Controls
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Свойство для текстбоксов площади и длины
+        /// </summary>
         public IFigure AreaLengthBoxes
         {
             set
