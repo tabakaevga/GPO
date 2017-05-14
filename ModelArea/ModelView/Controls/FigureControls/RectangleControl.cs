@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Globalization;
-using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using ModelArea;
 
@@ -27,12 +26,9 @@ namespace ModelView.Controls.FigureControls
             {
                 if (value != null)
                 {
-                    WidthTextBox.Text = Convert.ToString(value.Width, CultureInfo.InvariantCulture);
-                    WidthTextBox.Text = WidthTextBox.Text.Replace('.', ',');
-                    HeightTextBox.Text = Convert.ToString(value.Height, CultureInfo.InvariantCulture);
-                    HeightTextBox.Text = HeightTextBox.Text.Replace('.', ',');
-                    AreaTextBox.Text = Convert.ToString(value.Area, CultureInfo.InvariantCulture);
-                    LengthTextBox.Text = Convert.ToString(value.Length, CultureInfo.InvariantCulture);
+                    WidthTextBox.Text = Convert.ToString(value.Width, CultureInfo.CurrentCulture);
+                    HeightTextBox.Text = Convert.ToString(value.Height, CultureInfo.CurrentCulture);
+                    TextBoxControl.AreaLengthBoxes = value;
                 }
             }
             get
@@ -58,18 +54,6 @@ namespace ModelView.Controls.FigureControls
         }
 
         /// <summary>
-        /// Обработчик нажатия клавиши на все TextBox
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void AllRectangleTextBox_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            var regex = new Regex(@"[0-9,\b]");
-            if (!regex.IsMatch(e.KeyChar.ToString()))
-                e.Handled = true;
-        }
-
-        /// <summary>
         /// Обработчик изменения текста на всех TextBox
         /// </summary>
         /// <param name="sender"></param>
@@ -78,19 +62,14 @@ namespace ModelView.Controls.FigureControls
         {
             double width;
             double height;
-            if (WidthTextBox.Text != "" && double.TryParse(WidthTextBox.Text, out width)
-                && WidthTextBox.Text != "0," && WidthTextBox.Text != "0" && HeightTextBox.Text != "" &&
-                double.TryParse(HeightTextBox.Text, out height) && HeightTextBox.Text != "0," &&
-                HeightTextBox.Text != "0")
+            if (double.TryParse(WidthTextBox.Text, out width) && 
+                double.TryParse(HeightTextBox.Text, out height) && height > 0 && width > 0)
             {
-                var figure = new Rectangle(width, height);
-                AreaTextBox.Text = figure.Area.ToString(CultureInfo.InvariantCulture);
-                LengthTextBox.Text = figure.Length.ToString(CultureInfo.InvariantCulture);
+                TextBoxControl.AreaLengthBoxes = new Rectangle(width, height);
             }
             else
             {
-                AreaTextBox.Text = "";
-                LengthTextBox.Text = "";
+                TextBoxControl.AreaLengthBoxes = null;
             }
         }
     }

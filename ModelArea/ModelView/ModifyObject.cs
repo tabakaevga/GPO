@@ -61,6 +61,10 @@ namespace ModelView
             {
                 MessageBox.Show("Value must be above 0", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            catch (FormatException)
+            {
+                MessageBox.Show("Values must be real numbers", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         /// <summary>

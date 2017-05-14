@@ -54,7 +54,7 @@ namespace ModelView.Controls.FigureControls
                     {
                         case FigureType.Circle:
                             FiguresComboBox.SelectedIndex = 0;
-                            CircleControl.ObjectCircle = (Circle) _objectFigure;
+                            CircleControl.ObjectCircle = (Circle)_objectFigure;
                             break;
                         case FigureType.Triangle:
                             FiguresComboBox.SelectedIndex = 1;

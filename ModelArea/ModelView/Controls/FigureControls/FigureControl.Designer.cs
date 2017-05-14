@@ -52,9 +52,9 @@
             // 
             // FigureParams
             // 
+            this.FigureParams.Controls.Add(this.CircleControl);
             this.FigureParams.Controls.Add(this.TriangleControl);
             this.FigureParams.Controls.Add(this.RectangleControl);
-            this.FigureParams.Controls.Add(this.CircleControl);
             this.FigureParams.Location = new System.Drawing.Point(14, 40);
             this.FigureParams.Name = "FigureParams";
             this.FigureParams.Size = new System.Drawing.Size(256, 217);
@@ -64,8 +64,9 @@
             // 
             // TriangleControl
             // 
-            this.TriangleControl.Location = new System.Drawing.Point(6, 19);
+            this.TriangleControl.Location = new System.Drawing.Point(6, 18);
             this.TriangleControl.Name = "TriangleControl";
+            this.TriangleControl.ObjectTriangle = null;
             this.TriangleControl.ReadOnly = false;
             this.TriangleControl.Size = new System.Drawing.Size(229, 193);
             this.TriangleControl.TabIndex = 2;
@@ -75,6 +76,7 @@
             // 
             this.RectangleControl.Location = new System.Drawing.Point(6, 19);
             this.RectangleControl.Name = "RectangleControl";
+            this.RectangleControl.ObjectRectangle = null;
             this.RectangleControl.ReadOnly = false;
             this.RectangleControl.Size = new System.Drawing.Size(164, 180);
             this.RectangleControl.TabIndex = 1;
@@ -84,9 +86,10 @@
             // 
             this.CircleControl.Location = new System.Drawing.Point(6, 19);
             this.CircleControl.Name = "CircleControl";
+            this.CircleControl.ObjectCircle = null;
             this.CircleControl.ReadOnly = false;
             this.CircleControl.Size = new System.Drawing.Size(117, 162);
-            this.CircleControl.TabIndex = 0;
+            this.CircleControl.TabIndex = 3;
             this.CircleControl.Visible = false;
             // 
             // FigureControl
@@ -96,7 +99,7 @@
             this.Controls.Add(this.FigureParams);
             this.Controls.Add(this.FiguresComboBox);
             this.Name = "FigureControl";
-            this.Size = new System.Drawing.Size(283, 267);
+            this.Size = new System.Drawing.Size(281, 265);
             this.FigureParams.ResumeLayout(false);
             this.ResumeLayout(false);
 

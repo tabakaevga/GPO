@@ -32,14 +32,10 @@ namespace ModelView.Controls.FigureControls
             {
                 if (value != null)
                 {
-                    SideATextBox.Text = Convert.ToString(value.SideA, CultureInfo.InvariantCulture);
-                    SideATextBox.Text = SideATextBox.Text.Replace('.', ',');
-                    SideBTextBox.Text = Convert.ToString(value.SideB, CultureInfo.InvariantCulture);
-                    SideBTextBox.Text = SideBTextBox.Text.Replace('.', ',');
-                    SideCTextBox.Text = Convert.ToString(value.SideB, CultureInfo.InvariantCulture);
-                    SideCTextBox.Text = SideCTextBox.Text.Replace('.', ',');
-                    AreaTextBox.Text = Convert.ToString(value.Area, CultureInfo.InvariantCulture);
-                    LengthTextBox.Text = Convert.ToString(value.Length, CultureInfo.InvariantCulture);
+                    SideATextBox.Text = Convert.ToString(value.SideA, CultureInfo.CurrentCulture);
+                    SideBTextBox.Text = Convert.ToString(value.SideB, CultureInfo.CurrentCulture);
+                    SideCTextBox.Text = Convert.ToString(value.SideB, CultureInfo.CurrentCulture);
+                    TextBoxControl.AreaLengthBoxes = value;
                 }
             }
             get
@@ -68,17 +64,6 @@ namespace ModelView.Controls.FigureControls
             get { return _readOnly; }
         }
 
-        /// <summary>
-        /// Обработчик нажатия клавиши на всех TextBox
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void AllTriangleTextBox_KeyPressed(object sender, KeyPressEventArgs e)
-        {
-            var regex = new Regex(@"[0-9,\b]");
-            if (!regex.IsMatch(e.KeyChar.ToString()))
-                e.Handled = true;
-        }
 
         /// <summary>
         /// Обработчик изменения текста на всех TextBox
@@ -90,30 +75,25 @@ namespace ModelView.Controls.FigureControls
             double sideA;
             double sideB;
             double sideC;
-            if (SideATextBox.Text != "" && double.TryParse(SideATextBox.Text, out sideA)
-                && SideATextBox.Text != "0," && SideATextBox.Text != "0" && SideBTextBox.Text != "" &&
-                double.TryParse(SideBTextBox.Text, out sideB) && SideBTextBox.Text != "0," && SideBTextBox.Text != "0" &&
-                SideCTextBox.Text != "" && double.TryParse(SideCTextBox.Text, out sideC) && SideCTextBox.Text != "0," &&
-                SideCTextBox.Text != "0")
+            if (double.TryParse(SideATextBox.Text, out sideA)
+                && double.TryParse(SideBTextBox.Text, out sideB) && double.TryParse(SideCTextBox.Text, out sideC)
+                && sideA > 0 && sideB > 0 && sideC > 0)
             {
                 try
                 {
-                    var figure = new Triangle(sideA, sideB, sideC);
-                    AreaTextBox.Text = figure.Area.ToString(CultureInfo.InvariantCulture);
-                    LengthTextBox.Text = figure.Length.ToString(CultureInfo.InvariantCulture);
+                    TextBoxControl.AreaLengthBoxes = new Triangle(sideA, sideB, sideC);
                     ToolTipTriangle.RemoveAll();
                     ToolTipShown = false;
                 }
                 catch (ArgumentException)
                 {
                     ToolTipShown = true;
-                    ToolTipTriangle.Show("Triangle is not Valid", AreaTextBox);
+                    ToolTipTriangle.Show("Triangle is not Valid", TextBoxControl);
                 }
             }
             else
             {
-                AreaTextBox.Text = "";
-                LengthTextBox.Text = "";
+                TextBoxControl.AreaLengthBoxes = null;
             }
         }
     }

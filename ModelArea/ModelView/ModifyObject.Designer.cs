@@ -32,7 +32,7 @@ namespace ModelView
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ModifyObject));
             this.OKButton = new System.Windows.Forms.Button();
-            this.CancelButton = new System.Windows.Forms.Button();
+            this.CancelModifyButton = new System.Windows.Forms.Button();
             this.FigureControl = new ModelView.Controls.FigureControls.FigureControl();
             this.SuspendLayout();
             // 
@@ -46,15 +46,15 @@ namespace ModelView
             this.OKButton.UseVisualStyleBackColor = true;
             this.OKButton.Click += new System.EventHandler(this.OKButton_Click);
             // 
-            // CancelButton
+            // CancelModifyButton
             // 
-            this.CancelButton.Location = new System.Drawing.Point(135, 282);
-            this.CancelButton.Name = "CancelButton";
-            this.CancelButton.Size = new System.Drawing.Size(96, 25);
-            this.CancelButton.TabIndex = 2;
-            this.CancelButton.Text = "Cancel";
-            this.CancelButton.UseVisualStyleBackColor = true;
-            this.CancelButton.Click += new System.EventHandler(this.CancelButton_Click);
+            this.CancelModifyButton.Location = new System.Drawing.Point(135, 282);
+            this.CancelModifyButton.Name = "CancelModifyButton";
+            this.CancelModifyButton.Size = new System.Drawing.Size(96, 25);
+            this.CancelModifyButton.TabIndex = 2;
+            this.CancelModifyButton.Text = "Cancel";
+            this.CancelModifyButton.UseVisualStyleBackColor = true;
+            this.CancelModifyButton.Click += new System.EventHandler(this.CancelButton_Click);
             // 
             // FigureControl
             // 
@@ -69,9 +69,9 @@ namespace ModelView
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(348, 332);
-            this.Controls.Add(this.CancelButton);
-            this.Controls.Add(this.OKButton);
             this.Controls.Add(this.FigureControl);
+            this.Controls.Add(this.CancelModifyButton);
+            this.Controls.Add(this.OKButton);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ModifyObject";
             this.Text = "Modify Object";
@@ -83,7 +83,7 @@ namespace ModelView
         #endregion
 
         private Controls.FigureControls.FigureControl FigureControl;
-        private System.Windows.Forms.Button CancelButton;
+        private System.Windows.Forms.Button CancelModifyButton;
         private System.Windows.Forms.Button OKButton;
     }
 }

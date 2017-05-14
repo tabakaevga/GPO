@@ -93,6 +93,12 @@
     <Compile Include="Controls\FigureControls\TriangleControl.Designer.cs">
       <DependentUpon>TriangleControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\TextBoxControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\TextBoxControl.Designer.cs">
+      <DependentUpon>TextBoxControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="ModifyObject.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -126,6 +132,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\FigureControls\TriangleControl.resx">
       <DependentUpon>TriangleControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\TextBoxControl.resx">
+      <DependentUpon>TextBoxControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ModifyObject.resx">
       <DependentUpon>ModifyObject.cs</DependentUpon>
