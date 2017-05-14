@@ -26,6 +26,25 @@ namespace ModelView
 #endif
         }
 
+        public MainForm(string filepath)
+        {
+            InitializeComponent();
+            try
+            {
+                Serializer.DeserializeBinary(filepath, ref _figures);
+                DataGridView.DataSource = null;
+                DataGridView.DataSource = _figures;
+            }
+            catch (Exception)
+            {
+                MessageBox.Show(@"File is damaged.", @"Opening error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            _figuresSearched = null;
+#if DEBUG
+            GenerateRandomButton.Visible = true;
+#endif
+        }
+
         /// <summary>
         ///     Кнопка "Удалить объект"
         /// </summary>
